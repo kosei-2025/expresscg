@@ -1,5 +1,12 @@
 [
-  { "id":"001", "name":"Ultra-24-A", "status":"active",  "startTime":1715034000000, "duration":24 },
-  { "id":"002", "name":"Lean-48-B",  "status":"active",  "startTime":1715041200000, "duration":48 },
-  { "id":"003", "name":"C案",       "status":"waiting", "startTime":null,         "duration":24 }
+  [
+    { "id":"001", "name":"Ultra-24-A", "status":"active",  "startTime":1715034000000, "duration":24 },
+    { "id":"002", "name":"Lean-48-B",  "status":"active",  "startTime":1715041200000, "duration":48 },
+    { "id":"003", "name":"C案",       "status":"waiting", "startTime":null,         "duration":24 }
+  ],
+  [
+    { "id":"001", "name":"Ultra-24-A", "status":"active",  "startTime":1715034000000, "duration":24 },
+    { "id":"002", "name":"Lean-48-B",  "status":"hold",    "startTime":null,         "duration":48 },
+    { "id":"003", "name":"C案",        "status":"waiting", "startTime":null,         "duration":24 }
+  ]
 ]
