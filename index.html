@@ -26,7 +26,7 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);line-height:1.7;scroll-behavior:smooth;}
     h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
-    h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem;}
+    h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem;}
     h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.5rem;font-weight:600;text-align:center;position:relative;padding-bottom:15px;}
     h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:4px;background:var(--gradient);border-radius:2px;}
     h3{font-size:clamp(1.2rem,3vw,1.6rem);margin-bottom:1rem;}
@@ -420,6 +420,100 @@
   background: var(--accent);
   color: #fff;
 }
+  .hero-bg.bright{filter:brightness(1);}
+</style>
+<style>
+    .form-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+  </style>
+  <style>
+  /* ---------- ExpressCG 同意チェック用スタイル ここから ---------- */
+.agreement-row{
+  display:grid;                       /* ２列グリッドで左揃え */
+  grid-template-columns:16px 1fr;     /* 16px = チェックボックス幅 */
+  column-gap:8px;
+  margin-bottom:10px;
+}
+.agreement-row input[type="checkbox"]{align-self:center;}
+.agreement-row span{display:inline-block;white-space:nowrap;}
+.agreement-row a{color:#0056b3;text-decoration:underline;}
+.form-wrapper .form-group{text-align:left;}   /* 行全体を左寄せ */
+/* ---------- ExpressCG 同意チェック用スタイル ここまで ---------- */
+/* ---------- Progress Widget ここから ---------- */
+.queue-lamps{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:25px;
+}
+.lamp{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--mid-gray); 
+  box-shadow:0 0 6px rgba(0,0,0,0.15) inset;
+  transition:.3s;
+  margin: 0 12px;
+}
+.lamp.on{
+  background:var(--accent);                /* 点灯＝アクセント色 */
+  box-shadow:0 0 8px var(--accent);        /* 発光エフェクト */
+}
+.active-timers{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+  margin:20px 0;
+}
+.timer-box{
+  width:160px;height:160px;border-radius:50%;
+  background:rgba(255,255,255,0.20);
+  backdrop-filter:blur(8px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+.timer-title{font-size:0.9rem;margin-bottom:8px;font-weight:600;}
+.timer-value{font-size:1.8rem;line-height:1;}
+/* ---------- Progress Widget ここまで ---------- */
+.timer-box.hold {
+  background-color: #ffcc00;
+  color: #333;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+.banner.red-bg {
+  background: linear-gradient(to bottom right, #e60033, #ff7a85);
+  padding: 80px 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.banner.red-bg::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+.banner.red-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
 </style>
 </head>
 <body>
@@ -462,7 +556,7 @@
       <div class="trust-badges">
         <div class="trust-badge">
           <div class="trust-badge-icon"><i class="fas fa-check-circle"></i></div>
-          <div class="trust-badge-value">560+</div>
+          <div class="trust-badge-value">160+</div>
           <div>納品実績</div>
         </div>
         <div class="trust-badge">
@@ -475,22 +569,19 @@
           <div class="trust-badge-value">100%</div>
           <div>納期遵守率</div>
         </div>
-        <div class="trust-badge">
-          <div class="trust-badge-icon"><i class="fas fa-sync-alt"></i></div>
-          <div class="trust-badge-value">30日</div>
-          <div>返金保証</div>
-        </div>
+        
       </div>
     </div>
   </section>
   
   <!-- ビデオポップアップ -->
-  <div class="video-overlay" id="video-overlay">
-    <div class="video-container">
-      <div class="video-close" id="video-close"><i class="fas fa-times"></i></div>
-      <iframe width="100%" height="100%" src="about:blank" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+ <div class="video-overlay" id="video-overlay">
+  <div class="video-container">
+    <div class="video-close" id="video-close"><i class="fas fa-times"></i></div>
+    <!-- iframeは消す -->
   </div>
+</div>
+
 
   <!-- 3-step process -->
   <section id="process" class="process">
@@ -575,28 +666,50 @@
   </section>
 
   <!-- Limited spots banner -->
-  <section class="banner" data-aos="fade-up">
-    <div class="banner-content">
-      <h2>Ultra-24 本日の残枠</h2>
-      <div class="spot-counter" id="spot">2</div>
-      <p>枠が埋まり次第、48h プランのみの受付になります。<br>さらに今日のご注文は<strong>素材ライブラリ</strong>が無料でご利用いただけます！</p>
-      <div class="countdown">
-        <div class="countdown-item">
-          <div class="countdown-value" id="hours">05</div>
-          <div class="countdown-label">時間</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-value" id="minutes">32</div>
-          <div class="countdown-label">分</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-value" id="seconds">41</div>
-          <div class="countdown-label">秒</div>
-        </div>
-      </div>
-      <a href="#order" class="btn btn-large">今すぐ残り枠を確保する <i class="fas fa-arrow-right"></i></a>
+<!-- 🔴 背景が一体化されたセクション -->
+<!-- ▼ 修正: id="progress" を追加、class="banner red-bg" は維持 -->
+<section id="progress" class="banner red-bg" data-aos="fade-up">
+  <div class="banner-content">
+
+    <!-- 上段：待機ランプなど -->
+    <div class="queue-lamps">
+      <span class="lamp" id="lamp1"></span>
+      <span class="lamp" id="lamp2"></span>
+      <span class="lamp" id="lamp3"></span>
     </div>
-  </section>
+
+    <div id="active-timers" class="active-timers">
+      <!-- JSで挿入される -->
+    </div>
+
+    <p id="waiting-count">待機中：0件</p>
+    <p id="weekly-limit">今週の受付残：5件</p>
+
+    <!-- 下段：Ultra-24本日の残枠 -->
+    <h2>Ultra-24 本日の残枠</h2>
+    <div class="spot-counter" id="spot">2</div>
+    <p>枠が埋まり次第、48h プランのみの受付になります。<br>
+      さらに今日のご注文は<strong>素材ライブラリ</strong>が無料でご利用いただけます！
+    </p>
+    <div class="countdown">
+      <div class="countdown-item">
+        <div class="countdown-value" id="hours">05</div>
+        <div class="countdown-label">時間</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="minutes">32</div>
+        <div class="countdown-label">分</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="seconds">41</div>
+        <div class="countdown-label">秒</div>
+      </div>
+    </div>
+
+    <a href="#order" class="btn btn-large">今すぐ残り枠を確保する <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+<!-- ▲ 修正ここまで -->
 
   <!-- Pricing -->
   <section id="pricing" class="pricing" data-aos="fade-up">
@@ -628,10 +741,6 @@
               <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
               <div class="pricing-feature-text">納期遅延時20%返金保証</div>
             </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">満足できなければ全額返金</div>
-            </div>
           </div>
           <div class="pricing-cta">
             <a href="#order" class="btn">このプランを選択</a>
@@ -661,10 +770,6 @@
             <div class="pricing-feature">
               <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
               <div class="pricing-feature-text">納期遅延時30%返金保証</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">満足できなければ全額返金</div>
             </div>
             <div class="pricing-feature">
               <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
@@ -747,7 +852,7 @@
   <!-- 拡大モーダル -->
   <div class="gallery-modal" id="gallery-modal">
     <div class="gallery-modal-content">
-      <span class="gallery-modal-close" id="gallery-modal-close">&times;</span>
+      <span class="gallery-modal-close" id="gallery-modal-close">×</span>
       <img src="" alt="拡大画像" class="gallery-modal-image">
     </div>
   </div>
@@ -865,8 +970,8 @@
     <h2>数字で見る Express CG</h2>
     <div class="stats-grid">
       <div class="stat" data-aos="fade-up" data-aos-delay="50">
-        <div class="stat-value">560+</div>
-        <div class="stat-label">制作実績</div>
+        <div class="stat-value">160+</div>
+        <div class="stat-label">納品実績</div>
       </div>
       <div class="stat" data-aos="fade-up" data-aos-delay="150">
         <div class="stat-value">98%</div>
@@ -1024,7 +1129,35 @@
             <strong>安心の保証:</strong> 品質に満足できない場合は全額返金いたします。納期が遅れた場合は、Ultra-24は30%、Lean-48は20%の返金保証があります。あなたのリスクはゼロです。
           </div>
         </div>
-        
+<!-- ▼ 3つの同意チェックボックスを追加 BEGIN -->
+<!-- ▼チェックボックス３行 BEGIN -->
+<div class="agreement-row">
+  <input type="checkbox" name="chk-tokushoho" required>
+  <span>
+    <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">
+      特定商取引法に基づく表記
+    </a> を確認し、同意しました。
+  </span>
+</div>
+
+<div class="agreement-row">
+  <input type="checkbox" name="chk-terms" required>
+  <span>
+    <a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">
+      利用規約
+    </a> を確認し、同意しました。
+  </span>
+</div>
+
+<div class="agreement-row">
+  <input type="checkbox" name="chk-privacy" required>
+  <span>
+    <a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">
+      プライバシーポリシー
+    </a> を確認し、同意しました。
+  </span>
+</div>
+<!-- ▲チェックボックス３行 END -->
         <button type="submit" class="submit-btn">今すぐ依頼する <i class="fas fa-arrow-right"></i></button>
       </form>
     </div>
@@ -1037,12 +1170,11 @@
         <a href="#" class="footer-logo">Express<span>CG</span></a>
         <p>図面だけでOK、最短24時間でハイクオリティCGを提供する特急パースサービス。設計事務所、デベロッパー、インテリアデザイナーの強い味方です。</p>
         <div class="footer-contact">
-          <p>お問い合わせ: <a href="mailto:info@expresscg.jp">info@expresscg.jp</a></p>
-        </div>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <p>お問い合わせ: 
+   <a href="mailto:**expresscg@archi-prisma.co.jp**">
+     **expresscg@archi-prisma.co.jp**
+   </a>
+</p>
         </div>
       </div>
       <div class="footer-links">
@@ -1059,10 +1191,10 @@
         <h4>サポート</h4>
         <ul class="footer-nav">
           <li><a href="#faq">よくある質問</a></li>
-          <li><a href="#">ご利用ガイド</a></li>
-          <li><a href="#">プライバシーポリシー</a></li>
-          <li><a href="#">利用規約</a></li>
-        </ul>
+          <li><a href="https://www.archi-prisma.co.jp/terms"   target="_blank" rel="noopener">利用規約</a></li>
+          <li><a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">プライバシーポリシー</a></li>
+          <li><a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a></li>
+</ul>
       </div>
     </div>
     <div class="copyright">© 2025 Archi‑Prisma Design works Inc.</div>
@@ -1138,22 +1270,24 @@
     });
     
     // ビデオポップアップ
-    const videoTrigger = document.getElementById('video-trigger');
-    const videoOverlay = document.getElementById('video-overlay');
-    const videoClose = document.getElementById('video-close');
-    const videoFrame = document.querySelector('.video-container iframe');
-    
-    videoTrigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      videoOverlay.classList.add('active');
-      // 本番環境ではここで実際の動画URLを設定
-      videoFrame.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
-    });
-    
-    videoClose.addEventListener('click', () => {
-      videoOverlay.classList.remove('active');
-      videoFrame.src = "about:blank";
-    });
+const videoTrigger   = document.getElementById('video-trigger');
+const videoOverlay   = document.getElementById('video-overlay');
+const videoClose     = document.getElementById('video-close');
+const backgroundVideo= document.querySelector('.hero-bg');  // 背景ビデオ
+
+videoTrigger.addEventListener('click', (e) => {
+  e.preventDefault();
+  videoOverlay.classList.add('active');
+  backgroundVideo.classList.add('bright'); // 明るく
+  backgroundVideo.muted = false;           // 音声 ON
+  backgroundVideo.play();                  // 再生
+});
+
+videoClose.addEventListener('click', () => {
+  videoOverlay.classList.remove('active');
+  backgroundVideo.classList.remove('bright'); // 明るさ戻す
+  backgroundVideo.muted = true;               // 音声 OFF
+});
     
     // ギャラリータブ
     document.querySelectorAll('.gallery-tab').forEach(tab => {
@@ -1363,7 +1497,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-</body><!-- ここにモーダル用のJSを追加 -->
 <script>
   // モーダルを開くとき
   function openModal() {
@@ -1427,6 +1560,144 @@ function closeModal() {
   document.getElementById('gallery-modal').classList.remove('active');
   document.body.style.overflow = ''; // スクロール復活
 }
+</script>
+<!-- ★ ここから貼り付け（</body> の直前）-------------------- -->
+<script src="https://cdn.emailjs.com/sdk/3.11/email.min.js"></script>
+<script>
+(function(){
+  /* ① 自分の公開キーに置き換える */
+  emailjs.init("NiIep3pXn1yxjrZuC");
+
+  const form = document.querySelector("#order form");
+
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+
+    const name  = form.name.value.trim();
+    const email = form.email.value.trim();
+
+    /* ② SERVICE_ID とテンプレ ID を自分の値に置換 */
+    await emailjs.send("service_abc123x","template_owner",{
+      user_name : name,
+      user_email: email,
+      plan      : form.plan.value,
+      memo      : form.memo.value
+    });
+
+    await emailjs.send("service_abc123x","template_client",{
+      to_name  : name,
+      to_email : email
+    });
+
+    alert("送信が完了しました。まもなく確認メールが届きます。");
+    form.reset();
+  });
+})();
+</script>
+<!-- ★ ここまで貼り付け ------------------------------------- -->
+<script>
+/* ---------- Progress Widget JS ここから ---------- */
+
+/** ★ データ取得部分 ★
+ * ここでは簡易に JSON ファイルを fetch しています。
+ * Firebase などに置き換える場合は ↓ を変更するだけで OK */
+async function fetchProjectData(){
+  const res = await fetch('/data/projects.json');    // ←パスは運用環境に合わせて
+  return await res.json();
+}
+
+/** 残り時間を「○時間○分」形式で返す */
+function formatRemaining(start, durationH){
+  const end = new Date(start + durationH*3600*1000);
+  const diff = end - Date.now();
+  if(diff<=0) return '00:00';
+  const h = Math.floor(diff/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
+}
+
+/** 画面更新 */
+async function renderProgress(){
+  const list = await fetchProjectData();
+
+  const active  = list.filter(p=>p.status==='active').slice(0,2);
+  const waiting = list.filter(p=>p.status==='waiting');
+  const total   = list.length;
+
+  /* ▼ ランプ更新 */
+  [lamp1,lamp2,lamp3].forEach((el,i)=>{
+    if(waiting[i]) el.classList.add('on'); else el.classList.remove('on');
+  });
+
+  /* ▼ タイマー２個生成 */
+  const boxParent = document.getElementById('active-timers');
+  boxParent.innerHTML='';
+  active.forEach(p=>{
+    const remain = formatRemaining(p.startTime,p.duration);
+    const box = document.createElement('div');
+    box.className='timer-box';
+    box.innerHTML = `
+      <span class="timer-title">${p.name}</span>
+      <span class="timer-value">${remain}</span>
+    `;
+    boxParent.appendChild(box);
+  });
+
+  /* ▼ 数字テキスト更新 */
+  document.getElementById('waiting-count').textContent = `待機中：${waiting.length}件`;
+  document.getElementById('weekly-limit').textContent  = `今週の受付残：${Math.max(0,5-total)}件`;
+}
+async function renderProgress(){
+  const list = await fetchProjectData();
+
+  const activeProjects = list.filter(p => p.status==='active');
+  const holdProjects = list.filter(p => p.status==='hold');
+  const waitingProjects = list.filter(p => p.status==='waiting');
+
+  /* ランプ更新 */
+  [lamp1, lamp2, lamp3].forEach((el,i)=>{
+    if(waitingProjects[i]) el.classList.add('on'); else el.classList.remove('on');
+  });
+
+  /* 残り時間の短いプロジェクトのみ表示 */
+  const boxParent = document.getElementById('active-timers');
+  boxParent.innerHTML = '';
+
+  if(activeProjects.length > 0){
+    const shortest = activeProjects.reduce((prev, curr) => {
+      const prevEnd = prev.startTime + prev.duration*3600000;
+      const currEnd = curr.startTime + curr.duration*3600000;
+      return prevEnd < currEnd ? prev : curr;
+    });
+
+    const remain = formatRemaining(shortest.startTime, shortest.duration);
+    boxParent.innerHTML = `
+      <div class="timer-box">
+        <span class="timer-title">${shortest.name}</span>
+        <span class="timer-value">${remain}</span>
+      </div>`;
+  } else if(holdProjects.length > 0){
+    /* 一時保留（枠確保）の場合 */
+    boxParent.innerHTML = `
+      <div class="timer-box hold">
+        <span class="timer-title">${holdProjects[0].name}</span>
+        <span class="timer-value">枠確保中</span>
+      </div>`;
+  } else {
+    /* タイマー非表示（受注なし） */
+    boxParent.innerHTML = ''; // 非表示
+  }
+
+  /* 数字テキスト更新 */
+  document.getElementById('waiting-count').textContent = `待機中：${waitingProjects.length}件`;
+  document.getElementById('weekly-limit').textContent  = `今週の受付残：${Math.max(0,5-list.length)}件`;
+}
+
+/* 1分周期で更新（初回即実行） */
+renderProgress();
+setInterval(renderProgress,60*1000);
+
+/* ---------- Progress Widget JS ここまで ---------- */
 </script>
 </body>
 </html>
