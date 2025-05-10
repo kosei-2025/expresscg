@@ -859,14 +859,14 @@
 </section>
 
   
-  <!-- ギャラリーモーダル -->
-  <div class="gallery-modal" id="gallery-modal">
-    <div class="gallery-modal-close" id="gallery-modal-close"><i class="fas fa-times"></i></div>
-    <div class="gallery-modal-content">
-      <img src="" alt="" class="gallery-modal-image" id="gallery-modal-image">
-      <div class="gallery-modal-caption" id="gallery-modal-caption"></div>
-    </div>
-  </div>
+  <!-- ギャラリーモーダル (IDが重複していたので、片方をコメントアウトまたは適切なIDに変更) -->
+  <!-- <div class="gallery-modal" id="gallery-modal"> -->
+    <!-- <div class="gallery-modal-close" id="gallery-modal-close"><i class="fas fa-times"></i></div> -->
+    <!-- <div class="gallery-modal-content"> -->
+      <!-- <img src="" alt="" class="gallery-modal-image" id="gallery-modal-image"> -->
+      <!-- <div class="gallery-modal-caption" id="gallery-modal-caption"></div> -->
+    <!-- </div> -->
+  <!-- </div> -->
 
   <!-- お客様の声 -->
   <section id="testimonials" class="testimonials" data-aos="fade-up">
@@ -1050,24 +1050,22 @@
     <h2>依頼フォーム</h2>
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
-      <!-- MODIFIED: Form tag for FormSubmit -->
       <form id="orderForm" action="https://formsubmit.co/emwlgh39dell@gmail.com" method="POST" enctype="multipart/form-data">
         <!-- FormSubmit 用カスタムフィールド -->
-        <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
+        <input type="hidden" name="_subject" value="New order - ExpressCG"> <!-- MODIFIED: ASCII文字のみに (指示書に従い修正) -->
         <!-- <input type="hidden" name="_template" value="box"> FormSubmitのデフォルトテンプレートを使用する場合や、特に指定がなければ不要 -->
         <input type="hidden" name="_captcha" value="false"> <!-- reCAPTCHAを無効にする場合。有効にするならこの行を削除または value="true" にする -->
         <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
         <input type="hidden" name="_next" value="https://www.archi-prisma.co.jp/thankyou"> 
+        
         <div class="form-row">
           <div class="form-col">
-            <label for="name">お名前 <span class="required">*</span></label>
-            <!-- FormSubmitではname属性がメールのラベルになるので、日本語でもOK -->
-            <input type="text" id="name" name="お名前" required placeholder="山田 太郎">
+            <label for="name_customer">お名前 <span class="required">*</span></label> <!-- name属性はFormSubmitのメールラベルになるので日本語でも可 -->
+            <input type="text" id="name_customer" name="お名前" required placeholder="山田 太郎">
           </div>
           <div class="form-col">
-            <label for="email">メールアドレス <span class="required">*</span></label>
-            <!-- FormSubmitの自動返信のため、name="email" とすることが推奨される -->
-            <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+            <label for="email_customer">メールアドレス <span class="required">*</span></label> <!-- FormSubmitの自動返信のため、name="email" (または任意の名前) -->
+            <input type="email" id="email_customer" name="email" required placeholder="example@gmail.com">
           </div>
         </div>
         
@@ -1086,7 +1084,6 @@
           <label>プラン選択 <span class="required">*</span></label>
           <div class="radio-group">
             <div class="radio-option">
-              <!-- ラジオボタンのname属性は共通にする -->
               <input type="radio" id="plan-ultra" name="プラン" value="Ultra-24" required class="radio-input">
               <label for="plan-ultra" class="radio-label">
                 Ultra-24
@@ -1108,15 +1105,13 @@
         <div class="form-group">
           <label for="files">図面PDFのアップロード <span class="required">*</span></label>
           <div class="file-upload">
-            <!-- name属性を "図面PDF" または "attachment" などFormSubmitが認識しやすいものに -->
-            <!-- multiple を許可する場合は name="files[]" のようにする場合もあるが、FormSubmitの仕様を確認 -->
             <input type="file" id="files" name="図面PDF" multiple accept=".pdf,.jpg,.jpeg,.png" required>
             <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <div class="upload-text">
               <p class="primary">ここにファイルをドラッグ＆ドロップ</p>
               <p>または</p>
               <p>クリックしてファイルを選択</p>
-              <p><small>PDF, JPG, PNG（合計5MBまで）</small></p> <!-- MODIFIED: ファイルサイズ制限を明記 -->
+              <p><small>PDF, JPG, PNG（合計5MBまで）</small></p>
             </div>
           </div>
         </div>
@@ -1138,9 +1133,7 @@
           </div>
         </div>
 <!-- ▼ 3つの同意チェックボックスを追加 BEGIN -->
-<!-- ▼チェックボックス３行 BEGIN -->
 <div class="agreement-row">
-  <!-- FormSubmitに送信するため、name属性は FormSubmit 側で認識されるようにする (例: "同意_特商法") -->
   <input type="checkbox" name="同意_特商法" value="はい" required>
   <span>
     <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">
@@ -1180,8 +1173,8 @@
         <p>図面だけでOK、最短24時間でハイクオリティCGを提供する特急パースサービス。設計事務所、デベロッパー、インテリアデザイナーの強い味方です。</p>
         <div class="footer-contact">
           <p>お問い合わせ: 
-   <a href="mailto:**emwlgh39dell@gmail.com**">
-     **emwlgh39dell@gmail.com**
+   <a href="mailto:emwlgh39dell@gmail.com">
+     emwlgh39dell@gmail.com
    </a>
 </p>
         </div>
@@ -1268,7 +1261,7 @@
     document.querySelectorAll('.faq-question').forEach(question => {
       question.addEventListener('click', () => {
         const item = question.parentNode;
-        const isActive = item.classList.contains('active');
+        // const isActive = item.classList.contains('active'); // 不要なため削除
         
         document.querySelectorAll('.faq-item.active').forEach(activeItem => {
           if (activeItem !== item) {
@@ -1328,25 +1321,25 @@
     
     // ギャラリーモーダル表示
     const galleryModal = document.getElementById('gallery-modal');
-    const galleryModalImage = document.getElementById('gallery-modal-image'); // 修正: id="gallery-modal-image" のimg要素
-    const galleryModalCloseButton = document.getElementById('gallery-modal-close'); // 修正: id="gallery-modal-close" の閉じるボタン
+    const galleryModalImageEl = document.querySelector('#gallery-modal .gallery-modal-image'); // より特定的なセレクタ
+    const galleryModalCloseButton = document.querySelector('#gallery-modal .gallery-modal-close'); // より特定的なセレクタ
 
-    if (galleryModal && galleryModalImage && galleryModalCloseButton) {
+    if (galleryModal && galleryModalImageEl && galleryModalCloseButton) {
         galleryGridItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const imgSrc = item.querySelector('img').src;
-            // const imgAlt = item.querySelector('img').alt; // キャプション表示する場合
-            
-            galleryModalImage.src = imgSrc;
-            // document.getElementById('gallery-modal-caption').textContent = imgAlt; // キャプション表示する場合
-            galleryModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 背景スクロール禁止
-        });
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                // const imgAlt = item.querySelector('img').alt; // キャプション表示する場合
+                
+                galleryModalImageEl.src = imgSrc;
+                // document.getElementById('gallery-modal-caption').textContent = imgAlt; // キャプション表示する場合
+                galleryModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 背景スクロール禁止
+            });
         });
     
         galleryModalCloseButton.addEventListener('click', () => {
-        galleryModal.classList.remove('active');
-        document.body.style.overflow = ''; // 背景スクロール許可
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = ''; // 背景スクロール許可
         });
 
         // モーダル背景クリックで閉じる (任意)
@@ -1360,20 +1353,27 @@
 
     // テスティモニアルスライダー
     const testimonialTrack = document.getElementById('testimonials-track');
-    const testimonials = document.querySelectorAll('.testimonial'); // スライド要素のセレクタ
+    const testimonials = document.querySelectorAll('.testimonial');
     const prevButton = document.getElementById('testimonial-prev');
     const nextButton = document.getElementById('testimonial-next');
     
     if (testimonialTrack && testimonials.length > 0 && prevButton && nextButton) {
         let testimonialIndex = 0;
-        const testimonialWidth = testimonials[0].offsetWidth + parseInt(getComputedStyle(testimonials[0]).marginRight); // マージンも考慮
+        // スライド幅はCSSで制御されているため、ここではインデックスのみ管理
+        // const testimonialWidth = testimonials[0].offsetWidth + parseInt(getComputedStyle(testimonials[0]).marginRight || '0');
 
         function updateSliderPosition() {
+             // 最初の要素のマージンも考慮して、正確な幅を取得
+            const firstTestimonialStyle = window.getComputedStyle(testimonials[0]);
+            const testimonialWidth = testimonials[0].offsetWidth + parseFloat(firstTestimonialStyle.marginRight);
             testimonialTrack.style.transform = `translateX(-${testimonialIndex * testimonialWidth}px)`;
         }
 
         nextButton.addEventListener('click', () => {
-            if (testimonialIndex < testimonials.length - 1) {
+             // testimonials.length から実際に表示できるスライド数を考慮する必要がある
+             // (例: コンテナ幅 / スライド幅)
+             // 簡単のため、ここでは単純に最後の要素まで行かないようにする
+            if (testimonialIndex < testimonials.length - 1) { 
                 testimonialIndex++;
                 updateSliderPosition();
             }
@@ -1385,8 +1385,10 @@
                 updateSliderPosition();
             }
         });
-        // 初期位置設定（必要であれば）
-        // updateSliderPosition();
+        // ウィンドウリサイズ時に再計算 (オプション)
+        // window.addEventListener('resize', updateSliderPosition);
+        // 初期位置設定
+        updateSliderPosition();
     }
     
     // 比較スライダー
@@ -1394,36 +1396,38 @@
     const comparisonBefore = document.querySelector('.comparison-before');
     
     if (comparisonHandle && comparisonBefore) {
-      const slider = comparisonHandle.closest('.comparison-slider'); // 親要素を正しく取得
+      const slider = comparisonHandle.closest('.comparison-slider');
       let isResizing = false;
       
       const startResize = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // mousemoveでのテキスト選択などを防ぐ
         isResizing = true;
-        slider.classList.add('resizing'); // リサイズ中のスタイル用 (任意)
+        if(slider) slider.classList.add('resizing'); 
       };
 
       const doResize = (clientX) => {
-        if (!isResizing) return;
+        if (!isResizing || !slider) return;
         const sliderRect = slider.getBoundingClientRect();
         let position = (clientX - sliderRect.left) / sliderRect.width;
-        position = Math.max(0, Math.min(1, position)); // 0-1の範囲に制限
+        position = Math.max(0, Math.min(1, position));
         
         comparisonBefore.style.width = `${position * 100}%`;
         comparisonHandle.style.left = `${position * 100}%`;
       };
 
       const stopResize = () => {
+        if (!isResizing) return;
         isResizing = false;
-        slider.classList.remove('resizing'); // リサイズ中のスタイル解除 (任意)
+        if(slider) slider.classList.remove('resizing');
       };
 
       comparisonHandle.addEventListener('mousedown', startResize);
       document.addEventListener('mousemove', (e) => doResize(e.clientX));
       document.addEventListener('mouseup', stopResize);
       
+      // タッチイベントのclientXは e.touches[0].clientX を使う
       comparisonHandle.addEventListener('touchstart', (e) => startResize(e.touches[0]));
-      document.addEventListener('touchmove', (e) => doResize(e.touches[0].clientX));
+      document.addEventListener('touchmove', (e) => { if(isResizing) doResize(e.touches[0].clientX); });
       document.addEventListener('touchend', stopResize);
     }
     
@@ -1431,43 +1435,49 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href === '#' || href === '') { // 単なる # や空のhrefは無視
+        if (href === '#' || href === '') {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // トップへスクロール
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
-        const targetElement = document.querySelector(href);
-        if (targetElement) {
-            e.preventDefault();
-            const offset = document.getElementById('header') ? document.getElementById('header').offsetHeight : 80;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-            // モバイルメニューが開いていたら閉じる (もしあれば)
-            const mobileMenu = document.querySelector('.nav-links.active'); // 仮のセレクタ
-            if (mobileMenu) mobileMenu.classList.remove('active');
+        try { // セレクタが不正な場合の対応
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                e.preventDefault();
+                const headerOffset = document.getElementById('header') ? document.getElementById('header').offsetHeight : 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                // モバイルメニューが開いていたら閉じる処理 (もしあれば)
+                const mobileNav = document.querySelector('.nav-links.active'); // 仮のセレクタ
+                if (mobileNav) mobileNav.classList.remove('active');
+            }
+        } catch (error) {
+            console.warn("Smooth scroll target not found or invalid selector:", href);
         }
       });
     });
     
     // 依頼フォーム画像プレビュー機能
     const fileInput = document.getElementById('files');
-    const fileUploadElement = document.querySelector('.file-upload'); // 変数名を変更
+    const fileUploadElement = document.querySelector('.file-upload');
     
     if (fileInput && fileUploadElement) {
         fileInput.addEventListener('change', function() {
-            const uploadText = fileUploadElement.querySelector('.upload-text'); // fileUploadElementから検索
+            const uploadTextElement = fileUploadElement.querySelector('.upload-text');
+            if (!uploadTextElement) return;
+
             if (this.files.length > 0) {
                 const fileNames = Array.from(this.files).map(file => file.name).join(', ');
-                uploadText.innerHTML = `<p class="primary">選択されたファイル:</p><p style="font-weight:600;color:var(--accent);">${fileNames}</p><p><small>${this.files.length}ファイル選択済み</small></p>`;
+                uploadTextElement.innerHTML = `<p class="primary">選択されたファイル:</p><p style="font-weight:600;color:var(--accent); word-break: break-all;">${fileNames}</p><p><small>${this.files.length}ファイル選択済み</small></p>`;
                 fileUploadElement.style.borderColor = 'var(--accent)';
                 fileUploadElement.style.background = '#fff';
             } else {
-                // ファイルが選択されていない状態に戻す (任意)
-                uploadText.innerHTML = `
+                uploadTextElement.innerHTML = `
                     <p class="primary">ここにファイルをドラッグ＆ドロップ</p>
                     <p>または</p>
                     <p>クリックしてファイルを選択</p>
@@ -1481,24 +1491,32 @@
     // プログレスウィジェットのJS (エラーハンドリング強化版)
     async function fetchProjectData(){
         try {
-            const res = await fetch('/data/projects.json');    // ←パスは運用環境に合わせて
-            if (!res.ok) {
-                throw new Error(`Failed to fetch project data: ${res.status} ${res.statusText}`);
+            // JSONファイルのパスは実際の運用環境に合わせてください
+            const response = await fetch('/data/projects.json'); 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            return await res.json();
+            return await response.json();
         } catch (error) {
-            console.error("Error in fetchProjectData:", error);
-            return []; // エラー時は空の配列を返すなど、フォールバック処理
+            console.error("Could not fetch project data:", error);
+            return []; // エラー時は空の配列を返し、後続処理で対応
         }
     }
 
-    function formatRemaining(start, durationH){
-        const end = new Date(new Date(start).getTime() + durationH*3600*1000); // startが文字列の場合も考慮
-        const diff = end - Date.now();
-        if(diff<=0) return '00:00';
-        const h = Math.floor(diff/3600000);
-        const m = Math.floor((diff%3600000)/60000);
-        return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
+    function formatRemaining(startTimeStr, durationHours){
+        const startTimestamp = new Date(startTimeStr).getTime();
+        if (isNaN(startTimestamp)) return 'Calculating...'; // 無効な日付の場合
+
+        const endTime = startTimestamp + durationHours * 60 * 60 * 1000;
+        const now = Date.now();
+        const diff = endTime - now;
+
+        if(diff <= 0) return '00:00';
+        
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        
+        return `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`;
     }
 
     async function renderProgress(){
@@ -1509,87 +1527,98 @@
         const waitingCountEl = document.getElementById('waiting-count');
         const weeklyLimitEl = document.getElementById('weekly-limit');
 
+        // 要素が存在しない場合は処理を中断
+        if (!activeTimersEl || !waitingCountEl || !weeklyLimitEl) {
+            console.warn("Progress widget elements not found. Skipping renderProgress.");
+            return;
+        }
+        
         try {
-            const list = await fetchProjectData();
+            const projects = await fetchProjectData();
 
-            const activeProjects = list.filter(p => p.status==='active');
-            const holdProjects = list.filter(p => p.status==='hold');
-            const waitingProjects = list.filter(p => p.status==='waiting');
+            const activeProjects = projects.filter(p => p.status === 'active');
+            const holdProjects = projects.filter(p => p.status === 'hold');
+            const waitingProjects = projects.filter(p => p.status === 'waiting');
 
             if (lamp1 && lamp2 && lamp3) {
-                [lamp1, lamp2, lamp3].forEach((el,i)=>{
-                    if(waitingProjects[i]) el.classList.add('on'); else el.classList.remove('on');
+                [lamp1, lamp2, lamp3].forEach((lampElement, index) => {
+                    if(waitingProjects[index]) lampElement.classList.add('on');
+                    else lampElement.classList.remove('on');
                 });
             }
 
-            if (activeTimersEl) {
-                activeTimersEl.innerHTML = '';
-                if(activeProjects.length > 0){
-                    const shortest = activeProjects.reduce((prev, curr) => {
-                    const prevEnd = new Date(prev.startTime).getTime() + prev.duration*3600000;
-                    const currEnd = new Date(curr.startTime).getTime() + curr.duration*3600000;
-                    return prevEnd < currEnd ? prev : curr;
-                    });
-                    const remain = formatRemaining(shortest.startTime, shortest.duration);
-                    activeTimersEl.innerHTML = `
-                    <div class="timer-box">
-                        <span class="timer-title">${shortest.name}</span>
-                        <span class="timer-value">${remain}</span>
-                    </div>`;
-                } else if(holdProjects.length > 0){
-                    activeTimersEl.innerHTML = `
-                    <div class="timer-box hold">
-                        <span class="timer-title">${holdProjects[0].name}</span>
-                        <span class="timer-value">枠確保中</span>
-                    </div>`;
-                }
+            activeTimersEl.innerHTML = ''; // 表示をクリア
+            if(activeProjects.length > 0){
+                // 最も残り時間が短いプロジェクトを選択
+                const shortestRemainingProject = activeProjects.reduce((prev, current) => {
+                    const prevEndTime = new Date(prev.startTime).getTime() + prev.duration * 3600000;
+                    const currentEndTime = new Date(current.startTime).getTime() + current.duration * 3600000;
+                    return (prevEndTime < currentEndTime) ? prev : current;
+                });
+                const remainingTime = formatRemaining(shortestRemainingProject.startTime, shortestRemainingProject.duration);
+                activeTimersEl.innerHTML = `
+                <div class="timer-box">
+                    <span class="timer-title">${shortestRemainingProject.name}</span>
+                    <span class="timer-value">${remainingTime}</span>
+                </div>`;
+            } else if(holdProjects.length > 0){
+                activeTimersEl.innerHTML = `
+                <div class="timer-box hold">
+                    <span class="timer-title">${holdProjects[0].name}</span>
+                    <span class="timer-value">枠確保中</span>
+                </div>`;
+            } else {
+                 activeTimersEl.innerHTML = '<p style="color:white; font-size:0.9rem;">現在進行中の特急案件はありません。</p>';
             }
 
-            if (waitingCountEl) waitingCountEl.textContent = `待機中：${waitingProjects.length}件`;
-            if (weeklyLimitEl) weeklyLimitEl.textContent  = `今週の受付残：${Math.max(0,5-list.length)}件`;
+            waitingCountEl.textContent = `待機中：${waitingProjects.length}件`;
+            // projects.length は全プロジェクト数。週の制限は status によらずカウントすると仮定。
+            weeklyLimitEl.textContent  = `今週の受付残：${Math.max(0, 5 - projects.length)}件`;
 
         } catch (error) {
-            console.error("Error rendering project data:", error);
-            if (activeTimersEl) activeTimersEl.innerHTML = '<p style="color:white;">進捗情報の取得に失敗しました。</p>';
-            if (waitingCountEl) waitingCountEl.textContent = '待機中：エラー';
-            if (weeklyLimitEl) weeklyLimitEl.textContent = '今週の受付残：エラー';
+            console.error("Error rendering project progress:", error);
+            activeTimersEl.innerHTML = '<p style="color:red;">進捗情報の表示に失敗しました。</p>';
+            waitingCountEl.textContent = '待機中：取得エラー';
+            weeklyLimitEl.textContent = '今週の受付残：取得エラー';
         }
     }
 
-    // プログレスウィジェットの初回実行と定期更新
-    if (document.getElementById('progress')) { // progressセクションが存在する場合のみ実行
-        renderProgress();
-        setInterval(renderProgress, 60 * 1000);
+    // プログレスウィジェットのセクションが存在する場合のみ実行
+    if (document.getElementById('progress')) {
+        renderProgress(); // 初回実行
+        setInterval(renderProgress, 60000); // 1分ごとに更新
     }
 
-// ファイルサイズチェックのスクリプト
+// ファイルサイズチェックのスクリプトは提供されたチェックリストに従い、
+// FormSubmit側の5MB制限に依存するため、ここでは有効化しません。
+// クライアント側でのチェックはUX向上のために追加可能ですが、
+// 送信ブロックの主要因ではないという観点から、指示通り修正は最小限に留めます。
 /*
 const orderForm = document.getElementById('orderForm');
 if (orderForm) {
     orderForm.addEventListener('submit', function (e) {
-        const filesInput = document.getElementById('files'); // ファイル入力要素のID
-        if (!filesInput) return; 
+        const filesInput = document.getElementById('files');
+        if (!filesInput || !filesInput.files) return; 
 
         const files = filesInput.files;
-        if (files.length === 0 && filesInput.required) { 
-            return;
+        // ファイルが必須で、かつファイルが選択されていない場合はブラウザのバリデーションに任せる
+        if (filesInput.required && files.length === 0) { 
+            return; 
         }
+        
         if (files.length > 0) { 
-            const totalBytes = [...files].reduce((sum, f) => sum + f.size, 0);
-            const limit = 5 * 1024 * 1024; 
+            const totalBytes = Array.from(files).reduce((sum, file) => sum + file.size, 0);
+            const limitBytes = 5 * 1024 * 1024; // 5MB
 
-            if (totalBytes > limit) {
+            if (totalBytes > limitBytes) {
                 e.preventDefault(); 
-                alert('ファイルの合計サイズが 5 MB を超えています。\n' +
-                      'ZIP で圧縮するか、共有リンクをご利用ください。');
+                alert('ファイルの合計サイズが 5MB を超えています。\n' +
+                      'ZIP で圧縮するか、ファイル共有サービスをご利用の上、リンクを備考欄にご記入ください。');
             }
         }
     });
 }
 */
-   
-
   </script>
-  <!-- EmailJSのスクリプトは削除しました -->
 </body>
 </html>
