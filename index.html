@@ -1562,11 +1562,32 @@
         setInterval(renderProgress, 60 * 1000);
     }
 
+// ファイルサイズチェックのスクリプト
+/*
+const orderForm = document.getElementById('orderForm');
+if (orderForm) {
+    orderForm.addEventListener('submit', function (e) {
+        const filesInput = document.getElementById('files'); // ファイル入力要素のID
+        if (!filesInput) return; 
 
+        const files = filesInput.files;
+        if (files.length === 0 && filesInput.required) { 
+            return;
+        }
+        if (files.length > 0) { 
+            const totalBytes = [...files].reduce((sum, f) => sum + f.size, 0);
+            const limit = 5 * 1024 * 1024; 
 
-
-
-    
+            if (totalBytes > limit) {
+                e.preventDefault(); 
+                alert('ファイルの合計サイズが 5 MB を超えています。\n' +
+                      'ZIP で圧縮するか、共有リンクをご利用ください。');
+            }
+        }
+    });
+}
+*/
+   
 
   </script>
   <!-- EmailJSのスクリプトは削除しました -->
