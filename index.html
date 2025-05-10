@@ -1050,22 +1050,21 @@
     <h2>依頼フォーム</h2>
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
+      <!-- MODIFIED: Form tag for FormSubmit. Special hidden inputs are removed. -->
       <form id="orderForm" action="https://formsubmit.co/emwlgh39dell@gmail.com" method="POST" enctype="multipart/form-data">
-        <!-- FormSubmit 用カスタムフィールド -->
-        <input type="hidden" name="_subject" value="New order - ExpressCG"> <!-- MODIFIED: ASCII文字のみに (指示書に従い修正) -->
-        <!-- <input type="hidden" name="_template" value="box"> FormSubmitのデフォルトテンプレートを使用する場合や、特に指定がなければ不要 -->
-        <input type="hidden" name="_captcha" value="false"> <!-- reCAPTCHAを無効にする場合。有効にするならこの行を削除または value="true" にする -->
-        <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
-        <input type="hidden" name="_next" value="https://www.archi-prisma.co.jp/thankyou"> 
+        <!-- REMOVED: <input type="hidden" name="_subject" value="New order - ExpressCG"> -->
+        <!-- REMOVED: <input type="hidden" name="_captcha" value="false"> -->
+        <!-- REMOVED: <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。"> -->
+        <!-- REMOVED: <input type="hidden" name="_next" value="https://www.archi-prisma.co.jp/thankyou"> -->
         
         <div class="form-row">
           <div class="form-col">
-            <label for="name_customer">お名前 <span class="required">*</span></label> <!-- name属性はFormSubmitのメールラベルになるので日本語でも可 -->
+            <label for="name_customer">お名前 <span class="required">*</span></label>
             <input type="text" id="name_customer" name="お名前" required placeholder="山田 太郎">
           </div>
           <div class="form-col">
-            <label for="email_customer">メールアドレス <span class="required">*</span></label> <!-- FormSubmitの自動返信のため、name="email" (または任意の名前) -->
-            <input type="email" id="email_customer" name="email" required placeholder="example@gmail.com">
+            <label for="email_customer">メールアドレス <span class="required">*</span></label>
+            <input type="email" id="email_customer" name="email" required placeholder="example@gmail.com"> <!-- `name="email"` はFormSubmitが返信先として認識するために推奨されます -->
           </div>
         </div>
         
@@ -1105,7 +1104,7 @@
         <div class="form-group">
           <label for="files">図面PDFのアップロード <span class="required">*</span></label>
           <div class="file-upload">
-            <input type="file" id="files" name="図面PDF" multiple accept=".pdf,.jpg,.jpeg,.png" required>
+            <input type="file" id="files" name="添付ファイル" multiple accept=".pdf,.jpg,.jpeg,.png" required> <!-- name属性を "添付ファイル" など一般的なものに変更 -->
             <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <div class="upload-text">
               <p class="primary">ここにファイルをドラッグ＆ドロップ</p>
