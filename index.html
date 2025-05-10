@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>図面 PDF だけで 24h パース｜Express CG 特急サービス</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" /> REMOVED for minimal test -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root{
@@ -91,7 +91,7 @@
     .process::before{content:'';position:absolute;top:0;left:0;width:100%;height:50%;background:linear-gradient(to bottom, var(--bg), var(--light-gray));}
     .steps{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-top:50px;position:relative;z-index:2;}
     .step{flex:1 1 300px;text-align:center;background:#fff;padding:50px 30px;border-radius:15px;box-shadow:var(--shadow);transition:var(--transition);position:relative;}
-    .step:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    /* .step:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);} */ /* JSなしのためhover効果一部無効化 */
     .step-icon{width:90px;height:90px;border:4px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:0 auto 25px;color:var(--accent);background:#fff;position:relative;}
     .step::after{content:'';position:absolute;top:90px;right:-15px;width:30px;height:30px;border-top:4px solid var(--accent);border-right:4px solid var(--accent);transform:rotate(45deg);display:none;}
     .step:not(:last-child)::after{display:block;}
@@ -106,10 +106,10 @@
     .grid3{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:50px;}
     .card{background:#fff;border-radius:15px;padding:40px 30px;box-shadow:var(--shadow);text-align:center;transition:var(--transition);position:relative;overflow:hidden;}
     .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:var(--gradient);}
-    .card:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    /* .card:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);} */ /* JSなしのためhover効果一部無効化 */
     .card h3{font-size:1.5rem;margin:15px 0;color:var(--accent);}
     .card-icon{font-size:3rem;color:var(--accent);margin-bottom:20px;transition:var(--transition);}
-    .card:hover .card-icon{transform:scale(1.2);}
+    /* .card:hover .card-icon{transform:scale(1.2);} */ /* JSなしのためhover効果一部無効化 */
     .card ul{text-align:left;margin-top:20px;padding-left:20px;}
     .card ul li{margin-bottom:10px;position:relative;}
     .card ul li::before{content:'✓';position:absolute;left:-20px;color:var(--accent);font-weight:bold;}
@@ -152,7 +152,7 @@
     .toggle-option.active{background:var(--accent);color:#fff;}
     .pricing-tabs{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;}
     .pricing-tab{flex:1 1 450px;border-radius:15px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);background:#fff;}
-    .pricing-tab:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    /* .pricing-tab:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);} */ /* JSなしのためhover効果一部無効化 */
     .pricing-header{background:var(--light-gray);padding:30px;text-align:center;position:relative;}
     .pricing-popular{position:absolute;top:15px;right:15px;background:var(--accent);color:#fff;font-size:0.8rem;font-weight:600;padding:5px 15px;border-radius:20px;}
     .pricing-name{font-size:1.8rem;margin-bottom:5px;color:var(--accent);}
@@ -173,13 +173,13 @@
     .gallery-tab.active{background:#fff;border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow);}
     .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(350px, 1fr));gap:30px;margin-top:30px;position:relative;z-index:1;}
     .gallery-item{position:relative;border-radius:15px;overflow:hidden;box-shadow:var(--shadow);height:250px;transition:var(--transition);cursor:pointer;}
-    .gallery-item:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    /* .gallery-item:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);} */ /* JSなしのためhover効果一部無効化 */
     .gallery-item img{width:100%;height:100%;object-fit:cover;transition:var(--transition);}
-    .gallery-item:hover img{transform:scale(1.05);}
+    /* .gallery-item:hover img{transform:scale(1.05);} */ /* JSなしのためhover効果一部無効化 */
     .gallery-item-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);opacity:0;transition:var(--transition);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
-    .gallery-item:hover .gallery-item-overlay{opacity:1;}
+    /* .gallery-item:hover .gallery-item-overlay{opacity:1;} */ /* JSなしのためhover効果一部無効化 */
     .gallery-item-button{background:var(--accent);color:#fff;padding:12px 25px;border-radius:25px;font-weight:600;transform:translateY(20px);transition:var(--transition);opacity:0;}
-    .gallery-item:hover .gallery-item-button{transform:translateY(0);opacity:1;}
+    /* .gallery-item:hover .gallery-item-button{transform:translateY(0);opacity:1;} */ /* JSなしのためhover効果一部無効化 */
     
     /* ギャラリーモーダル */
     .gallery-modal{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:var(--transition);}
@@ -208,7 +208,7 @@
     .testimonial-star{color:#FFD700;margin-right:3px;}
     .testimonials-arrows{display:flex;justify-content:center;gap:20px;margin-top:30px;}
     .testimonials-arrow{width:50px;height:50px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);transition:var(--transition);}
-    .testimonials-arrow:hover{background:var(--accent);color:#fff;transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+    /* .testimonials-arrow:hover{background:var(--accent);color:#fff;transform:translateY(-3px);box-shadow:var(--shadow-hover);} */ /* JSなしのためhover効果一部無効化 */
     
     /* 数字で見るサービス */
     .stats{background:var(--gradient);color:#fff;padding:100px 20px;text-align:center;position:relative;overflow:hidden;}
@@ -224,14 +224,14 @@
     .faq::before{content:'';position:absolute;top:0;left:0;width:100%;height:50%;background:linear-gradient(to bottom, var(--bg), var(--light-gray));}
     .faq-container{max-width:800px;margin:50px auto 0;position:relative;z-index:1;}
     .faq-item{background:#fff;border-radius:15px;margin-bottom:20px;box-shadow:var(--shadow);overflow:hidden;transition:var(--transition);}
-    .faq-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
+    /* .faq-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);} */ /* JSなしのためhover効果一部無効化 */
     .faq-question{padding:25px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;transition:var(--transition);}
-    .faq-question:hover{color:var(--accent);}
+    /* .faq-question:hover{color:var(--accent);} */ /* JSなしのためhover効果一部無効化 */
     .faq-icon{transition:var(--transition);width:24px;height:24px;border-radius:50%;background:var(--light-gray);display:flex;align-items:center;justify-content:center;}
-    .faq-item.active .faq-icon{background:var(--accent);color:#fff;}
+    /* .faq-item.active .faq-icon{background:var(--accent);color:#fff;} */ /* JSなしのためスタイル無効化 */
     .faq-answer{padding:0 25px;max-height:0;overflow:hidden;transition:max-height 0.3s ease, padding 0.3s ease;}
-    .faq-item.active .faq-answer{padding:0 25px 25px;max-height:500px;}
-    .faq-item.active .faq-icon{transform:rotate(180deg);}
+    /* .faq-item.active .faq-answer{padding:0 25px 25px;max-height:500px;} */ /* JSなしのためスタイル無効化 */
+    /* .faq-item.active .faq-icon{transform:rotate(180deg);} */ /* JSなしのためスタイル無効化 */
     
     /* Order Form */
     .order{background:var(--bg);position:relative;overflow:hidden;}
@@ -249,13 +249,13 @@
     .radio-option{flex:1 1 180px;position:relative;}
     .radio-input{position:absolute;opacity:0;}
     .radio-label{display:block;background:var(--light-gray);padding:15px;border-radius:10px;text-align:center;cursor:pointer;transition:var(--transition);border:2px solid transparent;}
-    .radio-input:checked + .radio-label{background:#fff;border-color:var(--accent);box-shadow:0 5px 15px rgba(230,0,51,0.15);}
+    .radio-input:checked + .radio-label{background:#fff;border-color:var(--accent);box-shadow:0 5px 15px rgba(230,0,51,0.15);} /* JSなしでもチェック時スタイルは有効 */
     .radio-price{display:block;font-weight:600;font-size:1.2rem;margin-top:5px;color:var(--accent);}
     .file-upload{display:flex;flex-direction:column;align-items:center;padding:40px;border:3px dashed var(--mid-gray);border-radius:15px;position:relative;transition:var(--transition);cursor:pointer;background:var(--light-gray);}
     .file-upload:hover{border-color:var(--accent);background:#fff;}
     .file-upload input{opacity:0;position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;}
     .upload-icon{font-size:3rem;color:var(--accent);margin-bottom:15px;transition:var(--transition);}
-    .file-upload:hover .upload-icon{transform:translateY(-5px);}
+    /* .file-upload:hover .upload-icon{transform:translateY(-5px);} */ /* JSなしのためhover効果一部無効化 */
     .upload-text{text-align:center;}
     .upload-text p{margin:5px 0;color:var(--dark-gray);}
     .upload-text .primary{font-weight:600;font-size:1.2rem;color:var(--text);}
@@ -265,15 +265,15 @@
     .guarantee-text strong{font-weight:700;}
     .submit-btn{background:var(--gradient);color:#fff;border:none;padding:20px;border-radius:12px;font-weight:600;cursor:pointer;transition:var(--transition);width:100%;font-size:1.2rem;letter-spacing:1px;position:relative;overflow:hidden;z-index:1;}
     .submit-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);transition:var(--transition);z-index:-1;}
-    .submit-btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(230,0,51,0.3);}
-    .submit-btn:hover::before{left:100%;}
+    /* .submit-btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(230,0,51,0.3);} */ /* JSなしのためhover効果一部無効化 */
+    /* .submit-btn:hover::before{left:100%;} */ /* JSなしのためhover効果一部無効化 */
     
     /* CTA sticky */
     .sticky-cta{position:fixed;bottom:30px;right:30px;z-index:1000;display:none;transition:var(--transition);}
-    @media(min-width:768px){.sticky-cta{display:block;}}
+    /* @media(min-width:768px){.sticky-cta{display:block;}} */ /* JSなしのため非表示 */
     .sticky-cta .btn{padding:15px 30px;display:flex;align-items:center;border-radius:50px;box-shadow:0 5px 20px rgba(230,0,51,0.4);}
     .sticky-cta .btn i{margin-right:10px;}
-    .sticky-cta:hover{transform:translateY(-5px);}
+    /* .sticky-cta:hover{transform:translateY(-5px);} */ /* JSなしのためhover効果一部無効化 */
     
     /* パルスアニメーション */
     .pulse{position:relative;}
@@ -302,16 +302,16 @@
     .footer-nav{list-style:none;margin:0;padding:0;}
     .footer-nav li{margin-bottom:10px;}
     .footer-nav a{color:#ccc;text-decoration:none;transition:var(--transition);display:inline-block;}
-    .footer-nav a:hover{color:var(--accent);transform:translateX(5px);}
+    /* .footer-nav a:hover{color:var(--accent);transform:translateX(5px);} */ /* JSなしのためhover効果一部無効化 */
     .copyright{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.9rem;}
     
     /* フローティング要素アニメーション */
-    .float{animation:float 6s ease-in-out infinite;}
-    @keyframes float{
+    /* .float{animation:float 6s ease-in-out infinite;} */ /* JSでクラス付与想定のためコメントアウト */
+    /* @keyframes float{
       0%{transform:translateY(0);}
       50%{transform:translateY(-20px);}
       100%{transform:translateY(0);}
-    }
+    } */
     
     /* モバイル対応 */
     @media (max-width: 1024px) {
@@ -327,7 +327,7 @@
     
     @media (max-width: 768px) {
       .nav-links{display:none;}
-      .mobile-menu-btn{display:block;}
+      .mobile-menu-btn{display:block;} /* JSなしでは機能しない */
       .hero-content{padding:120px 20px 150px;}
       .hero .cta-group{flex-direction:column;align-items:center;}
       .video-trigger{margin-top:20px;}
@@ -359,7 +359,7 @@
 .gallery-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5); /* ちょっと濃くしてもいいかも */
+  background: rgba(0,0,0,0.5); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -367,7 +367,7 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.3s ease;
-  overflow: hidden; /* モーダル内スクロール禁止 */
+  overflow: hidden; 
 }
 .gallery-modal.active {
   opacity: 1;
@@ -430,15 +430,15 @@
   <style>
   /* ---------- ExpressCG 同意チェック用スタイル ここから ---------- */
 .agreement-row{
-  display:grid;                       /* ２列グリッドで左揃え */
-  grid-template-columns:16px 1fr;     /* 16px = チェックボックス幅 */
+  display:grid;                      
+  grid-template-columns:16px 1fr;    
   column-gap:8px;
   margin-bottom:10px;
 }
 .agreement-row input[type="checkbox"]{align-self:center;}
 .agreement-row span{display:inline-block;white-space:nowrap;}
 .agreement-row a{color:#0056b3;text-decoration:underline;}
-.form-wrapper .form-group{text-align:left;}   /* 行全体を左寄せ */
+.form-wrapper .form-group{text-align:left;}  
 /* ---------- ExpressCG 同意チェック用スタイル ここまで ---------- */
 /* ---------- Progress Widget ここから ---------- */
 .queue-lamps{
@@ -457,8 +457,8 @@
   margin: 0 12px;
 }
 .lamp.on{
-  background:var(--accent);                /* 点灯＝アクセント色 */
-  box-shadow:0 0 8px var(--accent);        /* 発光エフェクト */
+  background:var(--accent);               
+  box-shadow:0 0 8px var(--accent);       
 }
 .active-timers{
   display:flex;
@@ -540,7 +540,7 @@
   <!-- Hero -->
   <section class="hero">
    <video class="hero-bg" src="https://video.wixstatic.com/video/b456ec_64b5197cd85c4e75b7ad138d552e475d/1080p/mp4/file.mp4" autoplay muted loop playsinline></video>
-    <div class="hero-content" data-aos="fade-up">
+    <div class="hero-content" data-aos="fade-up"> <!-- data-aos はJSなしでは機能しない -->
       <span class="tagline">PDF だけで OK / 最短 24h</span>
       <h1>図面を<span class="highlight">放り込む</span>だけで、<br>ハイクオリティ CG が<span style="white-space:nowrap;">24 時間後</span>には手元に。</h1>
       <p class="lead">図面整理ゼロ・追加費用ゼロ・不安ゼロ。<br>設計者とデベロッパーの"駆け込み寺"です。</p>
@@ -552,7 +552,6 @@
         </a>
       </div>
       
-      <!-- 信頼性バッジ -->
       <div class="trust-badges">
         <div class="trust-badge">
           <div class="trust-badge-icon"><i class="fas fa-check-circle"></i></div>
@@ -569,21 +568,16 @@
           <div class="trust-badge-value">100%</div>
           <div>納期遵守率</div>
         </div>
-        
       </div>
     </div>
   </section>
   
-  <!-- ビデオポップアップ -->
  <div class="video-overlay" id="video-overlay">
   <div class="video-container">
     <div class="video-close" id="video-close"><i class="fas fa-times"></i></div>
-    <!-- iframeは消す -->
   </div>
 </div>
 
-
-  <!-- 3-step process -->
   <section id="process" class="process">
     <div class="container">
       <h2>たった3ステップの簡単プロセス</h2>
@@ -608,7 +602,6 @@
     </div>
   </section>
 
-  <!-- Value Props -->
   <section id="values" class="values">
     <div class="values-container">
       <h2>Express CG が選ばれる 3 つの理由</h2>
@@ -648,7 +641,6 @@
     </div>
   </section>
   
-  <!-- ビフォーアフター比較 -->
   <section id="comparison" class="comparison">
     <div class="comparison-intro">
       <h2>図面からCGへの劇的な変化</h2>
@@ -665,27 +657,17 @@
     </div>
   </section>
 
-  <!-- Limited spots banner -->
-<!-- 🔴 背景が一体化されたセクション -->
-<!-- ▼ 修正: id="progress" を追加、class="banner red-bg" は維持 -->
 <section id="progress" class="banner red-bg" data-aos="fade-up">
   <div class="banner-content">
-
-    <!-- 上段：待機ランプなど -->
     <div class="queue-lamps">
       <span class="lamp" id="lamp1"></span>
       <span class="lamp" id="lamp2"></span>
       <span class="lamp" id="lamp3"></span>
     </div>
-
     <div id="active-timers" class="active-timers">
-      <!-- JSで挿入される -->
     </div>
-
     <p id="waiting-count">待機中：0件</p>
     <p id="weekly-limit">今週の受付残：5件</p>
-
-    <!-- 下段：Ultra-24本日の残枠 -->
     <h2>Ultra-24 本日の残枠</h2>
     <div class="spot-counter" id="spot">2</div>
     <p>枠が埋まり次第、48h プランのみの受付になります。<br>
@@ -693,29 +675,25 @@
     </p>
     <div class="countdown">
       <div class="countdown-item">
-        <div class="countdown-value" id="hours">05</div>
+        <div class="countdown-value" id="hours">00</div>
         <div class="countdown-label">時間</div>
       </div>
       <div class="countdown-item">
-        <div class="countdown-value" id="minutes">32</div>
+        <div class="countdown-value" id="minutes">00</div>
         <div class="countdown-label">分</div>
       </div>
       <div class="countdown-item">
-        <div class="countdown-value" id="seconds">41</div>
+        <div class="countdown-value" id="seconds">00</div>
         <div class="countdown-label">秒</div>
       </div>
     </div>
-
     <a href="#order" class="btn btn-large">今すぐ残り枠を確保する <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
-<!-- ▲ 修正ここまで -->
 
-  <!-- Pricing -->
   <section id="pricing" class="pricing" data-aos="fade-up">
     <h2>料金プラン</h2>
     <p style="text-align:center;max-width:800px;margin:0 auto 30px;">明確な料金設定。追加料金や隠れたコストは一切ありません。</p>
-    
     <div class="pricing-container">
       <div class="pricing-tabs">
         <div class="pricing-tab" data-aos="fade-up" data-aos-delay="50">
@@ -725,28 +703,13 @@
             <p>プレゼンまでに少し余裕がある方向け</p>
           </div>
           <div class="pricing-features">
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text"><strong>48時間以内</strong>の納品</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">4K高解像度JPG画像納品</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">修正1回無料（3営業日以内）</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">納期遅延時20%返金保証</div>
-            </div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text"><strong>48時間以内</strong>の納品</div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text">4K高解像度JPG画像納品</div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text">修正1回無料（3営業日以内）</div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text">納期遅延時20%返金保証</div></div>
           </div>
-          <div class="pricing-cta">
-            <a href="#order" class="btn">このプランを選択</a>
-          </div>
+          <div class="pricing-cta"><a href="#order" class="btn">このプランを選択</a></div>
         </div>
-        
         <div class="pricing-tab" data-aos="fade-up" data-aos-delay="150">
           <div class="pricing-header">
             <div class="pricing-popular">人気</div>
@@ -755,40 +718,19 @@
             <p>急ぎのプレゼンや打ち合わせ前に</p>
           </div>
           <div class="pricing-features">
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text"><strong>24時間以内</strong>の超特急納品</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">4K高解像度JPG画像納品</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">修正1回無料（3営業日以内）</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text">納期遅延時30%返金保証</div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text"><strong>素材ライブラリ無料アクセス</strong></div>
-            </div>
-            <div class="pricing-feature">
-              <div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="pricing-feature-text"><strong>最優先サポート</strong></div>
-            </div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text"><strong>24時間以内</strong>の超特急納品</div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text">4K高解像度JPG画像納品</div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text">修正1回無料（3営業日以内）</div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text">納期遅延時30%返金保証</div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text"><strong>素材ライブラリ無料アクセス</strong></div></div>
+            <div class="pricing-feature"><div class="pricing-feature-icon"><i class="fas fa-check-circle"></i></div><div class="pricing-feature-text"><strong>最優先サポート</strong></div></div>
           </div>
-          <div class="pricing-cta">
-            <a href="#order" class="btn pulse">このプランを選択</a>
-          </div>
+          <div class="pricing-cta"><a href="#order" class="btn pulse">このプランを選択</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ビフォーアフターギャラリー -->
  <section id="gallery" class="gallery">
   <div class="container">
     <h2>制作実績</h2>
@@ -799,161 +741,37 @@
       <div class="gallery-tab" data-filter="商業施設">商業施設</div>
     </div>
     <div class="gallery-grid">
-      <!-- インテリア -->
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_0f41ab4248e144debc69ccee947e1baf~mv2.png" alt="インテリア1">
-      </div>
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_660f30184fab4561b2cc8091ed75945a~mv2.jpg" alt="インテリア2">
-      </div>
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_c7543132fafb49daa8b79f39e79fdcad~mv2.png" alt="インテリア3">
-      </div>
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_9d6c95be65574e9c9cffb018c17b0881~mv2.png" alt="インテリア4">
-      </div>
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_32af7a61da5b41508c96df0449800098~mv2.png" alt="インテリア5">
-      </div>
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_0e52f3adad624d8095f38997338bb7ab~mv2.png" alt="インテリア6">
-      </div>
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_52189a8fd53748efb2cccb81bd205aca~mv2.png" alt="インテリア7">
-      </div>
-      <div class="gallery-item" data-category="インテリア">
-        <img src="https://static.wixstatic.com/media/b456ec_5358c67003844d04b486ce6a872828b4~mv2.png" alt="インテリア8">
-      </div>
-
-      <!-- 外観 -->
-      <div class="gallery-item" data-category="外観">
-        <img src="https://static.wixstatic.com/media/b456ec_fc6dcec76d93457f9350047bd5391a10~mv2.png" alt="外観1">
-      </div>
-      <div class="gallery-item" data-category="外観">
-        <img src="https://static.wixstatic.com/media/b456ec_2b5cf07b075f499d8cee23e2201d95c6~mv2.png" alt="外観2">
-      </div>
-      <div class="gallery-item" data-category="外観">
-        <img src="https://static.wixstatic.com/media/b456ec_c88e06468ee748b2bec5f66027508b67~mv2.png" alt="外観3">
-      </div>
-
-      <!-- 商業施設 -->
-      <div class="gallery-item" data-category="商業施設">
-        <img src="https://static.wixstatic.com/media/b456ec_0e422c6ec37a4c75b4ecc70dfb9264e1~mv2.png" alt="商業施設1">
-      </div>
-      <div class="gallery-item" data-category="商業施設">
-        <img src="https://static.wixstatic.com/media/b456ec_502a13954cbf4d7e9ee362a20d902938~mv2.jpg" alt="商業施設2">
-      </div>
-      <div class="gallery-item" data-category="商業施設">
-        <img src="https://static.wixstatic.com/media/b456ec_01001e7135ae4139bd6a862897b5b2d7~mv2.png" alt="商業施設3">
-      </div>
+      <div class="gallery-item" data-category="インテリア"><img src="https://static.wixstatic.com/media/b456ec_0f41ab4248e144debc69ccee947e1baf~mv2.png" alt="インテリア1"></div>
+      <div class="gallery-item" data-category="インテリア"><img src="https://static.wixstatic.com/media/b456ec_660f30184fab4561b2cc8091ed75945a~mv2.jpg" alt="インテリア2"></div>
+      <div class="gallery-item" data-category="インテリア"><img src="https://static.wixstatic.com/media/b456ec_c7543132fafb49daa8b79f39e79fdcad~mv2.png" alt="インテリア3"></div>
+      <div class="gallery-item" data-category="外観"><img src="https://static.wixstatic.com/media/b456ec_fc6dcec76d93457f9350047bd5391a10~mv2.png" alt="外観1"></div>
+      <div class="gallery-item" data-category="商業施設"><img src="https://static.wixstatic.com/media/b456ec_0e422c6ec37a4c75b4ecc70dfb9264e1~mv2.png" alt="商業施設1"></div>
     </div>
   </div>
-
-  <!-- 拡大モーダル -->
-  <div class="gallery-modal" id="gallery-modal">
+  <div class="gallery-modal" id="gallery-modal-main"> <!-- ID変更 -->
     <div class="gallery-modal-content">
-      <span class="gallery-modal-close" id="gallery-modal-close">×</span>
+      <span class="gallery-modal-close" id="gallery-modal-close-main">×</span> <!-- ID変更 -->
       <img src="" alt="拡大画像" class="gallery-modal-image">
     </div>
   </div>
 </section>
 
-  
-  <!-- ギャラリーモーダル (IDが重複していたので、片方をコメントアウトまたは適切なIDに変更) -->
-  <!-- <div class="gallery-modal" id="gallery-modal"> -->
-    <!-- <div class="gallery-modal-close" id="gallery-modal-close"><i class="fas fa-times"></i></div> -->
-    <!-- <div class="gallery-modal-content"> -->
-      <!-- <img src="" alt="" class="gallery-modal-image" id="gallery-modal-image"> -->
-      <!-- <div class="gallery-modal-caption" id="gallery-modal-caption"></div> -->
-    <!-- </div> -->
-  <!-- </div> -->
-
-  <!-- お客様の声 -->
   <section id="testimonials" class="testimonials" data-aos="fade-up">
     <div class="testimonials-content">
       <h2>お客様の声</h2>
       <p style="text-align:center;max-width:800px;margin:0 auto 30px;">Express CGを実際にご利用いただいたお客様からの声をご紹介します</p>
-      
       <div class="testimonials-slider">
         <div class="testimonials-track" id="testimonials-track">
           <div class="testimonial">
-            <div class="testimonial-content">
-              締切前日の依頼にも関わらず、驚くほど高品質なCGを納品していただきました。クライアントのプレゼンでも大好評で、案件を受注できました！今後も使わせていただきます。
-            </div>
-            <div class="testimonial-author">
-              <div>
-                <div class="testimonial-name">田中一郎</div>
-                <div class="testimonial-position">建築設計事務所 代表</div>
-                <div class="testimonial-rating">
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                </div>
-              </div>
-            </div>
+            <div class="testimonial-content">締切前日の依頼にも関わらず、驚くほど高品質なCGを納品していただきました。クライアントのプレゼンでも大好評で、案件を受注できました！今後も使わせていただきます。</div>
+            <div class="testimonial-author"><div><div class="testimonial-name">田中一郎</div><div class="testimonial-position">建築設計事務所 代表</div><div class="testimonial-rating"><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span></div></div></div>
           </div>
-          
           <div class="testimonial">
-            <div class="testimonial-content">
-              図面が不完全な状態でもプロフェッショナルに対応していただき、最終的な仕上がりは想像以上でした。修正も素早く対応していただき感謝しています。次回からの定番サービスになりそうです。
-            </div>
-            <div class="testimonial-author">
-              <div>
-                <div class="testimonial-name">佐藤めぐみ</div>
-                <div class="testimonial-position">インテリアデザイナー</div>
-                <div class="testimonial-rating">
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="testimonial">
-            <div class="testimonial-content">
-              Express CGは我々のプロジェクトのスケジュール厳守に大きく貢献しています。特に24時間納品は物件販売の最終段階で非常に重宝しています。他社と比較しても品質と納期の安定感が違います。
-            </div>
-            <div class="testimonial-author">
-              <div>
-                <div class="testimonial-name">鈴木健太</div>
-                <div class="testimonial-position">不動産デベロッパー</div>
-                <div class="testimonial-rating">
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star-half-alt"></i></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="testimonial">
-            <div class="testimonial-content">
-              海外の格安パースサービスを使って失敗した経験があります。Express CGは価格は少し高めですが、その分クオリティとコミュニケーションが素晴らしく、結果的にコスパは最高だと感じています。
-            </div>
-            <div class="testimonial-author">
-              <div>
-                <div class="testimonial-name">高橋誠</div>
-                <div class="testimonial-position">設計事務所 主任</div>
-                <div class="testimonial-rating">
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
-                </div>
-              </div>
-            </div>
+            <div class="testimonial-content">図面が不完全な状態でもプロフェッショナルに対応していただき、最終的な仕上がりは想像以上でした。修正も素早く対応していただき感謝しています。次回からの定番サービスになりそうです。</div>
+            <div class="testimonial-author"><div><div class="testimonial-name">佐藤めぐみ</div><div class="testimonial-position">インテリアデザイナー</div><div class="testimonial-rating"><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span><span class="testimonial-star"><i class="fas fa-star"></i></span></div></div></div>
           </div>
         </div>
       </div>
-      
       <div class="testimonials-arrows">
         <div class="testimonials-arrow" id="testimonial-prev"><i class="fas fa-chevron-left"></i></div>
         <div class="testimonials-arrow" id="testimonial-next"><i class="fas fa-chevron-right"></i></div>
@@ -961,92 +779,32 @@
     </div>
   </section>
   
-  <!-- 数字で見るサービス -->
   <section class="stats" data-aos="fade-up">
     <h2>数字で見る Express CG</h2>
     <div class="stats-grid">
-      <div class="stat" data-aos="fade-up" data-aos-delay="50">
-        <div class="stat-value">160+</div>
-        <div class="stat-label">納品実績</div>
-      </div>
-      <div class="stat" data-aos="fade-up" data-aos-delay="150">
-        <div class="stat-value">98%</div>
-        <div class="stat-label">リピート率</div>
-      </div>
-      <div class="stat" data-aos="fade-up" data-aos-delay="250">
-        <div class="stat-value">100%</div>
-        <div class="stat-label">納期遵守率</div>
-      </div>
-      <div class="stat" data-aos="fade-up" data-aos-delay="350">
-        <div class="stat-value">4.9</div>
-        <div class="stat-label">平均満足度</div>
-      </div>
+      <div class="stat" data-aos="fade-up" data-aos-delay="50"><div class="stat-value">160+</div><div class="stat-label">納品実績</div></div>
+      <div class="stat" data-aos="fade-up" data-aos-delay="150"><div class="stat-value">98%</div><div class="stat-label">リピート率</div></div>
+      <div class="stat" data-aos="fade-up" data-aos-delay="250"><div class="stat-value">100%</div><div class="stat-label">納期遵守率</div></div>
+      <div class="stat" data-aos="fade-up" data-aos-delay="350"><div class="stat-value">4.9</div><div class="stat-label">平均満足度</div></div>
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="faq" data-aos="fade-up">
     <h2>よくある質問</h2>
     <div class="faq-container">
       <div class="faq-item">
-        <div class="faq-question">
-          <div>どのような図面が必要ですか？</div>
-          <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
-        </div>
-        <div class="faq-answer">
-          <p>基本的には平面図と、CG画像に写る面の立面図または展開図があれば十分です。不足している部分は私たちがプロの目線で推測・モデリングします。どうしても必要な場合はメールでご連絡差し上げます。写真や参考イメージもあればより正確な仕上がりになります。</p>
-        </div>
+        <div class="faq-question"><div>どのような図面が必要ですか？</div><div class="faq-icon"><i class="fas fa-chevron-down"></i></div></div>
+        <div class="faq-answer"><p>基本的には平面図と、CG画像に写る面の立面図または展開図があれば十分です...</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-question">
-          <div>納期は本当に24時間／48時間で守られますか？</div>
-          <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
-        </div>
-        <div class="faq-answer">
-          <p>はい、納期は厳守いたします。Ultra-24プランは24時間以内、Lean-48プランは48時間以内に納品いたします。万が一、納期に遅れた場合は返金保証がございます（Ultra-24は30%、Lean-48は20%の返金）。ただし、Ultra-24プランは1日2カット限定のため、枠が埋まり次第受付終了となります。</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <div>修正は何回までできますか？</div>
-          <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
-        </div>
-        <div class="faq-answer">
-          <p>どちらのプランも1回の無料修正が含まれています。修正は納品後3営業日以内にご依頼ください。2回目以降の修正は1回につき¥10,000（税別）となります。修正の範囲は色調整、家具の追加/削除、光源調整などの軽微なものに限ります。大幅な視点/アングル変更や、構造体の変更は別途お見積りとなります。</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <div>納品形式はどのようなものですか？</div>
-          <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
-        </div>
-        <div class="faq-answer">
-          <p>標準納品形式は4K解像度（3840×2160ピクセル）のJPG画像です。より高解像度が必要な場合やPSD形式での納品をご希望の場合は、ご依頼時にお申し付けください（別途料金がかかる場合があります）。納品はメールまたはクラウドストレージ（Dropbox等）経由で行います。</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <div>キャンセルはできますか？</div>
-          <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
-        </div>
-        <div class="faq-answer">
-          <p>着手前であればキャンセル可能です。ただし、着手後のキャンセルについては、作業の進捗状況に応じて料金が発生します。着手開始のご連絡から1時間以内のキャンセルは料金の20%、6時間以内は50%、それ以降は全額をご請求させていただきます。</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <div>他社のCGサービスとの違いは何ですか？</div>
-          <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
-        </div>
-        <div class="faq-answer">
-          <p>Express CGの特徴は「スピード」「品質」「サポート」の3点です。24時間という超短納期を実現しながらも、日本人建築士によるクオリティチェックで高品質を維持。さらに必要最小限の図面で対応できるため、お客様の準備時間も大幅に削減できます。また、納期遵守率100%という実績と、万が一の際の返金保証制度でリスクゼロでご利用いただけます。</p>
-        </div>
+        <div class="faq-question"><div>納期は本当に24時間／48時間で守られますか？</div><div class="faq-icon"><i class="fas fa-chevron-down"></i></div></div>
+        <div class="faq-answer"><p>はい、納期は厳守いたします...</p></div>
       </div>
     </div>
   </section>
 
   <!-- Order Form -->
-  <section id="order" class="order" data-aos="fade-up">
+  <section id="order" class="order"> <!-- data-aos removed for visibility test -->
     <h2>依頼フォーム</h2>
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
@@ -1055,7 +813,7 @@
         <div class="form-row">
           <div class="form-col">
             <label for="name_customer">お名前 <span class="required">*</span></label>
-            <input type="text" id="name_customer" name="customer_name" required placeholder="山田 太郎"> <!-- MODIFIED: name属性を英数字に -->
+            <input type="text" id="name_customer" name="customer_name" required placeholder="山田 太郎">
           </div>
           <div class="form-col">
             <label for="email_customer">メールアドレス <span class="required">*</span></label>
@@ -1066,11 +824,11 @@
         <div class="form-row">
           <div class="form-col">
             <label for="phone">電話番号</label>
-            <input type="tel" id="phone" name="phone_number" placeholder="03-1234-5678"> <!-- MODIFIED: name属性を英数字に -->
+            <input type="tel" id="phone" name="phone_number" placeholder="03-1234-5678">
           </div>
           <div class="form-col">
             <label for="company">会社名</label>
-            <input type="text" id="company" name="company_name" placeholder="株式会社〇〇設計"> <!-- MODIFIED: name属性を英数字に -->
+            <input type="text" id="company" name="company_name" placeholder="株式会社〇〇設計">
           </div>
         </div>
         
@@ -1078,7 +836,7 @@
           <label>プラン選択 <span class="required">*</span></label>
           <div class="radio-group">
             <div class="radio-option">
-              <input type="radio" id="plan-ultra" name="selected_plan" value="Ultra-24" required class="radio-input"> <!-- MODIFIED: name属性を英数字に -->
+              <input type="radio" id="plan-ultra" name="selected_plan" value="Ultra-24" required class="radio-input">
               <label for="plan-ultra" class="radio-label">
                 Ultra-24
                 <span class="radio-price">¥60,000</span>
@@ -1086,7 +844,7 @@
               </label>
             </div>
             <div class="radio-option">
-              <input type="radio" id="plan-lean" name="selected_plan" value="Lean-48" required class="radio-input"> <!-- MODIFIED: name属性を英数字に -->
+              <input type="radio" id="plan-lean" name="selected_plan" value="Lean-48" required class="radio-input">
               <label for="plan-lean" class="radio-label">
                 Lean-48
                 <span class="radio-price">¥40,000</span>
@@ -1099,8 +857,7 @@
         <div class="form-group">
           <label for="files">図面PDFのアップロード <span class="required">*</span></label>
           <div class="file-upload">
-            <!-- MODIFIED: required を削除 -->
-            <input type="file" id="files" name="attachment_files" multiple accept=".pdf,.jpg,.jpeg,.png"> <!-- MODIFIED: name属性を英数字に -->
+            <input type="file" id="files" name="attachment_files" multiple accept=".pdf,.jpg,.jpeg,.png"> <!-- required removed -->
             <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <div class="upload-text">
               <p class="primary">ここにファイルをドラッグ＆ドロップ</p>
@@ -1113,12 +870,12 @@
         
         <div class="form-group">
           <label for="memo">画角メモ（50字以内） <span class="required">*</span></label>
-          <textarea id="memo" name="view_angle_memo" rows="3" maxlength="50" required placeholder="「キッチンからリビングを見る」「寝室のベッドから窓方向を見る」など"></textarea> <!-- MODIFIED: name属性を英数字に -->
+          <textarea id="memo" name="view_angle_memo" rows="3" maxlength="50" required placeholder="「キッチンからリビングを見る」「寝室のベッドから窓方向を見る」など"></textarea>
         </div>
         
         <div class="form-group">
           <label for="notes">その他ご要望（任意）</label>
-          <textarea id="notes" name="other_requests" rows="3" placeholder="素材、照明、時間帯など特別なご要望があればご記入ください"></textarea> <!-- MODIFIED: name属性を英数字に -->
+          <textarea id="notes" name="other_requests" rows="3" placeholder="素材、照明、時間帯など特別なご要望があればご記入ください"></textarea>
         </div>
         
         <div class="form-guarantee">
@@ -1128,7 +885,7 @@
           </div>
         </div>
 <div class="agreement-row">
-  <input type="checkbox" name="agreement_terms_trade" value="yes" required> <!-- MODIFIED: name属性を英数字に -->
+  <input type="checkbox" name="agreement_terms_trade" value="yes" required>
   <span>
     <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">
       特定商取引法に基づく表記
@@ -1137,7 +894,7 @@
 </div>
 
 <div class="agreement-row">
-  <input type="checkbox" name="agreement_terms_service" value="yes" required> <!-- MODIFIED: name属性を英数字に -->
+  <input type="checkbox" name="agreement_terms_service" value="yes" required>
   <span>
     <a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">
       利用規約
@@ -1146,7 +903,7 @@
 </div>
 
 <div class="agreement-row">
-  <input type="checkbox" name="agreement_privacy_policy" value="yes" required> <!-- MODIFIED: name属性を英数字に -->
+  <input type="checkbox" name="agreement_privacy_policy" value="yes" required>
   <span>
     <a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">
       プライバシーポリシー
@@ -1165,11 +922,7 @@
         <a href="#" class="footer-logo">Express<span>CG</span></a>
         <p>図面だけでOK、最短24時間でハイクオリティCGを提供する特急パースサービス。設計事務所、デベロッパー、インテリアデザイナーの強い味方です。</p>
         <div class="footer-contact">
-          <p>お問い合わせ: 
-   <a href="mailto:emwlgh39dell@gmail.com">
-     emwlgh39dell@gmail.com
-   </a>
-</p>
+          <p>お問い合わせ: <a href="mailto:emwlgh39dell@gmail.com">emwlgh39dell@gmail.com</a></p>
         </div>
       </div>
       <div class="footer-links">
@@ -1195,16 +948,8 @@
     <div class="copyright">© 2025 Archi‑Prisma Design works Inc.</div>
   </footer>
 
-  <!-- Sticky CTA -->
   <a href="#order" class="btn sticky-cta pulse"><i class="fas fa-bolt"></i> 今すぐ依頼</a>
 
-  <!-- REMOVED: JavaScript block -->
-  <!-- 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // AOS初期化
-    // ... (all previous JS code was here) ...
-  </script>
-  -->
+  <!-- All JavaScript is removed for this minimal test -->
 </body>
 </html>
