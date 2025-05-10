@@ -883,7 +883,7 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">田中一郎</div>
+                <div class="testimonial-name">I.T</div>
                 <div class="testimonial-position">建築設計事務所 代表</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -903,7 +903,7 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">佐藤めぐみ</div>
+                <div class="testimonial-name">M.S</div>
                 <div class="testimonial-position">インテリアデザイナー</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -923,7 +923,7 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">鈴木健太</div>
+                <div class="testimonial-name">K.S</div>
                 <div class="testimonial-position">不動産デベロッパー</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -943,8 +943,8 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">高橋誠</div>
-                <div class="testimonial-position">設計事務所 主任</div>
+                <div class="testimonial-name">M.T</div>
+                <div class="testimonial-position">設計事務所</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -1054,7 +1054,8 @@
     <h2>依頼フォーム</h2>
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
-      <form action="#" method="POST">
+      <!-- MODIFIED: form tag -->
+      <form id="orderForm" action="javascript:void(0);">
         <div class="form-row">
           <div class="form-col">
             <label for="name">お名前 <span class="required">*</span></label>
@@ -1561,40 +1562,41 @@ function closeModal() {
   document.body.style.overflow = ''; // スクロール復活
 }
 </script>
-<!-- ★ ここから貼り付け（</body> の直前）-------------------- -->
-<script src="https://cdn.emailjs.com/sdk/3.11/email.min.js"></script>
+<!-- ★ REPLACED BLOCK: EmailJS Script START -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-(function(){
-  /* ① 自分の公開キーに置き換える */
-  emailjs.init("NiIep3pXn1yxjrZuC");
+document.addEventListener('DOMContentLoaded',()=>{
+  emailjs.init('NiIep3pXn1yxjrZuC');        // ←公開キー
 
-  const form = document.querySelector("#order form");
+  const form = document.getElementById('orderForm');
 
-  form.addEventListener("submit", async (e)=>{
-    e.preventDefault();
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();                     // ブラウザ標準 POST を阻止
 
-    const name  = form.name.value.trim();
-    const email = form.email.value.trim();
+    const name  = form.elements.name.value.trim(); // MODIFIED: Use form.elements
+    const email = form.elements.email.value.trim(); // MODIFIED: Use form.elements
 
-    /* ② SERVICE_ID とテンプレ ID を自分の値に置換 */
-    await emailjs.send("service_abc123x","template_owner",{
-      user_name : name,
-      user_email: email,
-      plan      : form.plan.value,
-      memo      : form.memo.value
-    });
+    try{
+      // 添付ファイルを含めてオーナーへ送信
+      await emailjs.sendForm('service_abc123x','template_owner',form);
+      
+      // 依頼者への自動返信（添付は不要なので send で OK）
+      await emailjs.send('service_abc123x','template_client',{
+        to_name : name,
+        to_email: email
+      });
 
-    await emailjs.send("service_abc123x","template_client",{
-      to_name  : name,
-      to_email : email
-    });
-
-    alert("送信が完了しました。まもなく確認メールが届きます。");
-    form.reset();
+      // alert("送信が完了しました。まもなく確認メールが届きます。"); //  MODIFIED: Redirect instead of alert
+      // form.reset(); // MODIFIED: Redirect instead of reset
+      window.location.href = '/thanks.html'; // サンクスページへ
+    }catch(err){
+      console.error(err);
+      alert('送信に失敗しました。再度お試しください。');
+    }
   });
-})();
+});
 </script>
-<!-- ★ ここまで貼り付け ------------------------------------- -->
+<!-- ★ REPLACED BLOCK: EmailJS Script END -->
 <script>
 /* ---------- Progress Widget JS ここから ---------- */
 
@@ -1618,79 +1620,74 @@ function formatRemaining(start, durationH){
 
 /** 画面更新 */
 async function renderProgress(){
-  const list = await fetchProjectData();
+  try { // Add try-catch for fetch errors
+    const list = await fetchProjectData();
 
-  const active  = list.filter(p=>p.status==='active').slice(0,2);
-  const waiting = list.filter(p=>p.status==='waiting');
-  const total   = list.length;
+    const activeProjects = list.filter(p => p.status==='active');
+    const holdProjects = list.filter(p => p.status==='hold');
+    const waitingProjects = list.filter(p => p.status==='waiting');
 
-  /* ▼ ランプ更新 */
-  [lamp1,lamp2,lamp3].forEach((el,i)=>{
-    if(waiting[i]) el.classList.add('on'); else el.classList.remove('on');
-  });
+    /* ランプ更新 */
+    const lamp1 = document.getElementById('lamp1');
+    const lamp2 = document.getElementById('lamp2');
+    const lamp3 = document.getElementById('lamp3');
+    if (lamp1 && lamp2 && lamp3) { // Check if elements exist
+        [lamp1, lamp2, lamp3].forEach((el,i)=>{
+            if(waitingProjects[i]) el.classList.add('on'); else el.classList.remove('on');
+        });
+    }
 
-  /* ▼ タイマー２個生成 */
-  const boxParent = document.getElementById('active-timers');
-  boxParent.innerHTML='';
-  active.forEach(p=>{
-    const remain = formatRemaining(p.startTime,p.duration);
-    const box = document.createElement('div');
-    box.className='timer-box';
-    box.innerHTML = `
-      <span class="timer-title">${p.name}</span>
-      <span class="timer-value">${remain}</span>
-    `;
-    boxParent.appendChild(box);
-  });
 
-  /* ▼ 数字テキスト更新 */
-  document.getElementById('waiting-count').textContent = `待機中：${waiting.length}件`;
-  document.getElementById('weekly-limit').textContent  = `今週の受付残：${Math.max(0,5-total)}件`;
-}
-async function renderProgress(){
-  const list = await fetchProjectData();
+    /* 残り時間の短いプロジェクトのみ表示 */
+    const boxParent = document.getElementById('active-timers');
+    if (boxParent) { // Check if element exists
+        boxParent.innerHTML = '';
 
-  const activeProjects = list.filter(p => p.status==='active');
-  const holdProjects = list.filter(p => p.status==='hold');
-  const waitingProjects = list.filter(p => p.status==='waiting');
+        if(activeProjects.length > 0){
+            const shortest = activeProjects.reduce((prev, curr) => {
+            const prevEnd = prev.startTime + prev.duration*3600000;
+            const currEnd = curr.startTime + curr.duration*3600000;
+            return prevEnd < currEnd ? prev : curr;
+            });
 
-  /* ランプ更新 */
-  [lamp1, lamp2, lamp3].forEach((el,i)=>{
-    if(waitingProjects[i]) el.classList.add('on'); else el.classList.remove('on');
-  });
+            const remain = formatRemaining(shortest.startTime, shortest.duration);
+            boxParent.innerHTML = `
+            <div class="timer-box">
+                <span class="timer-title">${shortest.name}</span>
+                <span class="timer-value">${remain}</span>
+            </div>`;
+        } else if(holdProjects.length > 0){
+            /* 一時保留（枠確保）の場合 */
+            boxParent.innerHTML = `
+            <div class="timer-box hold">
+                <span class="timer-title">${holdProjects[0].name}</span>
+                <span class="timer-value">枠確保中</span>
+            </div>`;
+        } else {
+            /* タイマー非表示（受注なし） */
+            boxParent.innerHTML = ''; // 非表示
+        }
+    }
 
-  /* 残り時間の短いプロジェクトのみ表示 */
-  const boxParent = document.getElementById('active-timers');
-  boxParent.innerHTML = '';
+    /* 数字テキスト更新 */
+    const waitingCountEl = document.getElementById('waiting-count');
+    const weeklyLimitEl = document.getElementById('weekly-limit');
 
-  if(activeProjects.length > 0){
-    const shortest = activeProjects.reduce((prev, curr) => {
-      const prevEnd = prev.startTime + prev.duration*3600000;
-      const currEnd = curr.startTime + curr.duration*3600000;
-      return prevEnd < currEnd ? prev : curr;
-    });
+    if (waitingCountEl) waitingCountEl.textContent = `待機中：${waitingProjects.length}件`;
+    if (weeklyLimitEl) weeklyLimitEl.textContent  = `今週の受付残：${Math.max(0,5-list.length)}件`;
 
-    const remain = formatRemaining(shortest.startTime, shortest.duration);
-    boxParent.innerHTML = `
-      <div class="timer-box">
-        <span class="timer-title">${shortest.name}</span>
-        <span class="timer-value">${remain}</span>
-      </div>`;
-  } else if(holdProjects.length > 0){
-    /* 一時保留（枠確保）の場合 */
-    boxParent.innerHTML = `
-      <div class="timer-box hold">
-        <span class="timer-title">${holdProjects[0].name}</span>
-        <span class="timer-value">枠確保中</span>
-      </div>`;
-  } else {
-    /* タイマー非表示（受注なし） */
-    boxParent.innerHTML = ''; // 非表示
+  } catch (error) {
+      console.error("Error fetching or rendering project data:", error);
+      // Optionally display an error message to the user in the widget area
+      const boxParent = document.getElementById('active-timers');
+      if (boxParent) boxParent.innerHTML = '<p style="color:white;">進捗情報の取得に失敗しました。</p>';
+      const waitingCountEl = document.getElementById('waiting-count');
+      if (waitingCountEl) waitingCountEl.textContent = '待機中：取得エラー';
+      const weeklyLimitEl = document.getElementById('weekly-limit');
+      if (weeklyLimitEl) weeklyLimitEl.textContent = '今週の受付残：取得エラー';
+
+
   }
-
-  /* 数字テキスト更新 */
-  document.getElementById('waiting-count').textContent = `待機中：${waitingProjects.length}件`;
-  document.getElementById('weekly-limit').textContent  = `今週の受付残：${Math.max(0,5-list.length)}件`;
 }
 
 /* 1分周期で更新（初回即実行） */
