@@ -883,7 +883,7 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">I.T</div>
+                <div class="testimonial-name">田中一郎</div>
                 <div class="testimonial-position">建築設計事務所 代表</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -903,7 +903,7 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">M.S</div>
+                <div class="testimonial-name">佐藤めぐみ</div>
                 <div class="testimonial-position">インテリアデザイナー</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -923,7 +923,7 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">K.S</div>
+                <div class="testimonial-name">鈴木健太</div>
                 <div class="testimonial-position">不動産デベロッパー</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -943,8 +943,8 @@
             <div class="testimonial-author">
               <img src="/api/placeholder/60/60" alt="avatar" class="testimonial-avatar" />
               <div>
-                <div class="testimonial-name">M.T</div>
-                <div class="testimonial-position">設計事務所</div>
+                <div class="testimonial-name">高橋誠</div>
+                <div class="testimonial-position">設計事務所 主任</div>
                 <div class="testimonial-rating">
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
                   <span class="testimonial-star"><i class="fas fa-star"></i></span>
@@ -1054,15 +1054,27 @@
     <h2>依頼フォーム</h2>
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
-      <!-- MODIFIED: form tag -->
-      <form id="orderForm" action="javascript:void(0);">
+      <!-- MODIFIED: Form tag for FormSubmit -->
+      <form id="orderForm" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" enctype="multipart/form-data">
+        <!-- ★★★ 上記 action="https://formsubmit.co/YOUR_EMAIL_HERE" の YOUR_EMAIL_HERE をあなたの受信メールアドレスに置き換えてください ★★★ -->
+
+        <!-- FormSubmit 用カスタムフィールド -->
+        <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
+        <!-- <input type="hidden" name="_template" value="box"> FormSubmitのデフォルトテンプレートを使用する場合や、特に指定がなければ不要 -->
+        <input type="hidden" name="_captcha" value="false"> <!-- reCAPTCHAを無効にする場合。有効にするならこの行を削除または value="true" にする -->
+        <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
+        <input type="hidden" name="_next" value="YOUR_THANKYOU_PAGE_URL_HERE"> <!-- ★★★ 送信後のサンクスページURLに置き換えてください (例: https://example.com/thanks.html) ★★★ -->
+
+
         <div class="form-row">
           <div class="form-col">
             <label for="name">お名前 <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required placeholder="山田 太郎">
+            <!-- FormSubmitではname属性がメールのラベルになるので、日本語でもOK -->
+            <input type="text" id="name" name="お名前" required placeholder="山田 太郎">
           </div>
           <div class="form-col">
             <label for="email">メールアドレス <span class="required">*</span></label>
+            <!-- FormSubmitの自動返信のため、name="email" とすることが推奨される -->
             <input type="email" id="email" name="email" required placeholder="example@gmail.com">
           </div>
         </div>
@@ -1070,11 +1082,11 @@
         <div class="form-row">
           <div class="form-col">
             <label for="phone">電話番号</label>
-            <input type="tel" id="phone" name="phone" placeholder="03-1234-5678">
+            <input type="tel" id="phone" name="電話番号" placeholder="03-1234-5678">
           </div>
           <div class="form-col">
             <label for="company">会社名</label>
-            <input type="text" id="company" name="company" placeholder="株式会社〇〇設計">
+            <input type="text" id="company" name="会社名" placeholder="株式会社〇〇設計">
           </div>
         </div>
         
@@ -1082,7 +1094,8 @@
           <label>プラン選択 <span class="required">*</span></label>
           <div class="radio-group">
             <div class="radio-option">
-              <input type="radio" id="plan-ultra" name="plan" value="ultra-24" required class="radio-input">
+              <!-- ラジオボタンのname属性は共通にする -->
+              <input type="radio" id="plan-ultra" name="プラン" value="Ultra-24" required class="radio-input">
               <label for="plan-ultra" class="radio-label">
                 Ultra-24
                 <span class="radio-price">¥60,000</span>
@@ -1090,7 +1103,7 @@
               </label>
             </div>
             <div class="radio-option">
-              <input type="radio" id="plan-lean" name="plan" value="lean-48" required class="radio-input">
+              <input type="radio" id="plan-lean" name="プラン" value="Lean-48" required class="radio-input">
               <label for="plan-lean" class="radio-label">
                 Lean-48
                 <span class="radio-price">¥40,000</span>
@@ -1103,25 +1116,27 @@
         <div class="form-group">
           <label for="files">図面PDFのアップロード <span class="required">*</span></label>
           <div class="file-upload">
-            <input type="file" id="files" name="files" multiple accept=".pdf,.jpg,.jpeg,.png" required>
+            <!-- name属性を "図面PDF" または "attachment" などFormSubmitが認識しやすいものに -->
+            <!-- multiple を許可する場合は name="files[]" のようにする場合もあるが、FormSubmitの仕様を確認 -->
+            <input type="file" id="files" name="図面PDF" multiple accept=".pdf,.jpg,.jpeg,.png" required>
             <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <div class="upload-text">
               <p class="primary">ここにファイルをドラッグ＆ドロップ</p>
               <p>または</p>
               <p>クリックしてファイルを選択</p>
-              <p><small>PDF, JPG, PNG（最大10MBまで）</small></p>
+              <p><small>PDF, JPG, PNG（合計5MBまで）</small></p> <!-- MODIFIED: ファイルサイズ制限を明記 -->
             </div>
           </div>
         </div>
         
         <div class="form-group">
           <label for="memo">画角メモ（50字以内） <span class="required">*</span></label>
-          <textarea id="memo" name="memo" rows="3" maxlength="50" required placeholder="「キッチンからリビングを見る」「寝室のベッドから窓方向を見る」など"></textarea>
+          <textarea id="memo" name="画角メモ" rows="3" maxlength="50" required placeholder="「キッチンからリビングを見る」「寝室のベッドから窓方向を見る」など"></textarea>
         </div>
         
         <div class="form-group">
           <label for="notes">その他ご要望（任意）</label>
-          <textarea id="notes" name="notes" rows="3" placeholder="素材、照明、時間帯など特別なご要望があればご記入ください"></textarea>
+          <textarea id="notes" name="その他ご要望" rows="3" placeholder="素材、照明、時間帯など特別なご要望があればご記入ください"></textarea>
         </div>
         
         <div class="form-guarantee">
@@ -1133,7 +1148,8 @@
 <!-- ▼ 3つの同意チェックボックスを追加 BEGIN -->
 <!-- ▼チェックボックス３行 BEGIN -->
 <div class="agreement-row">
-  <input type="checkbox" name="chk-tokushoho" required>
+  <!-- FormSubmitに送信するため、name属性は FormSubmit 側で認識されるようにする (例: "同意_特商法") -->
+  <input type="checkbox" name="同意_特商法" value="はい" required>
   <span>
     <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">
       特定商取引法に基づく表記
@@ -1142,7 +1158,7 @@
 </div>
 
 <div class="agreement-row">
-  <input type="checkbox" name="chk-terms" required>
+  <input type="checkbox" name="同意_利用規約" value="はい" required>
   <span>
     <a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">
       利用規約
@@ -1151,7 +1167,7 @@
 </div>
 
 <div class="agreement-row">
-  <input type="checkbox" name="chk-privacy" required>
+  <input type="checkbox" name="同意_プライバシーポリシー" value="はい" required>
   <span>
     <a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">
       プライバシーポリシー
@@ -1220,18 +1236,26 @@
     });
     
     // 残り枠のカウント表示（ランダム）
-    document.getElementById('spot').textContent = Math.max(1, 2-Math.floor(Math.random()*1.3));
+    const spotElement = document.getElementById('spot');
+    if (spotElement) { // 要素の存在を確認
+        spotElement.textContent = Math.max(1, 2-Math.floor(Math.random()*1.3));
+    }
     
     // カウントダウンタイマー
     function updateCountdown() {
-      // 現在の時刻から当日の23:59:59までの残り時間を計算
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      if (!hoursEl || !minutesEl || !secondsEl) return; // 要素の存在を確認
+
       const now = new Date();
       const endOfDay = new Date();
       endOfDay.setHours(23, 59, 59, 999);
       
       let diff = endOfDay - now;
+      if (diff < 0) diff = 0; // 過去の場合は0にする
       
-      // ミリ秒を時、分、秒に変換
       const hours = Math.floor(diff / (1000 * 60 * 60));
       diff -= hours * (1000 * 60 * 60);
       
@@ -1240,16 +1264,12 @@
       
       const secs = Math.floor(diff / 1000);
       
-      // 表示を更新
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = mins.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = secs.toString().padStart(2, '0');
+      hoursEl.textContent = hours.toString().padStart(2, '0');
+      minutesEl.textContent = mins.toString().padStart(2, '0');
+      secondsEl.textContent = secs.toString().padStart(2, '0');
     }
     
-    // 初回実行
     updateCountdown();
-    
-    // 1秒ごとに更新
     setInterval(updateCountdown, 1000);
     
     // FAQのアコーディオン機能
@@ -1258,443 +1278,326 @@
         const item = question.parentNode;
         const isActive = item.classList.contains('active');
         
-        // 全てのアイテムを閉じる
-        document.querySelectorAll('.faq-item').forEach(faqItem => {
-          faqItem.classList.remove('active');
+        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+          if (activeItem !== item) {
+            activeItem.classList.remove('active');
+          }
         });
         
-        // クリックされたアイテムだけを開く（トグル）
-        if (!isActive) {
-          item.classList.add('active');
-        }
+        item.classList.toggle('active');
       });
     });
     
     // ビデオポップアップ
-const videoTrigger   = document.getElementById('video-trigger');
-const videoOverlay   = document.getElementById('video-overlay');
-const videoClose     = document.getElementById('video-close');
-const backgroundVideo= document.querySelector('.hero-bg');  // 背景ビデオ
+    const videoTrigger   = document.getElementById('video-trigger');
+    const videoOverlay   = document.getElementById('video-overlay');
+    const videoClose     = document.getElementById('video-close');
+    const backgroundVideo= document.querySelector('.hero-bg');
 
-videoTrigger.addEventListener('click', (e) => {
-  e.preventDefault();
-  videoOverlay.classList.add('active');
-  backgroundVideo.classList.add('bright'); // 明るく
-  backgroundVideo.muted = false;           // 音声 ON
-  backgroundVideo.play();                  // 再生
-});
+    if (videoTrigger && videoOverlay && videoClose && backgroundVideo) {
+        videoTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        videoOverlay.classList.add('active');
+        backgroundVideo.classList.add('bright');
+        if (backgroundVideo.paused) backgroundVideo.play(); // 再生中でなければ再生
+        backgroundVideo.muted = false;
+        });
 
-videoClose.addEventListener('click', () => {
-  videoOverlay.classList.remove('active');
-  backgroundVideo.classList.remove('bright'); // 明るさ戻す
-  backgroundVideo.muted = true;               // 音声 OFF
-});
+        videoClose.addEventListener('click', () => {
+        videoOverlay.classList.remove('active');
+        backgroundVideo.classList.remove('bright');
+        backgroundVideo.muted = true;
+        // backgroundVideo.pause(); // ポップアップを閉じたら停止させる場合はこちらを有効化
+        });
+    }
     
-    // ギャラリータブ
-    document.querySelectorAll('.gallery-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        // アクティブなタブのスタイルを更新
-        document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        
-        // タブのカテゴリを取得
-        const category = tab.getAttribute('data-tab');
-        
-        // すべてのギャラリーアイテムを表示
-        if (category === 'all') {
-          document.querySelectorAll('.gallery-item').forEach(item => {
-            item.style.display = 'block';
-          });
-        } else {
-          // カテゴリに一致するアイテムのみ表示
-          document.querySelectorAll('.gallery-item').forEach(item => {
-            if (item.getAttribute('data-category') === category) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        }
-      });
-    });
+    // ギャラリータブ (フィルタリングロジック)
+    const galleryTabs = document.querySelectorAll('.gallery-tab');
+    const galleryGridItems = document.querySelectorAll('.gallery-item');
+
+    if (galleryTabs.length > 0 && galleryGridItems.length > 0) {
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filter = tab.getAttribute('data-filter');
+                
+                galleryGridItems.forEach(item => {
+                    if (filter === 'すべて' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
     
-    // ギャラリーモーダル
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    // ギャラリーモーダル表示
     const galleryModal = document.getElementById('gallery-modal');
-    const galleryModalClose = document.getElementById('gallery-modal-close');
-    const galleryModalImage = document.getElementById('gallery-modal-image');
-    const galleryModalCaption = document.getElementById('gallery-modal-caption');
+    const galleryModalImage = document.getElementById('gallery-modal-image'); // 修正: id="gallery-modal-image" のimg要素
+    const galleryModalCloseButton = document.getElementById('gallery-modal-close'); // 修正: id="gallery-modal-close" の閉じるボタン
+
+    if (galleryModal && galleryModalImage && galleryModalCloseButton) {
+        galleryGridItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const imgSrc = item.querySelector('img').src;
+            // const imgAlt = item.querySelector('img').alt; // キャプション表示する場合
+            
+            galleryModalImage.src = imgSrc;
+            // document.getElementById('gallery-modal-caption').textContent = imgAlt; // キャプション表示する場合
+            galleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 背景スクロール禁止
+        });
+        });
     
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const imgSrc = item.querySelector('img').src;
-        const imgAlt = item.querySelector('img').alt;
-        
-        galleryModalImage.src = imgSrc;
-        galleryModalCaption.textContent = imgAlt;
-        galleryModal.classList.add('active');
-      });
-    });
-    
-    galleryModalClose.addEventListener('click', () => {
-      galleryModal.classList.remove('active');
-    });
-    
+        galleryModalCloseButton.addEventListener('click', () => {
+        galleryModal.classList.remove('active');
+        document.body.style.overflow = ''; // 背景スクロール許可
+        });
+
+        // モーダル背景クリックで閉じる (任意)
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                galleryModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
     // テスティモニアルスライダー
     const testimonialTrack = document.getElementById('testimonials-track');
-    const testimonials = document.querySelectorAll('.testimonial');
+    const testimonials = document.querySelectorAll('.testimonial'); // スライド要素のセレクタ
     const prevButton = document.getElementById('testimonial-prev');
     const nextButton = document.getElementById('testimonial-next');
-    let testimonialIndex = 0;
-    const testimonialWidth = 430; // 各テスティモニアルの幅（マージン含む）
     
-    // 初期状態の設定
-    testimonialTrack.style.transform = `translateX(0)`;
+    if (testimonialTrack && testimonials.length > 0 && prevButton && nextButton) {
+        let testimonialIndex = 0;
+        const testimonialWidth = testimonials[0].offsetWidth + parseInt(getComputedStyle(testimonials[0]).marginRight); // マージンも考慮
+
+        function updateSliderPosition() {
+            testimonialTrack.style.transform = `translateX(-${testimonialIndex * testimonialWidth}px)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (testimonialIndex < testimonials.length - 1) {
+                testimonialIndex++;
+                updateSliderPosition();
+            }
+        });
     
-    // 次のスライドへ
-    nextButton.addEventListener('click', () => {
-      if (testimonialIndex < testimonials.length - 1) {
-        testimonialIndex++;
-        testimonialTrack.style.transform = `translateX(-${testimonialIndex * testimonialWidth}px)`;
-      }
-    });
-    
-    // 前のスライドへ
-    prevButton.addEventListener('click', () => {
-      if (testimonialIndex > 0) {
-        testimonialIndex--;
-        testimonialTrack.style.transform = `translateX(-${testimonialIndex * testimonialWidth}px)`;
-      }
-    });
+        prevButton.addEventListener('click', () => {
+            if (testimonialIndex > 0) {
+                testimonialIndex--;
+                updateSliderPosition();
+            }
+        });
+        // 初期位置設定（必要であれば）
+        // updateSliderPosition();
+    }
     
     // 比較スライダー
     const comparisonHandle = document.getElementById('comparison-handle');
     const comparisonBefore = document.querySelector('.comparison-before');
     
     if (comparisonHandle && comparisonBefore) {
-      const slider = comparisonHandle.parentElement;
+      const slider = comparisonHandle.closest('.comparison-slider'); // 親要素を正しく取得
       let isResizing = false;
       
-      comparisonHandle.addEventListener('mousedown', (e) => {
+      const startResize = (e) => {
         e.preventDefault();
         isResizing = true;
-      });
-      
-      document.addEventListener('mousemove', (e) => {
+        slider.classList.add('resizing'); // リサイズ中のスタイル用 (任意)
+      };
+
+      const doResize = (clientX) => {
         if (!isResizing) return;
-        
         const sliderRect = slider.getBoundingClientRect();
-        const position = (e.clientX - sliderRect.left) / sliderRect.width;
+        let position = (clientX - sliderRect.left) / sliderRect.width;
+        position = Math.max(0, Math.min(1, position)); // 0-1の範囲に制限
         
-        // 位置を0%から100%の範囲に制限
-        const clampedPosition = Math.max(0, Math.min(1, position));
-        
-        // スライダーとハンドルの位置を更新
-        comparisonBefore.style.width = `${clampedPosition * 100}%`;
-        comparisonHandle.style.left = `${clampedPosition * 100}%`;
-      });
-      
-      document.addEventListener('mouseup', () => {
+        comparisonBefore.style.width = `${position * 100}%`;
+        comparisonHandle.style.left = `${position * 100}%`;
+      };
+
+      const stopResize = () => {
         isResizing = false;
-      });
+        slider.classList.remove('resizing'); // リサイズ中のスタイル解除 (任意)
+      };
+
+      comparisonHandle.addEventListener('mousedown', startResize);
+      document.addEventListener('mousemove', (e) => doResize(e.clientX));
+      document.addEventListener('mouseup', stopResize);
       
-      // タッチデバイス対応
-      comparisonHandle.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        isResizing = true;
-      });
-      
-      document.addEventListener('touchmove', (e) => {
-        if (!isResizing) return;
-        
-        const sliderRect = slider.getBoundingClientRect();
-        const touch = e.touches[0];
-        const position = (touch.clientX - sliderRect.left) / sliderRect.width;
-        
-        // 位置を0%から100%の範囲に制限
-        const clampedPosition = Math.max(0, Math.min(1, position));
-        
-        // スライダーとハンドルの位置を更新
-        comparisonBefore.style.width = `${clampedPosition * 100}%`;
-        comparisonHandle.style.left = `${clampedPosition * 100}%`;
-      });
-      
-      document.addEventListener('touchend', () => {
-        isResizing = false;
-      });
+      comparisonHandle.addEventListener('touchstart', (e) => startResize(e.touches[0]));
+      document.addEventListener('touchmove', (e) => doResize(e.touches[0].clientX));
+      document.addEventListener('touchend', stopResize);
     }
     
     // ナビゲーションのスムーズスクロール
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '') { // 単なる # や空のhrefは無視
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // トップへスクロール
+            return;
+        }
+        const targetElement = document.querySelector(href);
         if (targetElement) {
-          const offset = 80; // ヘッダーの高さ分をオフセット
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+            e.preventDefault();
+            const offset = document.getElementById('header') ? document.getElementById('header').offsetHeight : 80;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            // モバイルメニューが開いていたら閉じる (もしあれば)
+            const mobileMenu = document.querySelector('.nav-links.active'); // 仮のセレクタ
+            if (mobileMenu) mobileMenu.classList.remove('active');
         }
       });
     });
     
     // 依頼フォーム画像プレビュー機能
     const fileInput = document.getElementById('files');
-    const fileUpload = document.querySelector('.file-upload');
+    const fileUploadElement = document.querySelector('.file-upload'); // 変数名を変更
     
-    fileInput.addEventListener('change', function() {
-      if (this.files.length > 0) {
-        const fileNames = Array.from(this.files).map(file => file.name).join(', ');
-        const uploadText = document.querySelector('.upload-text');
-        uploadText.innerHTML = `<p class="primary">選択されたファイル:</p><p style="font-weight:600;color:var(--accent);">${fileNames}</p><p><small>${this.files.length}ファイル選択済み</small></p>`;
-        fileUpload.style.borderColor = 'var(--accent)';
-        fileUpload.style.background = '#fff';
-      }
-    });
-  </script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // モーダル表示
-  const galleryItems = document.querySelectorAll('.gallery-item img');
-  const modal = document.getElementById('gallery-modal');
-  const modalImg = document.querySelector('.gallery-modal-image');
-  const modalClose = document.getElementById('gallery-modal-close');
-
-  galleryItems.forEach(item => {
-    item.addEventListener('click', function () {
-      modalImg.src = item.src;
-      modal.classList.add('active');
-    });
-  });
-
-  modalClose.addEventListener('click', function () {
-    modal.classList.remove('active');
-  });
-
-  // フィルタ
-  const tabs = document.querySelectorAll('.gallery-tab');
-  const items = document.querySelectorAll('.gallery-item');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-      const filter = tab.getAttribute('data-filter');
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      items.forEach(item => {
-        if (filter === 'すべて' || item.getAttribute('data-category') === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-</script>
-<script>
-  // モーダルを開くとき
-  function openModal() {
-    document.getElementById('gallery-modal').classList.add('active');
-    document.body.style.overflow = 'hidden'; // ← スクロール禁止
-  }
-
-  // モーダルを閉じるとき
-  function closeModal() {
-    document.getElementById('gallery-modal').classList.remove('active');
-    document.body.style.overflow = ''; // ← スクロール戻す
-  }
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // モーダル表示
-  const galleryItems = document.querySelectorAll('.gallery-item img');
-  const modal = document.getElementById('gallery-modal');
-  const modalImg = document.querySelector('.gallery-modal-image');
-  const modalClose = document.getElementById('gallery-modal-close');
-
-  galleryItems.forEach(item => {
-    item.addEventListener('click', function () {
-      modalImg.src = item.src;
-      openModal(); // ✅ openModal() を呼ぶ！
-    });
-  });
-
-  modalClose.addEventListener('click', function () {
-    closeModal(); // ✅ closeModal() を呼ぶ！
-  });
-
-  // フィルタ機能
-  const tabs = document.querySelectorAll('.gallery-tab');
-  const items = document.querySelectorAll('.gallery-item');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-      const filter = tab.getAttribute('data-filter');
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      items.forEach(item => {
-        if (filter === 'すべて' || item.getAttribute('data-category') === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-
-// モーダルを開くとき
-function openModal() {
-  document.getElementById('gallery-modal').classList.add('active');
-  document.body.style.overflow = 'hidden'; // スクロール禁止
-}
-
-// モーダルを閉じるとき
-function closeModal() {
-  document.getElementById('gallery-modal').classList.remove('active');
-  document.body.style.overflow = ''; // スクロール復活
-}
-</script>
-<!-- ★ REPLACED BLOCK: EmailJS Script START -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-  emailjs.init('NiIep3pXn1yxjrZuC');        // ←公開キー
-
-  const form = document.getElementById('orderForm');
-
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();                     // ブラウザ標準 POST を阻止
-
-    const name  = form.elements.name.value.trim(); // MODIFIED: Use form.elements
-    const email = form.elements.email.value.trim(); // MODIFIED: Use form.elements
-
-    try{
-      // 添付ファイルを含めてオーナーへ送信
-      await emailjs.sendForm('service_abc123x','template_owner',form);
-      
-      // 依頼者への自動返信（添付は不要なので send で OK）
-      await emailjs.send('service_abc123x','template_client',{
-        to_name : name,
-        to_email: email
-      });
-
-      // alert("送信が完了しました。まもなく確認メールが届きます。"); //  MODIFIED: Redirect instead of alert
-      // form.reset(); // MODIFIED: Redirect instead of reset
-      window.location.href = '/thanks.html'; // サンクスページへ
-    }catch(err){
-      console.error(err);
-      alert('送信に失敗しました。再度お試しください。');
-    }
-  });
-});
-</script>
-<!-- ★ REPLACED BLOCK: EmailJS Script END -->
-<script>
-/* ---------- Progress Widget JS ここから ---------- */
-
-/** ★ データ取得部分 ★
- * ここでは簡易に JSON ファイルを fetch しています。
- * Firebase などに置き換える場合は ↓ を変更するだけで OK */
-async function fetchProjectData(){
-  const res = await fetch('/data/projects.json');    // ←パスは運用環境に合わせて
-  return await res.json();
-}
-
-/** 残り時間を「○時間○分」形式で返す */
-function formatRemaining(start, durationH){
-  const end = new Date(start + durationH*3600*1000);
-  const diff = end - Date.now();
-  if(diff<=0) return '00:00';
-  const h = Math.floor(diff/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
-}
-
-/** 画面更新 */
-async function renderProgress(){
-  try { // Add try-catch for fetch errors
-    const list = await fetchProjectData();
-
-    const activeProjects = list.filter(p => p.status==='active');
-    const holdProjects = list.filter(p => p.status==='hold');
-    const waitingProjects = list.filter(p => p.status==='waiting');
-
-    /* ランプ更新 */
-    const lamp1 = document.getElementById('lamp1');
-    const lamp2 = document.getElementById('lamp2');
-    const lamp3 = document.getElementById('lamp3');
-    if (lamp1 && lamp2 && lamp3) { // Check if elements exist
-        [lamp1, lamp2, lamp3].forEach((el,i)=>{
-            if(waitingProjects[i]) el.classList.add('on'); else el.classList.remove('on');
+    if (fileInput && fileUploadElement) {
+        fileInput.addEventListener('change', function() {
+            const uploadText = fileUploadElement.querySelector('.upload-text'); // fileUploadElementから検索
+            if (this.files.length > 0) {
+                const fileNames = Array.from(this.files).map(file => file.name).join(', ');
+                uploadText.innerHTML = `<p class="primary">選択されたファイル:</p><p style="font-weight:600;color:var(--accent);">${fileNames}</p><p><small>${this.files.length}ファイル選択済み</small></p>`;
+                fileUploadElement.style.borderColor = 'var(--accent)';
+                fileUploadElement.style.background = '#fff';
+            } else {
+                // ファイルが選択されていない状態に戻す (任意)
+                uploadText.innerHTML = `
+                    <p class="primary">ここにファイルをドラッグ＆ドロップ</p>
+                    <p>または</p>
+                    <p>クリックしてファイルを選択</p>
+                    <p><small>PDF, JPG, PNG（合計5MBまで）</small></p>`;
+                fileUploadElement.style.borderColor = 'var(--mid-gray)';
+                fileUploadElement.style.background = 'var(--light-gray)';
+            }
         });
     }
 
-
-    /* 残り時間の短いプロジェクトのみ表示 */
-    const boxParent = document.getElementById('active-timers');
-    if (boxParent) { // Check if element exists
-        boxParent.innerHTML = '';
-
-        if(activeProjects.length > 0){
-            const shortest = activeProjects.reduce((prev, curr) => {
-            const prevEnd = prev.startTime + prev.duration*3600000;
-            const currEnd = curr.startTime + curr.duration*3600000;
-            return prevEnd < currEnd ? prev : curr;
-            });
-
-            const remain = formatRemaining(shortest.startTime, shortest.duration);
-            boxParent.innerHTML = `
-            <div class="timer-box">
-                <span class="timer-title">${shortest.name}</span>
-                <span class="timer-value">${remain}</span>
-            </div>`;
-        } else if(holdProjects.length > 0){
-            /* 一時保留（枠確保）の場合 */
-            boxParent.innerHTML = `
-            <div class="timer-box hold">
-                <span class="timer-title">${holdProjects[0].name}</span>
-                <span class="timer-value">枠確保中</span>
-            </div>`;
-        } else {
-            /* タイマー非表示（受注なし） */
-            boxParent.innerHTML = ''; // 非表示
+    // プログレスウィジェットのJS (エラーハンドリング強化版)
+    async function fetchProjectData(){
+        try {
+            const res = await fetch('/data/projects.json');    // ←パスは運用環境に合わせて
+            if (!res.ok) {
+                throw new Error(`Failed to fetch project data: ${res.status} ${res.statusText}`);
+            }
+            return await res.json();
+        } catch (error) {
+            console.error("Error in fetchProjectData:", error);
+            return []; // エラー時は空の配列を返すなど、フォールバック処理
         }
     }
 
-    /* 数字テキスト更新 */
-    const waitingCountEl = document.getElementById('waiting-count');
-    const weeklyLimitEl = document.getElementById('weekly-limit');
+    function formatRemaining(start, durationH){
+        const end = new Date(new Date(start).getTime() + durationH*3600*1000); // startが文字列の場合も考慮
+        const diff = end - Date.now();
+        if(diff<=0) return '00:00';
+        const h = Math.floor(diff/3600000);
+        const m = Math.floor((diff%3600000)/60000);
+        return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
+    }
 
-    if (waitingCountEl) waitingCountEl.textContent = `待機中：${waitingProjects.length}件`;
-    if (weeklyLimitEl) weeklyLimitEl.textContent  = `今週の受付残：${Math.max(0,5-list.length)}件`;
+    async function renderProgress(){
+        const lamp1 = document.getElementById('lamp1');
+        const lamp2 = document.getElementById('lamp2');
+        const lamp3 = document.getElementById('lamp3');
+        const activeTimersEl = document.getElementById('active-timers');
+        const waitingCountEl = document.getElementById('waiting-count');
+        const weeklyLimitEl = document.getElementById('weekly-limit');
 
-  } catch (error) {
-      console.error("Error fetching or rendering project data:", error);
-      // Optionally display an error message to the user in the widget area
-      const boxParent = document.getElementById('active-timers');
-      if (boxParent) boxParent.innerHTML = '<p style="color:white;">進捗情報の取得に失敗しました。</p>';
-      const waitingCountEl = document.getElementById('waiting-count');
-      if (waitingCountEl) waitingCountEl.textContent = '待機中：取得エラー';
-      const weeklyLimitEl = document.getElementById('weekly-limit');
-      if (weeklyLimitEl) weeklyLimitEl.textContent = '今週の受付残：取得エラー';
+        try {
+            const list = await fetchProjectData();
 
+            const activeProjects = list.filter(p => p.status==='active');
+            const holdProjects = list.filter(p => p.status==='hold');
+            const waitingProjects = list.filter(p => p.status==='waiting');
 
-  }
-}
+            if (lamp1 && lamp2 && lamp3) {
+                [lamp1, lamp2, lamp3].forEach((el,i)=>{
+                    if(waitingProjects[i]) el.classList.add('on'); else el.classList.remove('on');
+                });
+            }
 
-/* 1分周期で更新（初回即実行） */
-renderProgress();
-setInterval(renderProgress,60*1000);
+            if (activeTimersEl) {
+                activeTimersEl.innerHTML = '';
+                if(activeProjects.length > 0){
+                    const shortest = activeProjects.reduce((prev, curr) => {
+                    const prevEnd = new Date(prev.startTime).getTime() + prev.duration*3600000;
+                    const currEnd = new Date(curr.startTime).getTime() + curr.duration*3600000;
+                    return prevEnd < currEnd ? prev : curr;
+                    });
+                    const remain = formatRemaining(shortest.startTime, shortest.duration);
+                    activeTimersEl.innerHTML = `
+                    <div class="timer-box">
+                        <span class="timer-title">${shortest.name}</span>
+                        <span class="timer-value">${remain}</span>
+                    </div>`;
+                } else if(holdProjects.length > 0){
+                    activeTimersEl.innerHTML = `
+                    <div class="timer-box hold">
+                        <span class="timer-title">${holdProjects[0].name}</span>
+                        <span class="timer-value">枠確保中</span>
+                    </div>`;
+                }
+            }
 
-/* ---------- Progress Widget JS ここまで ---------- */
-</script>
+            if (waitingCountEl) waitingCountEl.textContent = `待機中：${waitingProjects.length}件`;
+            if (weeklyLimitEl) weeklyLimitEl.textContent  = `今週の受付残：${Math.max(0,5-list.length)}件`;
+
+        } catch (error) {
+            console.error("Error rendering project data:", error);
+            if (activeTimersEl) activeTimersEl.innerHTML = '<p style="color:white;">進捗情報の取得に失敗しました。</p>';
+            if (waitingCountEl) waitingCountEl.textContent = '待機中：エラー';
+            if (weeklyLimitEl) weeklyLimitEl.textContent = '今週の受付残：エラー';
+        }
+    }
+
+    // プログレスウィジェットの初回実行と定期更新
+    if (document.getElementById('progress')) { // progressセクションが存在する場合のみ実行
+        renderProgress();
+        setInterval(renderProgress, 60 * 1000);
+    }
+
+    // ファイルサイズチェックのスクリプト
+    const orderForm = document.getElementById('orderForm');
+    if (orderForm) {
+        orderForm.addEventListener('submit', function (e) {
+            const filesInput = document.getElementById('files'); // ファイル入力要素のID
+            if (!filesInput) return; // ファイル入力がなければ何もしない
+
+            const files = filesInput.files;
+            if (files.length === 0 && filesInput.required) { // 必須なのにファイルが選択されていない場合
+                // HTMLのrequired属性に任せるか、ここで独自のアラートを出す
+                // e.preventDefault();
+                // alert('図面PDFをアップロードしてください。');
+                return;
+            }
+            if (files.length > 0) { // ファイルが選択されている場合のみサイズチェック
+                const totalBytes = [...files].reduce((sum, f) => sum + f.size, 0);
+                const limit = 5 * 1024 * 1024; // 5 MB
+
+                if (totalBytes > limit) {
+                    e.preventDefault(); // 送信をブロック
+                    alert('ファイルの合計サイズが 5 MB を超えています。\n' +
+                          'ZIP で圧縮するか、共有リンクをご利用ください。');
+                }
+            }
+        });
+    }
+
+  </script>
+  <!-- EmailJSのスクリプトは削除しました -->
 </body>
 </html>
