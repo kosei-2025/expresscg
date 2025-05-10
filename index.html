@@ -1562,32 +1562,11 @@
         setInterval(renderProgress, 60 * 1000);
     }
 
-    // ファイルサイズチェックのスクリプト
-    const orderForm = document.getElementById('orderForm');
-    if (orderForm) {
-        orderForm.addEventListener('submit', function (e) {
-            const filesInput = document.getElementById('files'); // ファイル入力要素のID
-            if (!filesInput) return; // ファイル入力がなければ何もしない
 
-            const files = filesInput.files;
-            if (files.length === 0 && filesInput.required) { // 必須なのにファイルが選択されていない場合
-                // HTMLのrequired属性に任せるか、ここで独自のアラートを出す
-                // e.preventDefault();
-                // alert('図面PDFをアップロードしてください。');
-                return;
-            }
-            if (files.length > 0) { // ファイルが選択されている場合のみサイズチェック
-                const totalBytes = [...files].reduce((sum, f) => sum + f.size, 0);
-                const limit = 5 * 1024 * 1024; // 5 MB
 
-                if (totalBytes > limit) {
-                    e.preventDefault(); // 送信をブロック
-                    alert('ファイルの合計サイズが 5 MB を超えています。\n' +
-                          'ZIP で圧縮するか、共有リンクをご利用ください。');
-                }
-            }
-        });
-    }
+
+
+    
 
   </script>
   <!-- EmailJSのスクリプトは削除しました -->
