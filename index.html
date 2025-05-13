@@ -440,7 +440,8 @@
   margin-bottom:10px;
 }
 .agreement-row input[type="checkbox"]{align-self:center;}
-.agreement-row span{display:inline-block;white-space:nowrap;}
+.agreement-row span{display:inline-block;/* white-space:nowrap; <- コメントアウトまたは削除 */ }
+.agreement-row span .required { margin-left: 0; } /* 同意の必須マーク調整 */
 .agreement-row a{color:#0056b3;text-decoration:underline;}
 .form-wrapper .form-group{text-align:left;}
 .queue-lamps{
@@ -948,7 +949,7 @@ body.thankyou-page-active > .sticky-cta {
       <div class="footer-info">
         <a href="#" class="footer-logo">Express<span>CG</span></a>
         <p>図面だけでOK、最短24時間でハイクオリティCGを提供する特急パースサービス。設計事務所、デベロッパー、インテリアデザイナーの強い味方です。</p>
-        <div class="footer-contact"><p>お問い合わせ: <a href="mailto:expresscg@archi-prisma.co.jp">expresscg@archi-prisma.co.jp</a></p></div>
+        <div class="footer-contact"><p>お問い合わせ: <a href="mailtoexpresscg@archi-prisma.co.jp">expresscg@archi-prisma.co.jp</a></p></div>
       </div>
       <div class="footer-links">
         <h4>サービス</h4>
@@ -988,9 +989,11 @@ body.thankyou-page-active > .sticky-cta {
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', function (e) {
+            // 既存のエラー表示をリセット
             const errorFields = orderForm.querySelectorAll('.form-error');
             errorFields.forEach(field => {
                 field.classList.remove('form-error');
+                // 個別のスタイルもリセット（より堅牢な方法は、エラー専用クラスの付け外しのみにすること）
                 if (field.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
                     field.style.borderColor = 'var(--mid-gray)';
                 } else if (field.classList.contains('radio-group') || field.classList.contains('file-upload') || field.classList.contains('agreement-row')) {
@@ -999,76 +1002,85 @@ body.thankyou-page-active > .sticky-cta {
                 }
             });
 
-            const f = e.target;
-            const miss = [];
-            const errorElements = []; 
+            const f = e.target; // フォーム要素
+            const miss = []; // 未入力・不正な項目名を格納する配列
+            const errorElements = []; // エラーがあったDOM要素を格納する配列
 
-            const nameInput = f['お名前'];
+            // フォーム要素の取得 (f.elements['name属性値'] の方が安全)
+            const nameInput = f.elements['お名前'];
+            const emailInput = f.elements['email'];
+            const phoneInput = f.elements['電話番号'];
+            const companyInput = f.elements['会社名'];
+            const planRadio = f.querySelector('input[name="プラン"]:checked');
+            const filesInput = f.elements['図面PDF'];
+            const memoInput = f.elements['画角メモ'];
+            const agreementTokushoho = f.elements['同意_特商法'];
+            const agreementTerms = f.elements['同意_利用規約'];
+            const agreementPrivacy = f.elements['同意_プライバシーポリシー'];
+
+
+            // お名前
             if (!nameInput.value.trim()) { miss.push('お名前'); errorElements.push(nameInput); }
 
-            const emailInput = f.email;
+            // メールアドレス
             if (!emailInput.value.trim()) { miss.push('メールアドレス'); errorElements.push(emailInput); }
             else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { miss.push('メールアドレスの形式'); errorElements.push(emailInput); }
 
-            const phoneInput = f['電話番号'];
+            // 電話番号
             if (!phoneInput.value.trim()) { miss.push('電話番号'); errorElements.push(phoneInput); }
-
-            const companyInput = f['会社名'];
+            
+            // 会社名
             if (!companyInput.value.trim()) { miss.push('会社名'); errorElements.push(companyInput); }
 
-            if (!f.querySelector('[name="プラン"]:checked')) {
+            // プラン
+            if (!planRadio) { // :checked で取得しているので、nullなら未選択
                 miss.push('プラン');
                 const radioGroup = f.querySelector('.radio-group');
                 if(radioGroup) errorElements.push(radioGroup);
             }
 
-            const filesInput = f.elements['図面PDF'];
+            // 図面PDF
             if (filesInput && filesInput.files.length === 0) {
                 miss.push('図面PDF');
                 const fileUploadDiv = filesInput.closest('.file-upload');
                 if(fileUploadDiv) errorElements.push(fileUploadDiv);
             }
 
-            const memoInput = f['画角メモ'];
+            // 画角メモ
             if (!memoInput.value.trim()) { miss.push('画角メモ'); errorElements.push(memoInput); }
 
-            const agreements = [
-                { name: '同意_特商法', label: '特定商取引法への同意', element: f.elements['同意_特商法'] },
-                { name: '同意_利用規約', label: '利用規約への同意', element: f.elements['同意_利用規約'] },
-                { name: '同意_プライバシーポリシー', label: 'プライバシーポリシーへの同意', element: f.elements['同意_プライバシーポリシー'] }
-            ];
-            agreements.forEach(agreement => {
-                if (agreement.element && !agreement.element.checked) {
-                    miss.push(agreement.label);
-                    const agreementRow = agreement.element.closest('.agreement-row');
-                    if(agreementRow) errorElements.push(agreementRow);
-                }
-            });
+            // 同意チェック
+            if (agreementTokushoho && !agreementTokushoho.checked) {
+                miss.push('特定商取引法への同意');
+                const row = agreementTokushoho.closest('.agreement-row');
+                if(row) errorElements.push(row);
+            }
+            if (agreementTerms && !agreementTerms.checked) {
+                miss.push('利用規約への同意');
+                const row = agreementTerms.closest('.agreement-row');
+                if(row) errorElements.push(row);
+            }
+            if (agreementPrivacy && !agreementPrivacy.checked) {
+                miss.push('プライバシーポリシーへの同意');
+                const row = agreementPrivacy.closest('.agreement-row');
+                if(row) errorElements.push(row);
+            }
 
             if (miss.length > 0) {
-                e.preventDefault();
+                e.preventDefault(); // 送信をブロック
                 alert(`${miss.join('、\n')}が未入力または正しくありません。`);
                 errorElements.forEach(el => {
-                    el.classList.add('form-error');
-                    if (el.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
-                        el.style.borderColor = 'var(--accent)';
-                    } else if (el.classList.contains('radio-group')) {
-                        el.style.border = '2px solid var(--accent)';
-                    } else if (el.classList.contains('file-upload')) {
-                        el.style.borderColor = 'var(--accent)';
-                    } else if (el.classList.contains('agreement-row')) {
-                        el.style.outline = '2px solid var(--accent)';
-                        el.style.outlineOffset = '2px';
-                    }
+                    el.classList.add('form-error'); // エラークラス適用 (CSSでスタイル定義)
                 });
                 const submitButton = orderForm.querySelector('button[type="submit"]');
                 if (submitButton.disabled) {
                     submitButton.disabled = false;
                     submitButton.innerHTML = '今すぐ依頼する <i class="fas fa-arrow-right"></i>';
                 }
-                return;
+                return; // ここで処理を中断
             }
 
+            // バリデーション成功、AJAX送信処理へ
             e.preventDefault(); 
             const formData = new FormData(orderForm);
             const submitButton = orderForm.querySelector('button[type="submit"]');
@@ -1076,6 +1088,7 @@ body.thankyou-page-active > .sticky-cta {
             submitButton.disabled = true;
             submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
 
+            // ファイルサイズチェック
             if (filesInput && filesInput.files.length > 0) {
                 const totalBytes = [...filesInput.files].reduce((sum, file) => sum + file.size, 0);
                 const limit = 5 * 1024 * 1024; 
@@ -1086,7 +1099,6 @@ body.thankyou-page-active > .sticky-cta {
                     const fileUploadDiv = filesInput.closest('.file-upload');
                     if(fileUploadDiv) {
                         fileUploadDiv.classList.add('form-error');
-                        fileUploadDiv.style.borderColor = 'var(--accent)';
                     }
                     return;
                 }
