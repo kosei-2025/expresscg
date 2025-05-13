@@ -1,68 +1,60 @@
-<form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST">
-  <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
-  <input type="hidden" name="_captcha" value="false">
+<!-- Express CG 最小フォーム -->
+<form action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST">
+
+  <!-- ── FormSubmit 固定パラメータ ── -->
+  <input type="hidden" name="_subject"      value="【ExpressCG】新しい依頼が届きました">
+  <input type="hidden" name="_captcha"      value="false">
   <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
-  <input type="hidden" name="_next" value="https://expresscg.archi-prisma.co.jp/thankyou.html">
+  <input type="hidden" name="_next"         value="https://www.archi-prisma.co.jp/thankyou">
+  <input type="text"   name="_honey"        style="display:none"> <!-- Bot対策 -->
 
-  <div class="form-row">
-    <div class="form-col">
-      <label for="name">お名前 <span class="required">*</span></label>
-      <input type="text" id="name" name="お名前" required>
-    </div>
-    <div class="form-col">
-      <label for="email">メールアドレス <span class="required">*</span></label>
-      <input type="email" id="email" name="email" required>
-    </div>
-  </div>
+  <!-- ── 入力項目 ── -->
+  <p>
+    <label>お名前*<br>
+      <input type="text" name="お名前" required>
+    </label>
+  </p>
 
-  <div class="form-row">
-    <div class="form-col">
-      <label for="phone">電話番号</label>
-      <input type="tel" id="phone" name="電話番号">
-    </div>
-    <div class="form-col">
-      <label for="company">会社名</label>
-      <input type="text" id="company" name="会社名">
-    </div>
-  </div>
+  <p>
+    <label>メールアドレス*<br>
+      <input type="email" name="email" required>
+    </label>
+  </p>
 
-  <div class="form-group">
-    <label>プラン選択 <span class="required">*</span></label>
-    <div class="radio-group">
-      <div class="radio-option">
-        <input type="radio" id="plan-ultra" name="プラン" value="Ultra-24" required class="radio-input">
-        <label for="plan-ultra" class="radio-label">Ultra-24 <span class="radio-price">¥60,000</span></label>
-      </div>
-      <div class="radio-option">
-        <input type="radio" id="plan-lean" name="プラン" value="Lean-48" required class="radio-input">
-        <label for="plan-lean" class="radio-label">Lean-48 <span class="radio-price">¥40,000</span></label>
-      </div>
-    </div>
-  </div>
+  <p>
+    <label>電話番号<br>
+      <input type="tel" name="電話番号">
+    </label>
+  </p>
 
-  <div class="form-group">
-    <label for="memo">画角メモ（50字以内） <span class="required">*</span></label>
-    <textarea id="memo" name="画角メモ" rows="3" maxlength="50" required></textarea>
-  </div>
+  <p>
+    <label>会社名<br>
+      <input type="text" name="会社名">
+    </label>
+  </p>
 
-  <div class="form-group">
-    <label for="notes">その他ご要望（任意）</label>
-    <textarea id="notes" name="その他ご要望" rows="3"></textarea>
-  </div>
+  <fieldset>
+    <legend>プラン選択*</legend>
+    <label><input type="radio" name="プラン" value="Ultra-24" required> Ultra-24（¥60,000）</label><br>
+    <label><input type="radio" name="プラン" value="Lean-48"  required> Lean-48（¥40,000）</label>
+  </fieldset>
 
-  <!-- 同意チェック -->
-  <div class="agreement-row">
-    <input type="checkbox" name="同意_特商法" value="はい" required>
-    <span><a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank">特商法</a>に同意しました</span>
-  </div>
-  <div class="agreement-row">
-    <input type="checkbox" name="同意_利用規約" value="はい" required>
-    <span><a href="https://www.archi-prisma.co.jp/terms" target="_blank">利用規約</a>に同意しました</span>
-  </div>
-  <div class="agreement-row">
-    <input type="checkbox" name="同意_プライバシーポリシー" value="はい" required>
-    <span><a href="https://www.archi-prisma.co.jp/privacy" target="_blank">プライバシーポリシー</a>に同意しました</span>
-  </div>
+  <p>
+    <label>画角メモ（50字以内）*<br>
+      <textarea name="画角メモ" rows="3" maxlength="50" required></textarea>
+    </label>
+  </p>
 
-  <button type="submit" class="submit-btn">今すぐ依頼する <i class="fas fa-arrow-right"></i></button>
+  <p>
+    <label>その他ご要望（任意）<br>
+      <textarea name="その他ご要望" rows="3"></textarea>
+    </label>
+  </p>
+
+  <!-- ── 同意チェック ── -->
+  <p><label><input type="checkbox" name="同意_特商法" value="はい" required> <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank">特商取引法の表記</a>に同意します</label></p>
+  <p><label><input type="checkbox" name="同意_利用規約" value="はい" required> <a href="https://www.archi-prisma.co.jp/terms"      target="_blank">利用規約</a>に同意します</label></p>
+  <p><label><input type="checkbox" name="同意_プライバシーポリシー" value="はい" required> <a href="https://www.archi-prisma.co.jp/privacy"    target="_blank">プライバシーポリシー</a>に同意します</label></p>
+
+  <p><button type="submit">今すぐ依頼する</button></p>
 </form>
