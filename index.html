@@ -1,59 +1,126 @@
-<!-- Express CG フォーム（必須項目なし） -->
-<form action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST">
-  <!-- FormSubmit 固定 -->
-  <input type="hidden" name="_subject"      value="【ExpressCG】新しい依頼が届きました">
-  <input type="hidden" name="_captcha"      value="false">
-  <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
-  <input type="hidden" name="_next"         value="https://www.archi-prisma.co.jp/thankyou">
-  <input type="text"   name="_honey"        style="display:none"><!-- Bot対策 -->
+  <!-- Order Form -->
+  <section id="order" class="order" data-aos="fade-up">
+    <h2>依頼フォーム</h2>
+    <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
+    <div class="form-wrapper">
+      <!-- MODIFIED: Form tag for FormSubmit -->
+      <form id="orderForm" action="https://formsubmit.co/emwlgh39dell@gmail.com" method="POST" enctype="multipart/form-data">
+        <!-- FormSubmit 用カスタムフィールド -->
+        <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
+        <!-- <input type="hidden" name="_template" value="box"> FormSubmitのデフォルトテンプレートを使用する場合や、特に指定がなければ不要 -->
+        <input type="hidden" name="_captcha" value="false"> <!-- reCAPTCHAを無効にする場合。有効にするならこの行を削除または value="true" にする -->
+        <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
+        <input type="hidden" name="_next" value="https://www.archi-prisma.co.jp/thankyou">
+        <div class="form-row">
+          <div class="form-col">
+            <label for="name">お名前</label>
+            <!-- FormSubmitではname属性がメールのラベルになるので、日本語でもOK -->
+            <input type="text" id="name" name="お名前" placeholder="山田 太郎">
+          </div>
+          <div class="form-col">
+            <label for="email">メールアドレス</label>
+            <!-- FormSubmitの自動返信のため、name="email" とすることが推奨される -->
+            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+          </div>
+        </div>
 
-  <!-- 入力欄（必須マークなし） -->
-  <p>
-    <label>お名前<br>
-      <input type="text" name="お名前">
-    </label>
-  </p>
+        <div class="form-row">
+          <div class="form-col">
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" name="電話番号" placeholder="03-1234-5678">
+          </div>
+          <div class="form-col">
+            <label for="company">会社名</label>
+            <input type="text" id="company" name="会社名" placeholder="株式会社〇〇設計">
+          </div>
+        </div>
 
-  <p>
-    <label>メールアドレス<br>
-      <input type="email" name="email">
-    </label>
-  </p>
+        <div class="form-group">
+          <label>プラン選択</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <!-- ラジオボタンのname属性は共通にする -->
+              <input type="radio" id="plan-ultra" name="プラン" value="Ultra-24" class="radio-input">
+              <label for="plan-ultra" class="radio-label">
+                Ultra-24
+                <span class="radio-price">¥60,000</span>
+                <small>24時間以内納品</small>
+              </label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="plan-lean" name="プラン" value="Lean-48" class="radio-input">
+              <label for="plan-lean" class="radio-label">
+                Lean-48
+                <span class="radio-price">¥40,000</span>
+                <small>48時間以内納品</small>
+              </label>
+            </div>
+          </div>
+        </div>
 
-  <p>
-    <label>電話番号<br>
-      <input type="tel" name="電話番号">
-    </label>
-  </p>
+        <div class="form-group">
+          <label for="files">図面PDFのアップロード</label>
+          <div class="file-upload">
+            <!-- name属性を "図面PDF" または "attachment" などFormSubmitが認識しやすいものに -->
+            <!-- multiple を許可する場合は name="files[]" のようにする場合もあるが、FormSubmitの仕様を確認 -->
+            <input type="file" id="files" name="図面PDF" multiple accept=".pdf,.jpg,.jpeg,.png">
+            <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <div class="upload-text">
+              <p class="primary">ここにファイルをドラッグ＆ドロップ</p>
+              <p>または</p>
+              <p>クリックしてファイルを選択</p>
+              <p><small>PDF, JPG, PNG（合計5MBまで）</small></p> <!-- MODIFIED: ファイルサイズ制限を明記 -->
+            </div>
+          </div>
+        </div>
 
-  <p>
-    <label>会社名<br>
-      <input type="text" name="会社名">
-    </label>
-  </p>
+        <div class="form-group">
+          <label for="memo">画角メモ（50字以内）</label>
+          <textarea id="memo" name="画角メモ" rows="3" maxlength="50" placeholder="「キッチンからリビングを見る」「寝室のベッドから窓方向を見る」など"></textarea>
+        </div>
 
-  <fieldset>
-    <legend>プラン選択</legend>
-    <label><input type="radio" name="プラン" value="Ultra-24"> Ultra-24（¥60,000）</label><br>
-    <label><input type="radio" name="プラン" value="Lean-48">  Lean-48（¥40,000）</label>
-  </fieldset>
+        <div class="form-group">
+          <label for="notes">その他ご要望（任意）</label>
+          <textarea id="notes" name="その他ご要望" rows="3" placeholder="素材、照明、時間帯など特別なご要望があればご記入ください"></textarea>
+        </div>
 
-  <p>
-    <label>画角メモ（50字以内）<br>
-      <textarea name="画角メモ" rows="3" maxlength="50"></textarea>
-    </label>
-  </p>
+        <div class="form-guarantee">
+          <div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="guarantee-text">
+            <strong>安心の保証:</strong> 品質に満足できない場合は全額返金いたします。納期が遅れた場合は、Ultra-24は30%、Lean-48は20%の返金保証があります。あなたのリスクはゼロです。
+          </div>
+        </div>
+<!-- ▼ 3つの同意チェックボックスを追加 BEGIN -->
+<!-- ▼チェックボックス３行 BEGIN -->
+<div class="agreement-row">
+  <!-- FormSubmitに送信するため、name属性は FormSubmit 側で認識されるようにする (例: "同意_特商法") -->
+  <input type="checkbox" name="同意_特商法" value="はい">
+  <span>
+    <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">
+      特定商取引法に基づく表記
+    </a> を確認し、同意しました。
+  </span>
+</div>
 
-  <p>
-    <label>その他ご要望<br>
-      <textarea name="その他ご要望" rows="3"></textarea>
-    </label>
-  </p>
+<div class="agreement-row">
+  <input type="checkbox" name="同意_利用規約" value="はい">
+  <span>
+    <a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">
+      利用規約
+    </a> を確認し、同意しました。
+  </span>
+</div>
 
-  <!-- 同意チェックも任意に変更 -->
-  <p><label><input type="checkbox" name="同意_特商法" value="はい"> 特商法に同意します</label></p>
-  <p><label><input type="checkbox" name="同意_利用規約" value="はい"> 利用規約に同意します</label></p>
-  <p><label><input type="checkbox" name="同意_プライバシーポリシー" value="はい"> プライバシーポリシーに同意します</label></p>
-
-  <p><button type="submit">送信する</button></p>
-</form>
+<div class="agreement-row">
+  <input type="checkbox" name="同意_プライバシーポリシー" value="はい">
+  <span>
+    <a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">
+      プライバシーポリシー
+    </a> を確認し、同意しました。
+  </span>
+</div>
+<!-- ▲チェックボックス３行 END -->
+        <button type="submit" class="submit-btn">今すぐ依頼する <i class="fas fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </section>
