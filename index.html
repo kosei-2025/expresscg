@@ -240,7 +240,7 @@
     .form-wrapper{max-width:800px;margin:0 auto;background:#fff;border-radius:15px;padding:50px;box-shadow:var(--shadow-hover);position:relative;z-index:1;}
     .form-group{margin-bottom:25px;}
     label{display:block;margin-bottom:10px;font-weight:500;position:relative;}
-    /* label .required{color:var(--accent);margin-left:5px;}  JSで制御するためコメントアウトも可 */
+    label .required{color:var(--accent);margin-left:5px;} 
     input, textarea, select{width:100%;padding:15px;border:2px solid var(--mid-gray);border-radius:10px;font-family:inherit;font-size:1rem;transition:var(--transition);}
     input:focus, textarea:focus, select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-alpha);}
     .form-row{display:flex;gap:20px;margin-bottom:25px;}
@@ -269,8 +269,9 @@
     .submit-btn:hover::before{left:100%;}
     /* エラー時のスタイル */
     .form-error { border-color: var(--accent) !important; }
-    .radio-group.form-error { border: 2px solid var(--accent) !important; padding: 10px; border-radius: 10px; } /* ラジオボタングループのエラー表示 */
-    .agreement-row.form-error { outline: 2px solid var(--accent) !important; outline-offset: 2px; } /* 同意チェックのエラー表示 */
+    .radio-group.form-error { border: 2px solid var(--accent) !important; padding: 10px; border-radius: 10px; }
+    .file-upload.form-error { border-color: var(--accent) !important; }
+    .agreement-row.form-error { outline: 2px solid var(--accent) !important; outline-offset: 2px; }
     
     /* CTA sticky */
     .sticky-cta{position:fixed;bottom:30px;right:30px;z-index:1000;display:none;transition:var(--transition);}
@@ -864,7 +865,6 @@ body.thankyou-page-active > .sticky-cta {
     <h2>依頼フォーム</h2>
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
-      <!-- novalidate属性を追加してブラウザ標準のバリデーションを無効化 -->
       <form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST" enctype="multipart/form-data" novalidate>
         <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
         <input type="hidden" name="_captcha" value="false">
@@ -882,11 +882,11 @@ body.thankyou-page-active > .sticky-cta {
         </div>
         <div class="form-row">
           <div class="form-col">
-            <label for="phone">電話番号</label>
+            <label for="phone">電話番号 <span class="required">*</span></label>
             <input type="tel" id="phone" name="電話番号" placeholder="03-1234-5678">
           </div>
           <div class="form-col">
-            <label for="company">会社名</label>
+            <label for="company">会社名 <span class="required">*</span></label>
             <input type="text" id="company" name="会社名" placeholder="株式会社〇〇設計">
           </div>
         </div>
@@ -988,62 +988,50 @@ body.thankyou-page-active > .sticky-cta {
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', function (e) {
-            // 既存のエラークラスをリセット
             const errorFields = orderForm.querySelectorAll('.form-error');
             errorFields.forEach(field => {
                 field.classList.remove('form-error');
-                if (field.matches('input[type="text"], input[type="email"], textarea')) {
+                if (field.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
                     field.style.borderColor = 'var(--mid-gray)';
                 } else if (field.classList.contains('radio-group') || field.classList.contains('file-upload') || field.classList.contains('agreement-row')) {
-                    field.style.border = ''; // もしくは元のスタイルに戻す
+                    field.style.border = ''; 
                     field.style.outline = '';
                 }
             });
 
             const f = e.target;
             const miss = [];
-            const errorElements = []; // エラーがあった要素を格納
+            const errorElements = []; 
 
-            // お名前
             const nameInput = f['お名前'];
-            if (!nameInput.value.trim()) {
-                miss.push('お名前');
-                errorElements.push(nameInput);
-            }
+            if (!nameInput.value.trim()) { miss.push('お名前'); errorElements.push(nameInput); }
 
-            // メールアドレス
             const emailInput = f.email;
-            if (!emailInput.value.trim()) {
-                miss.push('メールアドレス');
-                errorElements.push(emailInput);
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
-                miss.push('メールアドレスの形式');
-                errorElements.push(emailInput);
-            }
+            if (!emailInput.value.trim()) { miss.push('メールアドレス'); errorElements.push(emailInput); }
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { miss.push('メールアドレスの形式'); errorElements.push(emailInput); }
 
-            // プラン
+            const phoneInput = f['電話番号'];
+            if (!phoneInput.value.trim()) { miss.push('電話番号'); errorElements.push(phoneInput); }
+
+            const companyInput = f['会社名'];
+            if (!companyInput.value.trim()) { miss.push('会社名'); errorElements.push(companyInput); }
+
             if (!f.querySelector('[name="プラン"]:checked')) {
                 miss.push('プラン');
                 const radioGroup = f.querySelector('.radio-group');
                 if(radioGroup) errorElements.push(radioGroup);
             }
 
-            // 図面PDF
-            const filesInput = f.elements['図面PDF']; // name属性でアクセス
+            const filesInput = f.elements['図面PDF'];
             if (filesInput && filesInput.files.length === 0) {
                 miss.push('図面PDF');
                 const fileUploadDiv = filesInput.closest('.file-upload');
                 if(fileUploadDiv) errorElements.push(fileUploadDiv);
             }
 
-            // 画角メモ
             const memoInput = f['画角メモ'];
-            if (!memoInput.value.trim()) {
-                miss.push('画角メモ');
-                errorElements.push(memoInput);
-            }
+            if (!memoInput.value.trim()) { miss.push('画角メモ'); errorElements.push(memoInput); }
 
-            // 同意チェック
             const agreements = [
                 { name: '同意_特商法', label: '特定商取引法への同意', element: f.elements['同意_特商法'] },
                 { name: '同意_利用規約', label: '利用規約への同意', element: f.elements['同意_利用規約'] },
@@ -1061,9 +1049,8 @@ body.thankyou-page-active > .sticky-cta {
                 e.preventDefault();
                 alert(`${miss.join('、\n')}が未入力または正しくありません。`);
                 errorElements.forEach(el => {
-                    el.classList.add('form-error'); // CSSで定義したエラークラスを適用
-                     // 個別のスタイル適用（CSSクラスで一元管理推奨）
-                    if (el.matches('input[type="text"], input[type="email"], textarea')) {
+                    el.classList.add('form-error');
+                    if (el.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
                         el.style.borderColor = 'var(--accent)';
                     } else if (el.classList.contains('radio-group')) {
                         el.style.border = '2px solid var(--accent)';
@@ -1074,7 +1061,6 @@ body.thankyou-page-active > .sticky-cta {
                         el.style.outlineOffset = '2px';
                     }
                 });
-                // 送信ボタンを有効に戻す
                 const submitButton = orderForm.querySelector('button[type="submit"]');
                 if (submitButton.disabled) {
                     submitButton.disabled = false;
@@ -1083,18 +1069,16 @@ body.thankyou-page-active > .sticky-cta {
                 return;
             }
 
-            // バリデーション成功、AJAX送信処理へ
-            e.preventDefault(); // ここでもデフォルト送信を防ぐ
+            e.preventDefault(); 
             const formData = new FormData(orderForm);
             const submitButton = orderForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
             submitButton.disabled = true;
             submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
 
-            // ファイルサイズチェック (バリデーション成功後に行う)
             if (filesInput && filesInput.files.length > 0) {
                 const totalBytes = [...filesInput.files].reduce((sum, file) => sum + file.size, 0);
-                const limit = 5 * 1024 * 1024; // 5 MB
+                const limit = 5 * 1024 * 1024; 
                 if (totalBytes > limit) {
                     alert('ファイルの合計サイズが 5 MB を超えています。\nZIP で圧縮するか、共有リンクをご利用ください。');
                     submitButton.disabled = false;
@@ -1142,7 +1126,7 @@ body.thankyou-page-active > .sticky-cta {
                 <p>この度は、ExpressCGにお問い合わせいただき、誠にありがとうございます。<br>
                 担当者より24時間以内にご連絡させていただきますので、
                   今しばらくお待ちくださいませ。</p>
-                <p><a href="https://www.archi-prisma.co.jp/service" class="button">トップページに戻る</a></p>
+                <p><a href="https://expresscg.archi-prisma.co.jp/" class="button">トップページに戻る</a></p>
             </div>
         `;
         document.querySelectorAll('header, section, footer, .sticky-cta').forEach(el => { el.style.display = 'none'; });
