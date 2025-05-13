@@ -882,11 +882,11 @@ body.thankyou-page-active > .sticky-cta {
         </div>
         <div class="form-row">
           <div class="form-col">
-            <label for="phone">電話番号</label>
+            <label for="phone">電話番号 <span class="required">*</span></label>
             <input type="tel" id="phone" name="電話番号" placeholder="03-1234-5678">
           </div>
           <div class="form-col">
-            <label for="company">会社名</label>
+            <label for="company">会社名 <span class="required">*</span></label>
             <input type="text" id="company" name="会社名" placeholder="株式会社〇〇設計">
           </div>
         </div>
@@ -1020,7 +1020,21 @@ body.thankyou-page-active > .sticky-cta {
                 miss.push('メールアドレスの形式');
                 errorElements.push(emailInput);
             }
+　　　　　　
+          　// 電話番号
+            const phoneInput = f['電話番号'];
+            if (!phoneInput.value.trim()) {
+                miss.push('電話番号');
+                errorElements.push(phoneInput);
+            }
 
+            // 会社名
+            const companyInput = f['会社名'];
+            if (!companyInput.value.trim()) {
+                miss.push('会社名');
+                errorElements.push(companyInput);
+            }
+          
             // プラン
             if (!f.querySelector('[name="プラン"]:checked')) {
                 miss.push('プラン');
