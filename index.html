@@ -255,11 +255,7 @@
     .submit-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);transition:var(--transition);z-index:-1;}
     .submit-btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(230,0,51,0.3);}
     .submit-btn:hover::before{left:100%;}
-    /* エラー時のスタイル */
-    .form-error { border-color: var(--accent) !important; }
-    .radio-group.form-error { border: 2px solid var(--accent) !important; padding: 10px; border-radius: 10px; } /* ラジオボタングループのエラー表示 */
-    .agreement-row.form-error { outline: 2px solid var(--accent) !important; outline-offset: 2px; } /* 同意チェックのエラー表示 */
-    
+
     /* CTA sticky */
     .sticky-cta{position:fixed;bottom:30px;right:30px;z-index:1000;display:none;transition:var(--transition);}
     @media(min-width:768px){.sticky-cta{display:block;}}
@@ -937,11 +933,11 @@ body.thankyou-page-active > .sticky-cta {
         
         <div class="form-row">
           <div class="form-col">
-            <label for="name">お名前 <span class="required">*</span></label>
+            <label for="name">お名前</label>
             <input type="text" id="name" name="お名前" placeholder="山田 太郎">
           </div>
           <div class="form-col">
-            <label for="email">メールアドレス <span class="required">*</span></label>
+            <label for="email">メールアドレス</label>
             <input type="email" id="email" name="email" placeholder="example@gmail.com">
           </div>
         </div>
@@ -956,7 +952,7 @@ body.thankyou-page-active > .sticky-cta {
           </div>
         </div>
         <div class="form-group">
-          <label>プラン選択 <span class="required">*</span></label>
+          <label>プラン選択</label>
           <div class="radio-group">
             <div class="radio-option">
               <input type="radio" id="plan-ultra" name="プラン" value="Ultra-24" class="radio-input">
@@ -969,7 +965,7 @@ body.thankyou-page-active > .sticky-cta {
           </div>
         </div>
         <div class="form-group">
-          <label for="files">図面PDFのアップロード <span class="required">*</span></label>
+          <label for="files">図面PDFのアップロード</label>
           <div class="file-upload">
             <input type="file" id="files" name="図面PDF" multiple accept=".pdf,.jpg,.jpeg,.png">
             <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
@@ -980,7 +976,7 @@ body.thankyou-page-active > .sticky-cta {
           </div>
         </div>
         <div class="form-group">
-          <label for="memo">画角メモ（50字以内） <span class="required">*</span></label>
+          <label for="memo">画角メモ（50字以内）</label>
           <textarea id="memo" name="画角メモ" rows="3" maxlength="50" placeholder="「キッチンからリビングを見る」「寝室のベッドから窓方向を見る」など"></textarea>
         </div>
         <div class="form-group">
@@ -993,15 +989,15 @@ body.thankyou-page-active > .sticky-cta {
         </div>
         <div class="agreement-row">
           <input type="checkbox" id="agreement-tokushoho" name="同意_特商法" value="はい">
-          <span><a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">特定商取引法に基づく表記</a> を確認し、同意しました。<span class="required">*</span></span>
+          <span><a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">特定商取引法に基づく表記</a> を確認し、同意しました。</span>
         </div>
         <div class="agreement-row">
           <input type="checkbox" id="agreement-terms" name="同意_利用規約" value="はい">
-          <span><a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">利用規約</a> を確認し、同意しました。<span class="required">*</span></span>
+          <span><a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">利用規約</a> を確認し、同意しました。</span>
         </div>
         <div class="agreement-row">
           <input type="checkbox" id="agreement-privacy" name="同意_プライバシーポリシー" value="はい">
-          <span><a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">プライバシーポリシー</a> を確認し、同意しました。<span class="required">*</span></span>
+          <span><a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">プライバシーポリシー</a> を確認し、同意しました。</span>
         </div>
         <button type="submit" class="submit-btn">今すぐ依頼する <i class="fas fa-arrow-right"></i></button>
       </form>
@@ -1268,74 +1264,15 @@ body.thankyou-page-active > .sticky-cta {
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', function (e) {
-            const errorFields = orderForm.querySelectorAll('.form-error');
-            errorFields.forEach(field => {
-                field.classList.remove('form-error');
-                if (field.matches('input[type="text"], input[type="email"], textarea')) {
-                    field.style.borderColor = 'var(--mid-gray)';
-                } else if (field.classList.contains('radio-group') || field.classList.contains('file-upload') || field.classList.contains('agreement-row')) {
-                    field.style.border = '';
-                    field.style.outline = '';
-                }
-            });
+            e.preventDefault(); // Prevent default form submission
 
-            const f = e.target;
-            const miss = [];
-            const errorElements = [];
-
-            const nameInput = f['お名前'];
-            if (!nameInput.value.trim()) { miss.push('お名前'); errorElements.push(nameInput); }
-
-            const emailInput = f.email;
-            if (!emailInput.value.trim()) { miss.push('メールアドレス'); errorElements.push(emailInput); }
-            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { miss.push('メールアドレスの形式'); errorElements.push(emailInput); }
-
-            if (!f.querySelector('[name="プラン"]:checked')) { miss.push('プラン'); const rg = f.querySelector('.radio-group'); if(rg) errorElements.push(rg); }
-
-            const filesInput = f.elements['図面PDF'];
-            if (filesInput && filesInput.files.length === 0) { miss.push('図面PDF'); const fud = filesInput.closest('.file-upload'); if(fud) errorElements.push(fud); }
-
-            const memoInput = f['画角メモ'];
-            if (!memoInput.value.trim()) { miss.push('画角メモ'); errorElements.push(memoInput); }
-
-            const agreements = [
-                { name: '同意_特商法', label: '特定商取引法への同意', element: f.elements['同意_特商法'] },
-                { name: '同意_利用規約', label: '利用規約への同意', element: f.elements['同意_利用規約'] },
-                { name: '同意_プライバシーポリシー', label: 'プライバシーポリシーへの同意', element: f.elements['同意_プライバシーポリシー'] }
-            ];
-            agreements.forEach(agreement => {
-                if (agreement.element && !agreement.element.checked) {
-                    miss.push(agreement.label);
-                    const ar = agreement.element.closest('.agreement-row');
-                    if(ar) errorElements.push(ar);
-                }
-            });
-
-            if (miss.length > 0) {
-                e.preventDefault();
-                alert(`${miss.join('、\n')}が未入力または正しくありません。`);
-                errorElements.forEach(el => {
-                    el.classList.add('form-error');
-                    if (el.matches('input[type="text"], input[type="email"], textarea')) { el.style.borderColor = 'var(--accent)'; }
-                    else if (el.classList.contains('radio-group')) { el.style.border = '2px solid var(--accent)'; }
-                    else if (el.classList.contains('file-upload')) { el.style.borderColor = 'var(--accent)'; }
-                    else if (el.classList.contains('agreement-row')) { el.style.outline = '2px solid var(--accent)'; el.style.outlineOffset = '2px'; }
-                });
-                const submitButton = orderForm.querySelector('button[type="submit"]');
-                if (submitButton.disabled) {
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = '今すぐ依頼する <i class="fas fa-arrow-right"></i>';
-                }
-                return;
-            }
-
-            e.preventDefault();
             const formData = new FormData(orderForm);
             const submitButton = orderForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
             submitButton.disabled = true;
             submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
 
+            const filesInput = orderForm.elements['図面PDF'];
             if (filesInput && filesInput.files.length > 0) {
                 const totalBytes = [...filesInput.files].reduce((sum, file) => sum + file.size, 0);
                 const limit = 5 * 1024 * 1024; // 5 MB
@@ -1343,8 +1280,6 @@ body.thankyou-page-active > .sticky-cta {
                     alert('ファイルの合計サイズが 5 MB を超えています。\nZIP で圧縮するか、共有リンクをご利用ください。');
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
-                    const fileUploadDiv = filesInput.closest('.file-upload');
-                    if(fileUploadDiv) { fileUploadDiv.classList.add('form-error'); fileUploadDiv.style.borderColor = 'var(--accent)'; }
                     return;
                 }
             }
@@ -1355,10 +1290,7 @@ body.thankyou-page-active > .sticky-cta {
                 headers: { 'Accept': 'application/json' }
             })
             .then(response => {
-                // FormSubmit.co may return non-JSON or empty success responses.
-                // Attempt to parse JSON, but treat parse failure as success if response.ok.
                 if (response.ok) return response.json().catch(() => ({ success: true }));
-                // For errors, try to parse JSON error message, or fallback to statusText/text.
                 return response.json().then(errData => { throw new Error(errData.message || JSON.stringify(errData)); })
                                    .catch(() => response.text().then(text => { throw new Error('送信に失敗しました: ' + (response.statusText || text)); }));
             })
