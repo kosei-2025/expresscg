@@ -1,25 +1,24 @@
-<form action="https://formsubmit.co/expresscg@archi-prisma.co.jp"
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Express CG – テスト①</title>
+</head>
+<body>
+<form action="https://formsubmit.co/YOUR_ADDRESS@example.com"
       method="POST"
       enctype="multipart/form-data">
-
-  <!-- 利用者情報 -->
-  <input type="text"   name="name"  placeholder="お名前"  required>
-  <input type="email"  name="email" placeholder="メール" required>
-
-  <!-- ファイル（合計5 MBまで） -->
-  <input type="file" name="図面PDF" accept=".pdf,.jpg,.jpeg,.png">
-
-  <!-- FormSubmit オプション -->
+  <input type="text"  name="name"  placeholder="お名前"  required>
+  <input type="email" name="email" placeholder="メール" required>
+  <input type="file"  name="図面PDF" accept=".pdf,.jpg,.jpeg,.png">
   <input type="hidden" name="_subject"
          value="【ExpressCG】ご依頼ありがとうございます">
   <input type="hidden" name="_autoresponse"
-         value="この度は ExpressCG にご依頼いただきありがとうございます。
-24 時間以内に担当者よりご連絡いたします。">
+         value="この度は ExpressCG にご依頼いただきありがとうございます。">
   <input type="hidden" name="_next"
          value="https://expresscg.archi-prisma.co.jp/thankyou">
-
-  <!-- ここでは reCAPTCHA を有効にしたまま -->
-  <!-- (_captcha を置かない＝既定で true) -->
-
+  <!-- reCAPTCHA はデフォルト ON（_captcha 行を置かない） -->
   <button type="submit">送信する</button>
 </form>
+</body>
+</html>
