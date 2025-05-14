@@ -2,35 +2,34 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Express CG – テスト②</title>
-<style>.error{border:2px solid #e60033;}</style>
+<title>Express CG – テスト③</title>
 </head>
 <body>
-<form id="cgForm"
-      action="https://formsubmit.co/expresscg@archi-prisma.co.jp"
-      method="POST"
-      enctype="multipart/form-data">
+<form id="ajaxForm" enctype="multipart/form-data">
   <input type="text"  name="name"  placeholder="お名前"  required>
   <input type="email" name="email" placeholder="メール" required>
-  <input type="file"  id="files" name="図面PDF"
-         accept=".pdf,.jpg,.jpeg,.png">
-  <input type="hidden" name="_subject"
-         value="【ExpressCG】ご依頼ありがとうございます">
+  <input type="file"  name="図面PDF" accept=".pdf,.jpg,.jpeg,.png">
   <input type="hidden" name="_autoresponse"
-         value="この度は ExpressCG にご依頼いただきありがとうございます。">
-  <input type="hidden" name="_next"
-         value="https://expresscg.archi-prisma.co.jp/thankyou">
+         value="これは届かないはず…">
   <button type="submit">送信する</button>
 </form>
 
 <script>
-document.getElementById('cgForm').addEventListener('submit', e=>{
-  const MAX = 5*1024*1024;               // 5 MB
-  const files = document.getElementById('files').files;
-  if (files.length && [...files].reduce((s,f)=>s+f.size,0) > MAX) {
-      e.preventDefault();
-      alert('ファイル合計サイズが 5 MB を超えています');
-      document.getElementById('files').classList.add('error');
+const ENDPOINT = "https://formsubmit.co/ajax/expresscg@archi-prisma.co.jp";
+const THANKYOU = "https://expresscg.archi-prisma.co.jp/thankyou";
+
+document.getElementById('ajaxForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  try{
+    const r = await fetch(ENDPOINT,{
+      method:'POST',
+      body:new FormData(e.target),
+      headers:{Accept:'application/json'}
+    });
+    if(!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+    location.href = THANKYOU;        // 自前サンクスページ
+  }catch(err){
+    alert('送信失敗: '+err.message);
   }
 });
 </script>
