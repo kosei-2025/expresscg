@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>図面 PDF だけで 24h パース｜Express CG 特急サービス</title>
+  <title>図面 PDF だけで 24h パース｜Express CG 特急サービス（テスト用：必須項目なし）</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -35,7 +35,8 @@
     .highlight{color:var(--accent);font-weight:700;}
     .badge{display:inline-block;background:var(--accent);color:#fff;font-size:0.7rem;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle;}
     .badge-outline{background:transparent;border:1px solid var(--accent);color:var(--accent);}
-    .required { /* 必須マークのスタイル */
+    /* .required クラスは残しますが、HTMLからはrequired属性を削除 */
+    .required {
       color: var(--accent);
       font-weight: bold;
       margin-left: 4px;
@@ -663,8 +664,6 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
   <h2 id="video-popup-title" class="visually-hidden">サービス紹介動画</h2>
   <div class="video-container">
     <button class="video-close" id="video-close" aria-label="閉じる"><i class="fas fa-times"></i></button>
-    <!-- Video player (e.g., iframe for YouTube) would be dynamically inserted here or pre-exist -->
-    <!-- Example: <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
   </div>
 </div>
 
@@ -945,31 +944,30 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
   </section>
 
   <section id="order" class="order" data-aos="fade-up">
-    <h2>依頼フォーム</h2>
+    <h2>依頼フォーム (テスト用：必須項目なし)</h2>
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
-      <form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST" enctype="multipart/form-data" novalidate>
-        <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
-        <!-- <input type="hidden" name="_captcha" value="false">  ← この行を削除しました -->
-        <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
+      <form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST" enctype="multipart/form-data"> <!-- novalidateを削除 -->
+        <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました（テスト：必須なし）">
+        <input type="hidden" name="_autoresponse" value="Test submission received. Thank you."> <!-- シンプルなメッセージに変更 -->
         
         <div class="form-row">
           <div class="form-col">
-            <label for="name">お名前 <span class="required">*</span></label>
+            <label for="name">お名前 <!-- <span class="required">*</span> を削除 --></label>
             <input type="text" id="name" name="お名前" placeholder="山田 太郎">
           </div>
           <div class="form-col">
-            <label for="email">メールアドレス<span class="required">*</span></label>
-            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+            <label for="email">メールアドレス <!-- <span class="required">*</span> を削除 --></label>
+            <input type="email" id="email" name="email" placeholder="your-test-email@example.com"> <!-- テスト用メールアドレスを入力 -->
           </div>
         </div>
         <div class="form-row">
           <div class="form-col">
-            <label for="phone">電話番号<span class="required">*</span></label>
+            <label for="phone">電話番号 <!-- <span class="required">*</span> を削除 --></label>
             <input type="tel" id="phone" name="電話番号" placeholder="03-1234-5678">
           </div>
           <div class="form-col">
-            <label for="company">会社名<span class="required">*</span></label>
+            <label for="company">会社名 <!-- <span class="required">*</span> を削除 --></label>
             <input type="text" id="company" name="会社名" placeholder="株式会社〇〇設計">
           </div>
         </div>
@@ -981,7 +979,7 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
               <label for="plan-ultra" class="radio-label">Ultra-24<span class="radio-price">¥60,000</span><small>24時間以内納品</small></label>
             </div>
             <div class="radio-option">
-              <input type="radio" id="plan-lean" name="プラン" value="Lean-48" class="radio-input">
+              <input type="radio" id="plan-lean" name="プラン" value="Lean-48" class="radio-input" checked> <!-- いずれかを選択状態にしておく -->
               <label for="plan-lean" class="radio-label">Lean-48<span class="radio-price">¥40,000</span><small>48時間以内納品</small></label>
             </div>
           </div>
@@ -1010,18 +1008,18 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
           <div class="guarantee-text"><strong>安心の保証:</strong> 品質に満足できない場合は全額返金いたします。納期が遅れた場合は、Ultra-24は30%、Lean-48は20%の返金保証があります。あなたのリスクはゼロです。</div>
         </div>
         <div class="agreement-row">
-          <input type="checkbox" id="agreement-tokushoho" name="同意_特商法" value="はい">
+          <input type="checkbox" id="agreement-tokushoho" name="同意_特商法" value="はい"> <!-- required属性なし -->
           <span><a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">特定商取引法に基づく表記</a> を確認し、同意しました。</span>
         </div>
         <div class="agreement-row">
-          <input type="checkbox" id="agreement-terms" name="同意_利用規約" value="はい">
+          <input type="checkbox" id="agreement-terms" name="同意_利用規約" value="はい"> <!-- required属性なし -->
           <span><a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">利用規約</a> を確認し、同意しました。</span>
         </div>
         <div class="agreement-row">
-          <input type="checkbox" id="agreement-privacy" name="同意_プライバシーポリシー" value="はい">
+          <input type="checkbox" id="agreement-privacy" name="同意_プライバシーポリシー" value="はい"> <!-- required属性なし -->
           <span><a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">プライバシーポリシー</a> を確認し、同意しました。</span>
         </div>
-        <button type="submit" class="submit-btn">今すぐ依頼する <i class="fas fa-arrow-right"></i></button>
+        <button type="submit" class="submit-btn">今すぐ依頼する (テスト) <i class="fas fa-arrow-right"></i></button>
       </form>
     </div>
   </section>
@@ -1076,7 +1074,7 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
     setInterval(updateCountdown,1e3);
     
     document.querySelectorAll('.faq-item').forEach((item, index) => {
-        const questionButton = item.querySelector('.faq-question'); // Should be a button
+        const questionButton = item.querySelector('.faq-question'); 
         const answer = item.querySelector('.faq-answer');
         const uniqueQId = `faq-q-${index + 1}`;
         const uniqueAId = `faq-a-${index + 1}`;
@@ -1151,7 +1149,7 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
     function openGalleryModal(imgSrc, openerElement) {
         galleryModalLastFocusedElement = openerElement;
         gMIM.src=imgSrc;
-        gMIM.alt = openerElement.querySelector('img').alt + " - 拡大表示"; // Set alt for opened image
+        gMIM.alt = openerElement.querySelector('img').alt + " - 拡大表示"; 
         gMM.classList.add('active');
         document.body.style.overflow='hidden';
         gMCM.focus();
@@ -1170,7 +1168,7 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
     }
     if(gMM&&gMIM&&gMCM){
         gGIs.forEach(i=>{
-            i.addEventListener('click',function(){ // Use function to get 'this'
+            i.addEventListener('click',function(){ 
                 openGalleryModal(this.querySelector('img').src, this);
             });
         });
@@ -1241,12 +1239,12 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
     
     async function fetchProjectData(){
         try{
-            const r=await fetch('/data/projects.json'); // Ensure this path is correct or handle non-existence
+            const r=await fetch('/data/projects.json'); 
             if(!r.ok)throw new Error(`Failed to fetch project data: ${r.status} ${r.statusText}`);
             return await r.json();
         }catch(e){
             console.error("Error in fetchProjectData:",e);
-            return[]; // Return empty array on error to prevent further issues
+            return[]; 
         }
     }
     function formatRemaining(s,dH){
@@ -1280,121 +1278,26 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
     }
     if(document.getElementById('progress')){
         renderProgress();
-        setInterval(renderProgress,6e4); // 60 seconds interval
+        setInterval(renderProgress,6e4); 
     }
 
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', function (e) {
-            // エラークラスをリセット
+            // JavaScriptによるバリデーションはすべてコメントアウトまたは削除 (テスト目的)
+            /*
             const errorFields = orderForm.querySelectorAll('.form-error');
-            errorFields.forEach(field => {
-                field.classList.remove('form-error');
-                if (field.matches('input[type="text"], input[type="email"], input[type="tel"], input[type="checkbox"], textarea')) {
-                    field.style.borderColor = 'var(--mid-gray)';
-                    const parentRow = field.closest('.agreement-row'); // 同意チェックボックスの親
-                    if (parentRow) parentRow.classList.remove('form-error');
-                } else if (field.classList.contains('file-upload') || field.classList.contains('radio-group')) {
-                    field.style.borderColor = 'var(--mid-gray)';
-                }
-            });
+            errorFields.forEach(field => { // ... });
 
-            const f = e.target; // フォーム要素
-            const miss = []; // 未入力項目リスト
-            const errorElements = []; // エラーがあったDOM要素リスト
+            const f = e.target;
+            const miss = [];
+            const errorElements = [];
 
-            // 名前の入力チェック
-            const nameInput = f['お名前'];
-            if (!nameInput.value.trim()) {
-                miss.push('お名前');
-                errorElements.push(nameInput);
-            }
-
-          　// メールアドレスの入力チェック
-            const emailInput = f.email; 
-        　　if (!emailInput.value.trim()) {
-                miss.push('メールアドレス');
-                errorElements.push(emailInput);
-        　　} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { 
-                miss.push('メールアドレスの形式が正しくありません');
-                errorElements.push(emailInput);
-       　　　 }
-
-       　　　 // 電話番号の入力チェック
-        　　　const phoneInput = f['電話番号']; 
-        　　　if (!phoneInput.value.trim()) {
-                miss.push('電話番号');
-                errorElements.push(phoneInput);
-            }
-
-       　　 // 会社名の入力チェック
-       　　 const companyInput = f['会社名']; 
-       　　 if (!companyInput.value.trim()) {
-                miss.push('会社名');
-                errorElements.push(companyInput);
-       　　}
-           
-            // 同意チェックボックスのバリデーション
-            const agreementTokushoho = f['同意_特商法'];
-            if (!agreementTokushoho.checked) {
-                miss.push('特定商取引法に基づく表記への同意');
-                errorElements.push(agreementTokushoho); 
-            }
-            const agreementTerms = f['同意_利用規約'];
-            if (!agreementTerms.checked) {
-                miss.push('利用規約への同意');
-                errorElements.push(agreementTerms);
-            }
-            const agreementPrivacy = f['同意_プライバシーポリシー'];
-            if (!agreementPrivacy.checked) {
-                miss.push('プライバシーポリシーへの同意');
-                errorElements.push(agreementPrivacy);
-            }
-
-
-            if (miss.length > 0) {
-                e.preventDefault(); 
-                alert(`${miss.join('、\n')}が未入力または未同意です。`);
-
-                errorElements.forEach(el => {
-                    el.classList.add('form-error');
-                    if (el.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')) {
-                        el.style.borderColor = 'var(--accent)';
-                    } else if (el.matches('input[type="checkbox"]')) {
-                        const parentRow = el.closest('.agreement-row');
-                        if (parentRow) parentRow.classList.add('form-error');
-                    }
-                });
-                
-                const submitButtonError = orderForm.querySelector('button[type="submit"]');
-                if (submitButtonError.disabled) {
-                    submitButtonError.disabled = false;
-                    submitButtonError.innerHTML = '今すぐ依頼する <i class="fas fa-arrow-right"></i>';
-                }
-                return; 
-            }
-            
-            // ファイルサイズチェック
-            const filesInput = orderForm.elements['図面PDF'];
-            if (filesInput && filesInput.files.length > 0) {
-                const totalBytes = [...filesInput.files].reduce((sum, file) => sum + file.size, 0);
-                const limit = 5 * 1024 * 1024; // 5 MB
-                if (totalBytes > limit) {
-                    e.preventDefault(); 
-                    alert('ファイルの合計サイズが 5 MB を超えています。\nZIP で圧縮するか、共有リンクをご利用ください。');
-                    const fileUploadDiv = filesInput.closest('.file-upload');
-                    if(fileUploadDiv) {
-                        fileUploadDiv.classList.add('form-error');
-                        fileUploadDiv.style.borderColor = 'var(--accent)';
-                    }
-                    const submitButtonError = orderForm.querySelector('button[type="submit"]');
-                     if (submitButtonError.disabled) {
-                        submitButtonError.disabled = false;
-                        submitButtonError.innerHTML = '今すぐ依頼する <i class="fas fa-arrow-right"></i>';
-                    }
-                    return;
-                }
-            }
+            // ... 各フィールドのバリデーションチェック ...
+            // if (miss.length > 0) { e.preventDefault(); alert(...); return; }
+            // ... ファイルサイズチェック ...
+            // if (totalBytes > limit) { e.preventDefault(); alert(...); return; }
+            */
 
             const submitButton = orderForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
@@ -1403,10 +1306,12 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
 
             orderForm.target = 'hidden_iframe'; 
 
+            // フォーム送信後（ネイティブ送信が実行される）、少し遅れてサンキューページ表示
             setTimeout(() => {
                 displayThankYouPage();
             }, 500); 
             
+            // e.preventDefault() は呼び出さない (ネイティブ送信を許可)
         });
     }
 
@@ -1415,9 +1320,9 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
             <div class="thankyou-container">
                 <h1>送信が完了しました</h1>
                 <p>この度は、ExpressCGにお問い合わせいただき、誠にありがとうございます。<br>
-                担当者より24時間以内にご連絡させていただきますので、
-                  今しばらくお待ちくださいませ。</p>
-                <p><a href="https://expresscg.archi-prisma.co.jp/" class="button">トップページに戻る</a></p>
+                内容を確認し、担当者よりご連絡させていただきます。
+                  （これはテスト送信です）</p>
+                <p><a href="#" onclick="window.location.reload(); return false;" class="button">テストフォームに戻る</a></p>
             </div>
         `;
         document.body.classList.add('thankyou-page-active');
@@ -1428,7 +1333,7 @@ body.thankyou-page-active > iframe#hidden_iframe /* 隠しiframeも非表示に 
         document.body.appendChild(thankYouWrapper);
         window.scrollTo(0, 0);
     }
-  })(); // End of IIFE
+  })(); 
   </script>
 </body>
 </html>
