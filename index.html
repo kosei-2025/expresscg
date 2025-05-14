@@ -35,6 +35,11 @@
     .highlight{color:var(--accent);font-weight:700;}
     .badge{display:inline-block;background:var(--accent);color:#fff;font-size:0.7rem;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle;}
     .badge-outline{background:transparent;border:1px solid var(--accent);color:var(--accent);}
+    .required { /* 必須マークのスタイル */
+      color: var(--accent);
+      font-weight: bold;
+      margin-left: 4px;
+    }
     
     /* ボタン類 */
     a.btn{display:inline-block;background:var(--accent);color:#fff;padding:16px 40px;border-radius:12px;font-weight:600;text-decoration:none;transition:var(--transition);box-shadow:var(--shadow);position:relative;overflow:hidden;z-index:1;}
@@ -255,7 +260,14 @@
     .submit-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);transition:var(--transition);z-index:-1;}
     .submit-btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(230,0,51,0.3);}
     .submit-btn:hover::before{left:100%;}
-
+    /* エラー時のスタイル */
+    .form-error {
+      border-color: var(--accent) !important;
+    }
+    .file-upload.form-error {
+        border-color: var(--accent) !important;
+    }
+    
     /* CTA sticky */
     .sticky-cta{position:fixed;bottom:30px;right:30px;z-index:1000;display:none;transition:var(--transition);}
     @media(min-width:768px){.sticky-cta{display:block;}}
@@ -933,7 +945,7 @@ body.thankyou-page-active > .sticky-cta {
         
         <div class="form-row">
           <div class="form-col">
-            <label for="name">お名前</label>
+            <label for="name">お名前 <span class="required">*</span></label>
             <input type="text" id="name" name="お名前" placeholder="山田 太郎">
           </div>
           <div class="form-col">
@@ -1264,7 +1276,55 @@ body.thankyou-page-active > .sticky-cta {
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission
+            // エラークラスをリセット
+            const errorFields = orderForm.querySelectorAll('.form-error');
+            errorFields.forEach(field => {
+                field.classList.remove('form-error');
+                if (field.matches('input[type="text"], input[type="email"], textarea')) {
+                    field.style.borderColor = 'var(--mid-gray)';
+                } else if (field.classList.contains('file-upload')) {
+                    field.style.borderColor = 'var(--mid-gray)';
+                }
+            });
+
+            const f = e.target; // フォーム要素
+            const miss = []; // 未入力項目リスト
+            const errorElements = []; // エラーがあったDOM要素リスト
+
+            // 名前の入力チェック
+            const nameInput = f['お名前'];
+            if (!nameInput.value.trim()) {
+                miss.push('お名前');
+                errorElements.push(nameInput);
+            }
+            
+            // 他の必須項目もここに追加していく場合は同様にチェック
+            // 例: メールアドレス
+            // const emailInput = f.email;
+            // if (!emailInput.value.trim()) { miss.push('メールアドレス'); errorElements.push(emailInput); }
+            // else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { miss.push('メールアドレスの形式'); errorElements.push(emailInput); }
+
+
+            if (miss.length > 0) {
+                e.preventDefault(); 
+                alert(`${miss.join('、\n')}が未入力です。`);
+
+                errorElements.forEach(el => {
+                    el.classList.add('form-error');
+                    if (el.matches('input[type="text"], input[type="email"], textarea')) {
+                        el.style.borderColor = 'var(--accent)';
+                    }
+                });
+                
+                const submitButtonError = orderForm.querySelector('button[type="submit"]');
+                if (submitButtonError.disabled) {
+                    submitButtonError.disabled = false;
+                    submitButtonError.innerHTML = '今すぐ依頼する <i class="fas fa-arrow-right"></i>';
+                }
+                return; 
+            }
+            
+            e.preventDefault(); 
 
             const formData = new FormData(orderForm);
             const submitButton = orderForm.querySelector('button[type="submit"]');
@@ -1280,6 +1340,11 @@ body.thankyou-page-active > .sticky-cta {
                     alert('ファイルの合計サイズが 5 MB を超えています。\nZIP で圧縮するか、共有リンクをご利用ください。');
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
+                    const fileUploadDiv = filesInput.closest('.file-upload');
+                    if(fileUploadDiv) {
+                        fileUploadDiv.classList.add('form-error');
+                        fileUploadDiv.style.borderColor = 'var(--accent)';
+                    }
                     return;
                 }
             }
@@ -1321,8 +1386,8 @@ body.thankyou-page-active > .sticky-cta {
                 <p><a href="https://expresscg.archi-prisma.co.jp/" class="button">トップページに戻る</a></p>
             </div>
         `;
-        document.body.classList.add('thankyou-page-active'); // This class handles hiding other elements via CSS
-        document.body.innerHTML = ''; // Clear existing content
+        document.body.classList.add('thankyou-page-active');
+        document.body.innerHTML = ''; 
         const thankYouWrapper = document.createElement('div');
         thankYouWrapper.className = 'thankyou-content-wrapper';
         thankYouWrapper.innerHTML = thankYouHTML;
