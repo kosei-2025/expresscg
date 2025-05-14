@@ -537,6 +537,7 @@
   border-radius: 50%;
 }
 
+/* These styles would typically be in thankyou.html, but are kept here for context if that page isn't provided */
 body.thankyou-page-active {
     display: flex !important;
     justify-content: center !important;
@@ -940,7 +941,8 @@ body.thankyou-page-active > .sticky-cta {
     <div class="form-wrapper">
       <form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST" enctype="multipart/form-data" novalidate>
         <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
-        <input type="hidden" name="_captcha" value="false">
+        <!-- _captcha 行を削除 -->
+        <input type="hidden" name="_next" value="./thankyou.html"> <!-- 自前のサンクスページURLを指定 (例: thankyou.html) -->
         <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
         
         <div class="form-row">
@@ -1276,72 +1278,56 @@ body.thankyou-page-active > .sticky-cta {
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default submission to handle via fetch
+
             // エラークラスをリセット
             const errorFields = orderForm.querySelectorAll('.form-error');
             errorFields.forEach(field => {
                 field.classList.remove('form-error');
-                if (field.matches('input[type="text"], input[type="email"], textarea')) {
+                if (field.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')) { // Added tel
                     field.style.borderColor = 'var(--mid-gray)';
                 } else if (field.classList.contains('file-upload')) {
                     field.style.borderColor = 'var(--mid-gray)';
                 }
             });
 
-            const f = e.target; // フォーム要素
-            const miss = []; // 未入力項目リスト
-            const errorElements = []; // エラーがあったDOM要素リスト
+            const f = e.target; 
+            const miss = []; 
+            const errorElements = []; 
 
-            // 名前の入力チェック
             const nameInput = f['お名前'];
             if (!nameInput.value.trim()) {
                 miss.push('お名前');
                 errorElements.push(nameInput);
             }
 
-          　// メールアドレスの入力チェック
-            const emailInput = f.email; // name="email" で取得
-        　　if (!emailInput.value.trim()) {
-            miss.push('メールアドレス');
-            errorElements.push(emailInput);
-        　　} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { // メール形式チェック
-            miss.push('メールアドレスの形式が正しくありません');
-            errorElements.push(emailInput);
-       　　　 }
+            const emailInput = f.email; 
+            if (!emailInput.value.trim()) {
+                miss.push('メールアドレス');
+                errorElements.push(emailInput);
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { 
+                miss.push('メールアドレスの形式が正しくありません');
+                errorElements.push(emailInput);
+            }
 
-       　　　 // 電話番号の入力チェック
-        　　　const phoneInput = f['電話番号']; // name="電話番号" で取得
-        　　　if (!phoneInput.value.trim()) {
-            miss.push('電話番号');
-            errorElements.push(phoneInput);
-        }
-        // 電話番号の形式を厳密にチェックしたい場合は、正規表現を追加できます
-        // else if (!/^\d{10,11}$/.test(phoneInput.value.replace(/-/g, ''))) { //例: ハイフンなしで10桁か11桁の数字
-        //     miss.push('電話番号の形式が正しくありません');
-        //     errorElements.push(phoneInput);
-        // }
+            const phoneInput = f['電話番号']; 
+            if (!phoneInput.value.trim()) {
+                miss.push('電話番号');
+                errorElements.push(phoneInput);
+            }
 
-
-       　　 // 会社名の入力チェック
-       　　 const companyInput = f['会社名']; // name="会社名" で取得
-       　　 if (!companyInput.value.trim()) {
-            miss.push('会社名');
-            errorElements.push(companyInput);
-       　　}
+            const companyInput = f['会社名']; 
+            if (!companyInput.value.trim()) {
+                miss.push('会社名');
+                errorElements.push(companyInput);
+            }
            
-          　// 他の必須項目もここに追加していく場合は同様にチェック
-            // 例: メールアドレス
-            // const emailInput = f.email;
-            // if (!emailInput.value.trim()) { miss.push('メールアドレス'); errorElements.push(emailInput); }
-            // else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) { miss.push('メールアドレスの形式'); errorElements.push(emailInput); }
-
-
             if (miss.length > 0) {
-                e.preventDefault(); 
-                alert(`${miss.join('、\n')}が未入力です。`);
+                alert(`${miss.join('、\n')}が未入力または形式が正しくありません。`); // Modified alert
 
                 errorElements.forEach(el => {
                     el.classList.add('form-error');
-                    if (el.matches('input[type="text"], input[type="email"], textarea')) {
+                     if (el.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')) { // Added tel
                         el.style.borderColor = 'var(--accent)';
                     }
                 });
@@ -1354,8 +1340,6 @@ body.thankyou-page-active > .sticky-cta {
                 return; 
             }
             
-            e.preventDefault(); 
-
             const formData = new FormData(orderForm);
             const submitButton = orderForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
@@ -1385,45 +1369,46 @@ body.thankyou-page-active > .sticky-cta {
                 headers: { 'Accept': 'application/json' }
             })
             .then(response => {
-                if (response.ok) return response.json().catch(() => ({ success: true }));
-                return response.json().then(errData => { throw new Error(errData.message || JSON.stringify(errData)); })
-                                   .catch(() => response.text().then(text => { throw new Error('送信に失敗しました: ' + (response.statusText || text)); }));
+                if (response.ok) {
+                    // For FormSubmit with 'Accept: application/json', expect JSON.
+                    // If response is 200 OK but not JSON (e.g. empty), treat as success for redirection.
+                    return response.json().catch(() => ({ success: true })); 
+                }
+                // Handle HTTP errors
+                return response.json()
+                    .then(errData => { throw new Error(errData.message || JSON.stringify(errData)); })
+                    .catch(() => { throw new Error('送信に失敗しました: ' + (response.statusText || `HTTP ${response.status}`)); });
             })
             .then(data => {
-                if (data.success || (typeof data.success === 'string' && data.success.toLowerCase() === 'true')) {
-                    displayThankYouPage();
+                if (String(data.success).toLowerCase() === 'true') {
+                    const nextUrlInput = orderForm.querySelector('input[name="_next"]');
+                    if (nextUrlInput && nextUrlInput.value) {
+                        window.location.href = nextUrlInput.value;
+                        // No need to re-enable button, page will navigate away
+                    } else {
+                        // Fallback if _next is somehow not set (should not happen based on HTML)
+                        alert('送信完了しましたが、リダイレクト先が未設定です。');
+                        submitButton.disabled = false; // Re-enable button if not redirecting
+                        submitButton.innerHTML = originalButtonText;
+                    }
                 } else {
-                    const errorMessage = data.message || JSON.stringify(data);
-                    throw new Error('送信処理でエラーが報告されました: ' + errorMessage);
+                    // If data.success is not true (e.g., FormSubmit returns an error in JSON)
+                    const errorMessage = data.message || 'サーバーがエラーを返しました。';
+                    throw new Error(errorMessage);
                 }
             })
             .catch(error => {
                 console.error('送信エラー:', error);
-                alert('フォームの送信中にエラーが発生しました。しばらくしてからもう一度お試しください。\n詳細: ' + error.message);
+                alert('フォームの送信中にエラーが発生しました。\n詳細: ' + error.message);
                 submitButton.disabled = false;
                 submitButton.innerHTML = originalButtonText;
             });
         });
     }
 
-    function displayThankYouPage() {
-        const thankYouHTML = `
-            <div class="thankyou-container">
-                <h1>送信が完了しました</h1>
-                <p>この度は、ExpressCGにお問い合わせいただき、誠にありがとうございます。<br>
-                担当者より24時間以内にご連絡させていただきますので、
-                  今しばらくお待ちくださいませ。</p>
-                <p><a href="https://expresscg.archi-prisma.co.jp/" class="button">トップページに戻る</a></p>
-            </div>
-        `;
-        document.body.classList.add('thankyou-page-active');
-        document.body.innerHTML = ''; 
-        const thankYouWrapper = document.createElement('div');
-        thankYouWrapper.className = 'thankyou-content-wrapper';
-        thankYouWrapper.innerHTML = thankYouHTML;
-        document.body.appendChild(thankYouWrapper);
-        window.scrollTo(0, 0);
-    }
+    // displayThankYouPage() is no longer needed as we redirect using _next.
+    // The styles for .thankyou-page-active etc. would be used on the target thankyou.html page.
+
   })(); // End of IIFE
   </script>
 </body>
