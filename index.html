@@ -2,15 +2,18 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Express CG – テスト①</title>
+<title>Express CG – テスト②</title>
+<style>.error{border:2px solid #e60033;}</style>
 </head>
 <body>
-<form action="https://formsubmit.co/expresscg@archi-prisma.co.jp"
+<form id="cgForm"
+      action="https://formsubmit.co/expresscg@archi-prisma.co.jp"
       method="POST"
       enctype="multipart/form-data">
   <input type="text"  name="name"  placeholder="お名前"  required>
   <input type="email" name="email" placeholder="メール" required>
-  <input type="file"  name="図面PDF" accept=".pdf,.jpg,.jpeg,.png">
+  <input type="file"  id="files" name="図面PDF"
+         accept=".pdf,.jpg,.jpeg,.png">
   <input type="hidden" name="_subject"
          value="【ExpressCG】ご依頼ありがとうございます">
   <input type="hidden" name="_autoresponse"
@@ -19,5 +22,17 @@
          value="https://expresscg.archi-prisma.co.jp/thankyou">
   <button type="submit">送信する</button>
 </form>
+
+<script>
+document.getElementById('cgForm').addEventListener('submit', e=>{
+  const MAX = 5*1024*1024;               // 5 MB
+  const files = document.getElementById('files').files;
+  if (files.length && [...files].reduce((s,f)=>s+f.size,0) > MAX) {
+      e.preventDefault();
+      alert('ファイル合計サイズが 5 MB を超えています');
+      document.getElementById('files').classList.add('error');
+  }
+});
+</script>
 </body>
 </html>
