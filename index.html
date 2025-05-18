@@ -514,86 +514,7 @@
   background: rgba(255,255,255,0.1);
   border-radius: 50%;
 }
-/* ---------- サンキューページ用スタイル ここから ---------- */
-body.thankyou-page-active {
-    display: flex !important; /* 他のスタイルを上書きするために !important を使用する場合があります */
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 100vh !important;
-    margin: 0 !important;
-    background-color: var(--light-gray) !important; /* 背景色を設定 */
-    color: var(--text) !important;
-    text-align: center !important;
-    padding: 20px !important;
-    box-sizing: border-box !important;
-    font-family: 'Noto Sans JP', sans-serif !important;
-}
-
-body.thankyou-page-active > header,
-body.thankyou-page-active > section,
-body.thankyou-page-active > footer,
-body.thankyou-page-active > .sticky-cta {
-    display: none !important;
-}
-
-.thankyou-content-wrapper { /* 新しく追加したラッパー */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.thankyou-container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-    max-width: 600px;
-    width: 100%; /* モバイルで幅いっぱいに */
-}
-
-.thankyou-container h1 {
-    font-family: 'Poppins', sans-serif;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-}
-
-.thankyou-container p {
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    font-size: clamp(1rem, 2vw, 1.1rem);
-}
-
-.thankyou-container a.button {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.thankyou-container a.button:hover {
-    background-color: var(--accent-dark);
-}
-/* ---------- サンキューページ用スタイル ここまで ---------- */
-
-/* ---------- フォームエラー表示用スタイル (任意) ここから ---------- */
-/* もし、HTML標準のバリデーションUIで十分な場合は、このセクションは不要です */
-/* カスタムのエラー表示をしたい場合は、前回提示した .form-error 関連のCSSをここに記述します */
-/* 例:
-.form-error {
-  border-color: var(--accent) !important;
-}
-.radio-group.form-error {
-  border: 2px solid var(--accent) !important;
-}
-*/
-/* ---------- フォームエラー表示用スタイル (任意) ここまで ---------- */
-  </style>
+</style>
 </head>
 <body>
   <!-- ヘッダー -->
@@ -1130,13 +1051,13 @@ body.thankyou-page-active > .sticky-cta {
     <p style="text-align:center;margin-bottom:30px;">図面PDFを添付し、画角メモを50字以内でご記入ください</p>
     <div class="form-wrapper">
       <!-- MODIFIED: Form tag for FormSubmit -->
-      <form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST" enctype="multipart/form-data" novalidate>
+      <form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST" enctype="multipart/form-data">
         <!-- FormSubmit 用カスタムフィールド -->
         <input type="hidden" name="_subject" value="【ExpressCG】新しい依頼が届きました">
         <!-- <input type="hidden" name="_template" value="box"> FormSubmitのデフォルトテンプレートを使用する場合や、特に指定がなければ不要 -->
         <input type="hidden" name="_captcha" value="false"> <!-- reCAPTCHAを無効にする場合。有効にするならこの行を削除または value="true" にする -->
         <input type="hidden" name="_autoresponse" value="ご依頼ありがとうございます。Express CGです。内容を確認し、24時間以内に担当者よりご連絡いたします。">
-         
+        <input type="hidden" name="_next" value="https://www.archi-prisma.co.jp/thankyou"> 
         <div class="form-row">
           <div class="form-col">
             <label for="name">お名前 <span class="required">*</span></label>
@@ -1641,128 +1562,31 @@ body.thankyou-page-active > .sticky-cta {
         setInterval(renderProgress, 60 * 1000);
     }
 
-        // ファイルサイズチェックとフォーム送信処理
+    // ファイルサイズチェックのスクリプト
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', function (e) {
-            // --------------------------------------------------------------------
-            // ▼▼▼ 元々のバリデーションロジック (もしあればここに入る) ▼▼▼
-            // 例:
-            // if (!document.getElementById('name').value) {
-            //     e.preventDefault();
-            //     alert('お名前を入力してください。');
-            //     return;
-            // }
-            // ...その他の必須項目チェックなど...
-            // ▲▲▲ 元々のバリデーションロジック (もしあればここまで) ▲▲▲
-            // --------------------------------------------------------------------
+            const filesInput = document.getElementById('files'); // ファイル入力要素のID
+            if (!filesInput) return; // ファイル入力がなければ何もしない
 
-            // ファイルサイズチェック (これは既存のロジックを活かします)
-            const filesInput = document.getElementById('files');
-            let isFileSizeValid = true; // ファイルサイズが有効かのフラグ
-            if (filesInput && filesInput.files.length > 0) {
-                const totalBytes = [...filesInput.files].reduce((sum, f) => sum + f.size, 0);
+            const files = filesInput.files;
+            if (files.length === 0 && filesInput.required) { // 必須なのにファイルが選択されていない場合
+                // HTMLのrequired属性に任せるか、ここで独自のアラートを出す
+                // e.preventDefault();
+                // alert('図面PDFをアップロードしてください。');
+                return;
+            }
+            if (files.length > 0) { // ファイルが選択されている場合のみサイズチェック
+                const totalBytes = [...files].reduce((sum, f) => sum + f.size, 0);
                 const limit = 5 * 1024 * 1024; // 5 MB
 
                 if (totalBytes > limit) {
                     e.preventDefault(); // 送信をブロック
                     alert('ファイルの合計サイズが 5 MB を超えています。\n' +
                           'ZIP で圧縮するか、共有リンクをご利用ください。');
-                    isFileSizeValid = false; // フラグをfalseに
-                    // ここで return しても良いが、後続の処理で isFileSizeValid を見る
                 }
             }
-
-            // HTMLの required 属性によるバリデーションに失敗した場合や、
-            // 上記のファイルサイズチェックで NG だった場合は、ここで処理を中断
-            if (!e.target.checkValidity() || !isFileSizeValid) {
-                // checkValidity() はHTML5のフォームバリデーション結果を返す
-                // もしカスタムバリデーションで e.preventDefault() を呼んでいたら、
-                // ここには到達しないかもしれません。その場合は、
-                // カスタムバリデーションの最後に `return;` を入れるようにしてください。
-                if (!isFileSizeValid) {
-                    // ファイルサイズエラーは既にアラートが出ているので何もしない
-                } else {
-                    // HTML標準のバリデーションエラーはブラウザが表示してくれるはず
-                    // もし表示されない場合は、ここでカスタムのエラーメッセージを出すことも検討
-                    // (例: 必須項目が空です、など)
-                }
-                // submitボタンの disabled 状態を解除する処理を入れるとより親切
-                const submitButton = orderForm.querySelector('button[type="submit"]');
-                if (submitButton && submitButton.disabled) {
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = '今すぐ依頼する <i class="fas fa-arrow-right"></i>';
-                }
-                return; // バリデーションNG or ファイルサイズオーバーなら送信しない
-            }
-
-            // ここまで到達したら、基本的なバリデーションはOKとみなす
-            e.preventDefault(); // デフォルトのフォーム送信をキャンセルして、fetchで送信
-
-            const formData = new FormData(orderForm);
-            const submitButton = orderForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
-            submitButton.disabled = true;
-            submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
-
-            fetch(orderForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.text().then(text => {
-                        try { return JSON.parse(text); }
-                        catch (e) { return { success: true }; }
-                    });
-                }
-                return response.json().then(errData => { throw errData; })
-                                   .catch(() => { throw new Error(`送信エラー: ${response.status}`);});
-            })
-            .then(data => {
-                if (data.success || (typeof data.success === 'string' && data.success.toLowerCase() === 'true')) {
-                    displayThankYouPage(); // 送信成功時にサンキューページ表示
-                } else {
-                    throw new Error(data.message || '送信処理で不明なエラーが発生しました。');
-                }
-            })
-            .catch(error => {
-                console.error('送信エラー詳細:', error);
-                alert(`フォームの送信中にエラーが発生しました。\n内容をご確認の上、再度お試しください。\n${error.message ? '詳細: ' + error.message : ''}`);
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalButtonText;
-            });
         });
-    }
-
-    // サンキューページ表示関数 (これは新しく追加します)
-    // この関数の内容は前回提示したものと同じです。
-    // `orderForm` の `if` ブロックの外に記述してください。
-    function displayThankYouPage() {
-        const thankYouHTML = `
-            <div class="thankyou-container">
-                <h1>送信が完了しました</h1>
-                <p>この度は、ExpressCGにお問い合わせいただき、誠にありがとうございます。<br>
-                担当者より24時間以内にご連絡させていただきますので、
-                  今しばらくお待ちくださいませ。</p>
-                <p><a href="/" class="button">トップページに戻る</a></p>
-            </div>
-        `;
-
-        const mainContentSelectors = ['header', 'section', 'footer', '.sticky-cta'];
-        mainContentSelectors.forEach(selector => {
-            document.querySelectorAll(selector).forEach(el => el.style.display = 'none');
-        });
-
-        document.body.classList.add('thankyou-page-active');
-
-        const thankYouWrapper = document.createElement('div');
-        thankYouWrapper.className = 'thankyou-content-wrapper';
-        thankYouWrapper.innerHTML = thankYouHTML;
-        document.body.appendChild(thankYouWrapper);
-
-        window.scrollTo(0, 0);
     }
 
   </script>
