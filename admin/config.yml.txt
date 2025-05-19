@@ -1,0 +1,13 @@
+backend:
+  name: github
+  repo: kosei-2025/expresscg   # ← 必ず自分の USER/REPO に変更
+  branch: main
+
+collections:
+  - name: "timer"
+    label: "Projects JSON"
+    files:
+      - file: "data/projects.json"
+        name: "projects"
+        label: "projects.json"
+        format: "json"
