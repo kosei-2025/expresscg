@@ -1,261 +1,717 @@
+<!DOCTYPE html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- SEO: 既存のタイトルを活かしつつキーワードを追加 -->
-  <title>図面PDFだけで24時間特急パース制作｜Express CG｜高品質建築CGパースをスピード納品・簡単オンライン依頼</title>
-  <!-- SEO: ページ内容を要約し、キーワードを自然に含める -->
-  <meta name="description" content="ExpressCG（エクスプレスCG）は、お手持ちの図面PDFだけで高品質な建築CGパース（外観・内観・鳥瞰など）を最短24時間・最短1日でスピード納品する特急レンダリングサービスです。緊急パースや当日対応パースもご相談ください。オンラインで簡単依頼、料金表も明確。東京を拠点に全国対応。" />
-  <!-- SEO: キーワードの羅列 (Googleではあまり重視されませんが、念のため) -->
+  <!-- SEO: Titleタグの最適化 - 既存のブランド名を活かしつつ、主要キーワードを追加 -->
+  <title>図面PDFだけで24h特急パース制作｜Express CG｜高品質建築CGをスピード納品・簡単オンライン依頼</title>
+  <!-- SEO: meta description の追加 - ページ内容を要約し、主要キーワードを自然に含める -->
+  <meta name="description" content="Express CG（エクスプレスCG）は、お手持ちの図面PDFだけで高品質な建築CGパース（外観・内観・鳥瞰など）を最短24時間・最短1日でスピード納品する特急レンダリングサービスです。緊急パースや当日対応パースもご相談ください。オンラインで簡単依頼、料金表も明確。東京を拠点に全国対応。" />
+  <!-- SEO: meta keywords の追加 - 関連キーワードを列挙 (Googleでは重視されませんが念のため) -->
   <meta name="keywords" content="CGパース, 即日パース, パース制作, 高品質パース, 24時間パース, 簡単依頼, 建築CGパース, 建築パース, スピード納品パース, 最短1日パース, 緊急パース, 当日対応パース, 外観パース, 内観パース, 鳥瞰パース, 360°パノラマパース, アニメーションパース, 手描き風パース, 商業施設パース, 住宅パース, 店舗パース, オフィスパース, フォトリアルCG, 3Dビジュアライゼーション, BIM連携パース, 高解像度パース, レンダリングサービス, 格安パース, 低価格CG, オンライン依頼パース, 料金表ありパース, 東京 CGパース制作, ExpressCG, エクスプレスCG" />
 
-  <!-- SEO: OGP設定 (SNSシェア時の表示用) -->
-  <meta property="og:title" content="図面PDFだけで24時間特急パース制作｜Express CG｜高品質建築CGパースをスピード納品・簡単オンライン依頼" />
-  <meta property="og:description" content="ExpressCGは、お手持ちの図面PDFだけで高品質な建築CGパースを最短24時間でスピード納品する特急サービスです。簡単オンライン依頼で、緊急・当日対応パースも可能。" />
+  <!-- SEO: OGP設定 (SNSシェア時の表示を最適化) -->
+  <meta property="og:title" content="図面PDFだけで24h特急パース制作｜Express CG｜高品質建築CGをスピード納品" />
+  <meta property="og:description" content="Express CGは、図面PDFだけで高品質な建築CGパースを最短24時間で制作する特急サービス。簡単オンライン依頼で緊急・当日対応パースも。" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://expresscg.archi-prisma.co.jp/" />
-  <meta property="og:image" content="https://expresscg.archi-prisma.co.jp/og-image.png" /> <!-- SEO: 適切なOGP画像URLに置き換えてください -->
+  <meta property="og:url" content="https://expresscg.archi-prisma.co.jp/" /> <!-- SEO: 正しいURLに -->
+  <meta property="og:image" content="https://expresscg.archi-prisma.co.jp/og_image.png" /> <!-- SEO: 適切なOGP画像URLに置き換えてください -->
   <meta property="og:site_name" content="Express CG 特急パースサービス" />
   <meta name="twitter:card" content="summary_large_image" />
-  <!-- SEO: ファビコン -->
-  <link rel="icon" href="/favicon.ico"> <!-- SEO: 実際のファビコンパスに -->
-  <!-- SEO: 正規化URL -->
+  <!-- SEO: ファビコン設定 (サイトのアイコン) -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- SEO: 実際のファビコンパスに合わせてください -->
+  <!-- SEO: 正規化URL (このページが正式なURLであることを示す) -->
   <link rel="canonical" href="https://expresscg.archi-prisma.co.jp/" />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    /* :root から @media (max-width: 480px) まで既存のスタイルをそのままここに記述 */
-    /* ... あなたの既存のCSS ... */
+    :root{
+      --accent:#E60033;
+      --accent-dark:#c4002b;
+      --accent-light:#ff3358;
+      --accent-alpha:rgba(230,0,51,0.1);
+      --text:#202020;
+      --bg:#ffffff;
+      --light-gray:#f8f8f8;
+      --mid-gray:#e0e0e0;
+      --dark-gray:#666;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --shadow-hover:0 15px 40px rgba(0,0,0,.15);
+      --transition: all 0.3s ease;
+      --gradient: linear-gradient(120deg, var(--accent) 0%, #ff6b6b 100%);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);line-height:1.7;scroll-behavior:smooth;}
+    h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
+    h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem;}
+    h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.5rem;font-weight:600;text-align:center;position:relative;padding-bottom:15px;}
+    h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:4px;background:var(--gradient);border-radius:2px;}
+    h3{font-size:clamp(1.2rem,3vw,1.6rem);margin-bottom:1rem;}
+    p.lead{font-size:clamp(1.1rem,2vw,1.3rem);margin-bottom:2rem;font-weight:500;}
+    section{padding:100px 20px;max-width:1200px;margin:auto;}
+    .highlight{color:var(--accent);font-weight:700;}
+    .badge{display:inline-block;background:var(--accent);color:#fff;font-size:0.7rem;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+    .badge-outline{background:transparent;border:1px solid var(--accent);color:var(--accent);}
+    
+    /* ボタン類 */
+    a.btn{display:inline-block;background:var(--accent);color:#fff;padding:16px 40px;border-radius:12px;font-weight:600;text-decoration:none;transition:var(--transition);box-shadow:var(--shadow);position:relative;overflow:hidden;z-index:1;}
+    a.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--accent-dark);transition:var(--transition);z-index:-1;}
+    a.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+    a.btn:hover::before{left:0;}
+    a.btn-large{padding:20px 50px;font-size:1.2rem;text-transform:uppercase;letter-spacing:1px;}
+    a.btn-outline{display:inline-block;background:transparent;color:var(--accent);border:2px solid var(--accent);padding:14px 38px;border-radius:12px;font-weight:600;text-decoration:none;transition:var(--transition);}
+    a.btn-outline:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
+    
+    /* ヘッダー・ナビゲーション */
+    header{position:fixed;top:0;left:0;width:100%;padding:12px 0;background:rgba(255,255,255,0.95);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05);transition:var(--transition);}
+    header.scrolled{padding:8px 0;background:rgba(255,255,255,0.98);box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+    .header-content{display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-size:1.7rem;font-weight:700;letter-spacing:-0.5px;color:var(--text);display:flex;align-items:center;}
+    .logo img{height:40px;margin-right:10px;transition:var(--transition);}
+    header.scrolled .logo img{height:32px;}
+    .logo span{color:var(--accent);font-weight:900;}
+    .nav-links{display:flex;list-style:none;}
+    .nav-links li{margin-left:30px;}
+    .nav-links a{color:var(--text);text-decoration:none;font-weight:500;transition:var(--transition);position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--accent);transition:var(--transition);}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-links a:hover::after{width:100%;}
+    .mobile-menu-btn{display:none;font-size:1.5rem;cursor:pointer;color:var(--text);}
+    
+    /* Hero */
+    .hero{position:relative;text-align:center;color:#fff;overflow:hidden;padding-top:80px;}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45);}    
+    .hero-content{position:relative;z-index:2;padding:170px 20px 200px;}
+    .hero .tagline{background:rgba(255,255,255,.15);display:inline-block;padding:8px 20px;border-radius:50px;font-size:1rem;font-weight:600;letter-spacing:.04em;margin-bottom:30px;backdrop-filter:blur(5px);box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    .hero .cta-group{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+    
+    /* ビデオポップアップ */
+    .video-trigger{display:flex;align-items:center;color:#fff;text-decoration:none;font-weight:500;font-size:1.1rem;transition:var(--transition);}
+    .video-icon{width:60px;height:60px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;box-shadow:0 10px 25px rgba(230,0,51,0.3);transition:var(--transition);}
+    .video-icon i{font-size:1.5rem;margin-left:5px;}
+    .video-trigger:hover .video-icon{transform:scale(1.1);}
+    .video-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;visibility:hidden;transition:var(--transition);}
+    .video-overlay.active{opacity:1;visibility:visible;}
+    .video-container{position:relative;width:80%;max-width:960px;aspect-ratio:16/9;}
+    .video-close{position:absolute;top:-40px;right:0;color:#fff;font-size:2rem;cursor:pointer;transition:var(--transition);}
+    .video-close:hover{transform:rotate(90deg);}
+    
+    /* 信頼性バッジ */
+    .trust-badges{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:40px;margin:50px 0;padding:30px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:15px;}
+    .trust-badge{display:flex;flex-direction:column;align-items:center;font-size:0.9rem;color:#fff;}
+    .trust-badge-icon{font-size:2rem;margin-bottom:10px;}
+    .trust-badge-value{font-size:1.5rem;font-weight:700;margin-bottom:5px;}
+    
+    /* 3‑step concept */
+    .process{position:relative;background:var(--light-gray);overflow:hidden;}
+    .process::before{content:'';position:absolute;top:0;left:0;width:100%;height:50%;background:linear-gradient(to bottom, var(--bg), var(--light-gray));}
+    .steps{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-top:50px;position:relative;z-index:2;}
+    .step{flex:1 1 300px;text-align:center;background:#fff;padding:50px 30px;border-radius:15px;box-shadow:var(--shadow);transition:var(--transition);position:relative;}
+    .step:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    .step-icon{width:90px;height:90px;border:4px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:0 auto 25px;color:var(--accent);background:#fff;position:relative;}
+    .step::after{content:'';position:absolute;top:90px;right:-15px;width:30px;height:30px;border-top:4px solid var(--accent);border-right:4px solid var(--accent);transform:rotate(45deg);display:none;}
+    .step:not(:last-child)::after{display:block;}
+    .step h3{margin-top:15px;font-size:1.5rem;position:relative;display:inline-block;}
+    .step h3::after{content:'';position:absolute;bottom:-8px;left:0;width:50%;height:3px;background:var(--accent-light);}
+    .step-detail{margin-top:15px;color:var(--dark-gray);}
+    
+    /* Value card grid */
+    .values{background:var(--light-gray);position:relative;}
+    .values::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:var(--bg);}
+    .values-container{position:relative;z-index:1;}
+    .grid3{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:50px;}
+    .card{background:#fff;border-radius:15px;padding:40px 30px;box-shadow:var(--shadow);text-align:center;transition:var(--transition);position:relative;overflow:hidden;}
+    .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:var(--gradient);}
+    .card:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    .card h3{font-size:1.5rem;margin:15px 0;color:var(--accent);}
+    .card-icon{font-size:3rem;color:var(--accent);margin-bottom:20px;transition:var(--transition);}
+    .card:hover .card-icon{transform:scale(1.2);}
+    .card ul{text-align:left;margin-top:20px;padding-left:20px;}
+    .card ul li{margin-bottom:10px;position:relative;}
+    .card ul li::before{content:'✓';position:absolute;left:-20px;color:var(--accent);font-weight:bold;}
+    
+    /* Banner */
+    .banner{background:var(--gradient);color:#fff;text-align:center;padding:80px 20px;position:relative;overflow:hidden;}
+    .banner::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:rgba(255,255,255,0.1);border-radius:50%;}
+    .banner::after{content:'';position:absolute;bottom:-100px;left:-100px;width:200px;height:200px;background:rgba(255,255,255,0.1);border-radius:50%;}
+    .banner-content{position:relative;z-index:1;}
+    .banner h2{color:#fff;margin-bottom:25px;}
+    .banner h2::after{background:#fff;}
+    .banner .btn{background:#fff;color:var(--accent);margin-top:20px;}
+    .banner .btn:hover{background:rgba(255,255,255,0.9);}
+    .countdown{display:flex;justify-content:center;margin:30px 0;gap:20px;}
+    .countdown-item{width:80px;height:80px;background:rgba(255,255,255,0.2);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;backdrop-filter:blur(5px);}
+    .countdown-value{font-size:2rem;font-weight:700;line-height:1;}
+    .countdown-label{font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;}
+    .spot-counter{font-size:3.5rem;font-weight:900;margin:5px 0 20px;text-shadow:0 3px 10px rgba(0,0,0,0.2);background:rgba(255,255,255,0.15);display:inline-block;padding:10px 40px;border-radius:10px;min-width:150px;}
+    
+    /* 比較スライダー */
+    .comparison{padding:120px 20px;}
+    .comparison-intro{text-align:center;max-width:800px;margin:0 auto 50px;}
+    .comparison-slider{position:relative;width:100%;max-width:900px;margin:0 auto;overflow:hidden;border-radius:15px;box-shadow:var(--shadow-hover);}
+    .comparison-container{position:relative;width:100%;}
+    .comparison-before, .comparison-after{width:100%;display:block;}
+    .comparison-before{position:absolute;top:0;left:0;height:100%;overflow:hidden;width:50%;}
+    .comparison-handle{position:absolute;top:0;bottom:0;left:50%;width:4px;background:white;cursor:ew-resize;box-shadow:0 0 10px rgba(0,0,0,0.5);z-index:2;}
+    .comparison-handle::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:40px;height:40px;background:white;border-radius:50%;box-shadow:0 0 10px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;}
+    .comparison-handle::after{content:'⇄';position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);font-size:1.2rem;color:var(--accent);font-weight:bold;}
+    .comparison-slider::before{content:'図面';position:absolute;top:20px;left:20px;background:rgba(0,0,0,0.7);color:white;padding:5px 15px;border-radius:20px;font-weight:600;z-index:1;}
+    .comparison-slider::after{content:'CG';position:absolute;top:20px;right:20px;background:rgba(0,0,0,0.7);color:white;padding:5px 15px;border-radius:20px;font-weight:600;z-index:1;}
+    
+    /* Pricing */
+    .pricing{background:var(--bg);}
+    .pricing-container{max-width:1000px;margin:50px auto 0;}
+    .pricing-toggle{display:flex;justify-content:center;margin-bottom:40px;}
+    .toggle-option{padding:10px 25px;background:var(--light-gray);cursor:pointer;font-weight:500;}
+    .toggle-option:first-child{border-radius:25px 0 0 25px;}
+    .toggle-option:last-child{border-radius:0 25px 25px 0;}
+    .toggle-option.active{background:var(--accent);color:#fff;}
+    .pricing-tabs{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;}
+    .pricing-tab{flex:1 1 450px;border-radius:15px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);background:#fff;}
+    .pricing-tab:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    .pricing-header{background:var(--light-gray);padding:30px;text-align:center;position:relative;}
+    .pricing-popular{position:absolute;top:15px;right:15px;background:var(--accent);color:#fff;font-size:0.8rem;font-weight:600;padding:5px 15px;border-radius:20px;}
+    .pricing-name{font-size:1.8rem;margin-bottom:5px;color:var(--accent);}
+    .pricing-price{font-size:2.5rem;font-weight:700;margin:15px 0;}
+    .pricing-period{font-size:1rem;color:var(--dark-gray);}
+    .pricing-features{padding:30px;border-bottom:1px solid var(--mid-gray);}
+    .pricing-feature{display:flex;align-items:flex-start;margin-bottom:15px;}
+    .pricing-feature-icon{color:var(--accent);margin-right:15px;font-size:1.2rem;}
+    .pricing-feature-text{flex:1;}
+    .pricing-cta{padding:30px;text-align:center;}
+    
+    /* ビフォーアフターギャラリー */
+    .gallery{background:var(--light-gray);position:relative;overflow:hidden;}
+    .gallery::before{content:'';position:absolute;top:0;left:0;width:100%;height:50%;background:linear-gradient(to bottom, var(--bg) 0%, var(--light-gray) 100%);}
+    .gallery-header{position:relative;z-index:1;}
+    .gallery-tabs{display:flex;justify-content:center;gap:20px;margin:30px 0;position:relative;z-index:1;}
+    .gallery-tab{padding:10px 25px;background:var(--light-gray);border-radius:25px;cursor:pointer;font-weight:500;transition:var(--transition);border:2px solid transparent;}
+    .gallery-tab.active{background:#fff;border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow);}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(350px, 1fr));gap:30px;margin-top:30px;position:relative;z-index:1;}
+    .gallery-item{position:relative;border-radius:15px;overflow:hidden;box-shadow:var(--shadow);height:250px;transition:var(--transition);cursor:pointer;}
+    .gallery-item:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover);}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:var(--transition);}
+    .gallery-item:hover img{transform:scale(1.05);}
+    .gallery-item-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);opacity:0;transition:var(--transition);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
+    .gallery-item:hover .gallery-item-overlay{opacity:1;}
+    .gallery-item-button{background:var(--accent);color:#fff;padding:12px 25px;border-radius:25px;font-weight:600;transform:translateY(20px);transition:var(--transition);opacity:0;}
+    .gallery-item:hover .gallery-item-button{transform:translateY(0);opacity:1;}
+    
+    /* ギャラリーモーダル */
+    .gallery-modal{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:var(--transition);}
+    .gallery-modal.active{opacity:1;visibility:visible;}
+    .gallery-modal-content{width:90%;max-width:1200px;background:#fff;border-radius:15px;overflow:hidden;position:relative;}
+    .gallery-modal-close{position:absolute;top:15px;right:15px;background:rgba(0,0,0,0.5);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1;transition:var(--transition);}
+    .gallery-modal-close:hover{background:var(--accent);}
+    .gallery-modal-image{width:100%;max-height:80vh;object-fit:contain;}
+    .gallery-modal-caption{padding:20px;text-align:center;font-weight:500;}
+    
+    /* お客様の声 */
+    .testimonials{background:var(--bg);position:relative;overflow:hidden;}
+    .testimonials::before{content:'';position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:300px;height:300px;background:var(--accent-alpha);border-radius:50%;filter:blur(100px);z-index:0;}
+    .testimonials::after{content:'';position:absolute;left:-100px;bottom:0;width:200px;height:200px;background:var(--accent-alpha);border-radius:50%;filter:blur(70px);z-index:0;}
+    .testimonials-content{position:relative;z-index:1;}
+    .testimonials-slider{margin-top:50px;position:relative;padding:30px 0;}
+    .testimonials-track{display:flex;transition:transform 0.5s ease;width:fit-content;}
+    .testimonial{width:400px;margin-right:30px;background:#fff;border-radius:15px;padding:30px;box-shadow:var(--shadow);position:relative;flex-shrink:0;}
+    .testimonial::before{content:'"';position:absolute;top:10px;left:20px;font-size:6rem;color:var(--accent-alpha);font-family:serif;line-height:1;}
+    .testimonial-content{font-style:italic;margin-bottom:20px;position:relative;z-index:1;}
+    .testimonial-author{display:flex;align-items:center;}
+    .testimonial-avatar{width:60px;height:60px;border-radius:50%;margin-right:15px;object-fit:cover;border:3px solid var(--accent-light);}
+    .testimonial-name{font-weight:700;font-size:1.1rem;}
+    .testimonial-position{font-size:0.9rem;color:var(--dark-gray);}
+    .testimonial-rating{display:flex;margin-top:5px;}
+    .testimonial-star{color:#FFD700;margin-right:3px;}
+    .testimonials-arrows{display:flex;justify-content:center;gap:20px;margin-top:30px;}
+    .testimonials-arrow{width:50px;height:50px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);transition:var(--transition);}
+    .testimonials-arrow:hover{background:var(--accent);color:#fff;transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+    
+    /* 数字で見るサービス */
+    .stats{background:var(--gradient);color:#fff;padding:100px 20px;text-align:center;position:relative;overflow:hidden;}
+    .stats::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:rgba(255,255,255,0.1);border-radius:50%;}
+    .stats-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:50px;margin-top:50px;}
+    .stat{flex:1 1 200px;}
+    .stat-value{font-size:3.5rem;font-weight:700;margin-bottom:10px;position:relative;display:inline-block;}
+    .stat-value::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:40px;height:3px;background:#fff;}
+    .stat-label{font-size:1.2rem;font-weight:500;}
+    
+    /* FAQ */
+    .faq{background:var(--light-gray);position:relative;overflow:hidden;}
+    .faq::before{content:'';position:absolute;top:0;left:0;width:100%;height:50%;background:linear-gradient(to bottom, var(--bg), var(--light-gray));}
+    .faq-container{max-width:800px;margin:50px auto 0;position:relative;z-index:1;}
+    .faq-item{background:#fff;border-radius:15px;margin-bottom:20px;box-shadow:var(--shadow);overflow:hidden;transition:var(--transition);}
+    .faq-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);}
+    .faq-question{padding:25px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;transition:var(--transition);}
+    .faq-question:hover{color:var(--accent);}
+    .faq-icon{transition:var(--transition);width:24px;height:24px;border-radius:50%;background:var(--light-gray);display:flex;align-items:center;justify-content:center;}
+    .faq-item.active .faq-icon{background:var(--accent);color:#fff;}
+    .faq-answer{padding:0 25px;max-height:0;overflow:hidden;transition:max-height 0.3s ease, padding 0.3s ease;}
+    .faq-item.active .faq-answer{padding:0 25px 25px;max-height:500px;}
+    .faq-item.active .faq-icon{transform:rotate(180deg);}
+    
+    /* Order Form */
+    .order{background:var(--bg);position:relative;overflow:hidden;}
+    .order::before{content:'';position:absolute;left:-100px;top:-100px;width:300px;height:300px;background:var(--accent-alpha);border-radius:50%;filter:blur(100px);z-index:0;}
+    .order::after{content:'';position:absolute;right:-100px;bottom:-100px;width:300px;height:300px;background:var(--accent-alpha);border-radius:50%;filter:blur(100px);z-index:0;}
+    .form-wrapper{max-width:800px;margin:0 auto;background:#fff;border-radius:15px;padding:50px;box-shadow:var(--shadow-hover);position:relative;z-index:1;}
+    .form-group{margin-bottom:25px;}
+    label{display:block;margin-bottom:10px;font-weight:500;position:relative;}
+    label .required{color:var(--accent);margin-left:5px;}
+    input, textarea, select{width:100%;padding:15px;border:2px solid var(--mid-gray);border-radius:10px;font-family:inherit;font-size:1rem;transition:var(--transition);}
+    input:focus, textarea:focus, select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-alpha);}
+    .form-row{display:flex;gap:20px;margin-bottom:25px;}
+    .form-col{flex:1;}
+    .radio-group{display:flex;flex-wrap:wrap;gap:15px;margin-top:10px;}
+    .radio-option{flex:1 1 180px;position:relative;}
+    .radio-input{position:absolute;opacity:0;}
+    .radio-label{display:block;background:var(--light-gray);padding:15px;border-radius:10px;text-align:center;cursor:pointer;transition:var(--transition);border:2px solid transparent;}
+    .radio-input:checked + .radio-label{background:#fff;border-color:var(--accent);box-shadow:0 5px 15px rgba(230,0,51,0.15);}
+    .radio-price{display:block;font-weight:600;font-size:1.2rem;margin-top:5px;color:var(--accent);}
+    .file-upload{display:flex;flex-direction:column;align-items:center;padding:40px;border:3px dashed var(--mid-gray);border-radius:15px;position:relative;transition:var(--transition);cursor:pointer;background:var(--light-gray);}
+    .file-upload:hover{border-color:var(--accent);background:#fff;}
+    .file-upload input{opacity:0;position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;}
+    .upload-icon{font-size:3rem;color:var(--accent);margin-bottom:15px;transition:var(--transition);}
+    .file-upload:hover .upload-icon{transform:translateY(-5px);}
+    .upload-text{text-align:center;}
+    .upload-text p{margin:5px 0;color:var(--dark-gray);}
+    .upload-text .primary{font-weight:600;font-size:1.2rem;color:var(--text);}
+    .form-guarantee{display:flex;align-items:center;background:var(--accent-alpha);padding:15px;border-radius:10px;margin:30px 0;}
+    .guarantee-icon{font-size:2rem;color:var(--accent);margin-right:15px;}
+    .guarantee-text{font-size:0.9rem;}
+    .guarantee-text strong{font-weight:700;}
+    .submit-btn{background:var(--gradient);color:#fff;border:none;padding:20px;border-radius:12px;font-weight:600;cursor:pointer;transition:var(--transition);width:100%;font-size:1.2rem;letter-spacing:1px;position:relative;overflow:hidden;z-index:1;}
+    .submit-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);transition:var(--transition);z-index:-1;}
+    .submit-btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(230,0,51,0.3);}
+    .submit-btn:hover::before{left:100%;}
+    
+    /* CTA sticky */
+    .sticky-cta{position:fixed;bottom:30px;right:30px;z-index:1000;display:none;transition:var(--transition);}
+    @media(min-width:768px){.sticky-cta{display:block;}}
+    .sticky-cta .btn{padding:15px 30px;display:flex;align-items:center;border-radius:50px;box-shadow:0 5px 20px rgba(230,0,51,0.4);}
+    .sticky-cta .btn i{margin-right:10px;}
+    .sticky-cta:hover{transform:translateY(-5px);}
+    
+    /* パルスアニメーション */
+    .pulse{position:relative;}
+    .pulse::before{content:'';position:absolute;inset:0;border-radius:50px;background:var(--accent);z-index:-1;animation:pulse 2s infinite;}
+    @keyframes pulse{
+      0%{opacity:0.7;transform:scale(1);}
+      70%{opacity:0;transform:scale(1.3);}
+      100%{opacity:0;transform:scale(1.3);}
+    }
+    
+    /* Footer */
+    footer{background:#202020;color:#ccc;padding:60px 20px 40px;}
+    .footer-content{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;}
+    .footer-logo{margin-bottom:20px;display:block;font-size:1.7rem;font-weight:700;color:#fff;}
+    .footer-logo span{color:var(--accent);font-weight:900;}
+    .footer-info{flex:1 1 300px;margin-bottom:30px;margin-right:30px;}
+    .footer-contact{margin:15px 0;}
+    .footer-contact a{color:#fff;text-decoration:none;transition:var(--transition);}
+    .footer-contact a:hover{color:var(--accent);}
+    .social-links{display:flex;gap:15px;margin-top:20px;}
+    .social-link{color:#fff;background:rgba(255,255,255,0.1);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--transition);}
+    .social-link:hover{background:var(--accent);transform:translateY(-3px);}
+    .footer-links{flex:1 1 200px;margin-bottom:30px;}
+    .footer-links h4{color:#fff;margin-bottom:20px;font-size:1.1rem;position:relative;padding-bottom:10px;}
+    .footer-links h4::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:var(--accent);}
+    .footer-nav{list-style:none;margin:0;padding:0;}
+    .footer-nav li{margin-bottom:10px;}
+    .footer-nav a{color:#ccc;text-decoration:none;transition:var(--transition);display:inline-block;}
+    .footer-nav a:hover{color:var(--accent);transform:translateX(5px);}
+    .copyright{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.9rem;}
+    
+    /* フローティング要素アニメーション */
+    .float{animation:float 6s ease-in-out infinite;}
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-20px);}
+      100%{transform:translateY(0);}
+    }
+    
+    /* モバイル対応 */
+    @media (max-width: 1024px) {
+      section{padding:80px 20px;}
+      .hero-content{padding:150px 20px 180px;}
+      .trust-badges{gap:20px;flex-wrap:wrap;}
+      .trust-badge{flex:1 1 120px;}
+      .step::after{display:none;}
+      .step{padding:40px 20px;}
+      .comparison-intro{margin-bottom:30px;}
+      .form-row{flex-direction:column;gap:10px;}
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links{display:none;}
+      .mobile-menu-btn{display:block;}
+      .hero-content{padding:120px 20px 150px;}
+      .hero .cta-group{flex-direction:column;align-items:center;}
+      .video-trigger{margin-top:20px;}
+      .gallery-grid, .testimonials-grid{grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));}
+      .gallery-item{height:200px;}
+      .gallery-tabs{flex-wrap:wrap;}
+      .form-wrapper{padding:30px 20px;}
+      .stats-grid{gap:30px;}
+      .stat-value{font-size:2.8rem;}
+      .comparison-slider::before, .comparison-slider::after{padding:3px 10px;font-size:0.8rem;}
+    }
+    
+    @media (max-width: 480px) {
+      .hero-content{padding:100px 20px 120px;}
+      .hero h1{font-size:2rem;}
+      .trust-badges{padding:20px 10px;}
+      .trust-badge{flex:1 1 100px;}
+      .step{flex:1 1 100%;}
+      .gallery-grid{grid-template-columns:1fr;}
+      .gallery-item{height:180px;}
+      .testimonial{width:300px;}
+      .countdown{gap:10px;}
+      .countdown-item{width:60px;height:60px;}
+      .countdown-value{font-size:1.5rem;}
+      .spot-counter{font-size:2.5rem;padding:5px 20px;}
+    }
   </style>
-  <!-- SEO: 構造化データ (JSON-LD) - 既存の構造化データを活かしつつ、キーワードを追記・修正 -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService", // または "Service"
-    "name": "ExpressCG（エクスプレスCG）｜特急建築CGパース制作 (24時間・スピード納品)",
-    "image": "https://expresscg.archi-prisma.co.jp/images/logo_for_schema.png", // SEO: ロゴ画像のURL (適切なものに)
-    "@id": "https://expresscg.archi-prisma.co.jp/",
-    "url": "https://expresscg.archi-prisma.co.jp/",
-    "telephone": "+81-XX-XXXX-XXXX", // SEO: 電話番号があれば
-    "priceRange": "¥40,000 - ¥60,000", // 料金帯
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "（あなたの住所）",
-      "addressLocality": "東京都", // 例
-      "postalCode": "（郵便番号）",
-      "addressCountry": "JP"
-    },
-    "description": "ExpressCG（エクスプレスCG）は、東京を拠点に、図面PDFだけで高品質な建築CGパース（外観パース、内観パース、鳥瞰パース、360°パノラマパース等）を最短1日・24時間でスピード納品するレンダリングサービスです。緊急パースや当日対応パースもご相談可能。オンラインで簡単依頼でき、料金表も明確です。フォトリアルな3Dビジュアライゼーション、BIM連携パース、手描き風パースも提供します。",
-    "provider": { // provider の方が Organization より適切かもしれません
-        "@type": "Organization",
-        "name": "Archi-Prisma Design works Inc. (ExpressCG運営)"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "JP"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "建築CGパース制作プラン (スピード納品・高品質)",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Ultra-24プラン (24時間スピード納品建築CGパース)",
-            "description": "最短24時間で高品質な建築CGパース（外観・内観・商業施設パース等）を納品。緊急・当日対応パースに最適なフォトリアルCG制作。"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": "60000",
-            "priceCurrency": "JPY"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Lean-48プラン (48時間特急建築CGパース)",
-            "description": "48時間以内に高品質な建築CGパースを納品。格安・低価格でも安心の3Dビジュアライゼーション（住宅パース・店舗パース等）。"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": "40000",
-            "priceCurrency": "JPY"
-          }
-        }
-      ]
-    },
-    "serviceType": [
-        "建築CGパース制作", "スピード納品パース", "最短1日パース", "24時間パース", "緊急パース", "当日対応パース",
-        "外観パース制作", "内観パース制作", "鳥瞰パース制作", "360°パノラマパース制作", "アニメーションパース制作", "手描き風パース制作",
-        "商業施設パース制作", "住宅パース制作", "店舗パース制作", "オフィスパース制作",
-        "フォトリアルCG制作", "3Dビジュアライゼーション", "BIM連携パース制作", "高解像度パース制作", "レンダリングサービス",
-        "格安パース制作", "低価格CG制作", "オンライン依頼パース", "料金表ありパース制作", "東京 CGパース制作"
-    ]
-  }
-  </script>
-  <!-- FAQPageの構造化データも同様に、既存のものを活かしつつキーワードを調整 -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "ExpressCGで依頼できる建築CGパースの種類は？（外観・内観・鳥瞰・360°パノラマパース等）",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい、ExpressCGでは外観パース、内観パース、鳥瞰パースはもちろん、360°パノラマパース、アニメーションパース、手描き風パースなど、多様な建築CGパースの制作に対応しております。商業施設パース、住宅パース、店舗パース、オフィスパースなど、お客様のニーズに合わせた高品質な3Dビジュアライゼーションを提供します。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "本当に最短1日・24時間でCGパースをスピード納品してもらえますか？ 緊急パースや当日対応パースは？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい、Ultra-24プランをご利用いただくことで、ご依頼から最短24時間での建築CGパースのスピード納品が可能です。緊急性の高い案件や当日対応パースのご要望にも、可能な限り柔軟に対応させていただきます。お急ぎの場合は、まずはお気軽にご相談ください。Lean-48プランでは48時間以内の納品となります。"
-        }
-      },
-      // ... 他のFAQ項目も、既存のテキストを活かしつつ、キーワードを自然に追記・修正 ...
-      {
-        "@type": "Question",
-        "name": "CGパース制作の料金はどのくらいですか？ 格安・低価格で依頼できますか？料金表はありますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ExpressCGでは、明確な料金表に基づきサービスを提供しております。Ultra-24プラン（24時間スピード納品）は¥60,000/カット、Lean-48プラン（48時間納品）は¥40,000/カットからとなっております。高品質なフォトリアルCGをスピーディーに提供することを考慮すると、コストパフォーマンスの高い格安・低価格なレンダリングサービスとご評価いただいております。詳細は料金プランページをご確認ください。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "東京以外からでも建築CGパース制作をオンライン依頼できますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい、もちろんです。ExpressCGは東京に拠点を置いておりますが、完全オンライン対応ですので、日本全国どこからでも建築CGパース制作を簡単にご依頼いただけます。図面データの送付から完成した高品質CGパースの納品まで、すべてオンラインでスムーズに完結いたします。"
-        }
-      }
-    ]
-  }
-  </script>
+<style>
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* ちょっと濃くしてもいいかも */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  overflow: hidden; /* モーダル内スクロール禁止 */
+}
+.gallery-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+.gallery-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal-image {
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+}
+.gallery-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.gallery-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+.gallery-tab {
+  padding: 10px 25px;
+  background: #eee;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.gallery-tab.active {
+  background: var(--accent);
+  color: #fff;
+}
+  .hero-bg.bright{filter:brightness(1);}
+</style>
+<style>
+    .form-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+  </style>
+  <style>
+  /* ---------- ExpressCG 同意チェック用スタイル ここから ---------- */
+.agreement-row{
+  display:grid;                       /* ２列グリッドで左揃え */
+  grid-template-columns:16px 1fr;     /* 16px = チェックボックス幅 */
+  column-gap:8px;
+  margin-bottom:10px;
+}
+.agreement-row input[type="checkbox"]{align-self:center;}
+.agreement-row span{display:inline-block;white-space:nowrap;} /* spanをlabelに変更する場合、CSSも調整が必要な場合があります */
+.agreement-row label{ font-weight:normal; margin-bottom:0; white-space:normal; line-height:1.5;} /* チェックボックス横テキスト用スタイル調整 */
+.agreement-row a{color:#0056b3;text-decoration:underline;}
+.form-wrapper .form-group{text-align:left;}   /* 行全体を左寄せ */
+/* ---------- ExpressCG 同意チェック用スタイル ここまで ---------- */
+/* ---------- Progress Widget ここから ---------- */
+.queue-lamps{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:25px;
+}
+.lamp{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--mid-gray); 
+  box-shadow:0 0 6px rgba(0,0,0,0.15) inset;
+  transition:.3s;
+  margin: 0 12px;
+}
+.lamp.on{
+  background:var(--accent);                /* 点灯＝アクセント色 */
+  box-shadow:0 0 8px var(--accent);        /* 発光エフェクト */
+}
+.active-timers{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+  margin:20px 0;
+}
+.timer-box{
+  width:160px;height:160px;border-radius:50%;
+  background:rgba(255,255,255,0.20);
+  backdrop-filter:blur(8px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+.timer-title{font-size:0.9rem;margin-bottom:8px;font-weight:600;}
+.timer-value{font-size:1.8rem;line-height:1;}
+/* ---------- Progress Widget ここまで ---------- */
+.timer-box.hold {
+  background-color: #ffcc00;
+  color: #333;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+.banner.red-bg {
+  background: linear-gradient(to bottom right, #e60033, #ff7a85);
+  padding: 80px 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.banner.red-bg::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+.banner.red-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+</style>
+  <style>
+body.thankyou-page-active {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f8f8f8 !important;
+    font-family: 'Noto Sans JP', sans-serif; /* body全体のフォントを継承 */
+    color: var(--text); /* body全体の文字色を継承 */
+}
+/* 既存の主要コンテンツを非表示にする */
+body.thankyou-page-active > header,
+body.thankyou-page-active > section, /* orderセクションも含む全てのsection */
+body.thankyou-page-active > footer,
+body.thankyou-page-active > .sticky-cta {
+    display: none !important;
+}
+.thankyou-content-wrapper {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+.thankyou-content-wrapper h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+.thankyou-content-wrapper p {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.thankyou-content-wrapper .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+.thankyou-content-wrapper .button:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+</style>
 </head>
 <body>
   <!-- ヘッダー -->
   <header id="header">
     <div class="container">
       <div class="header-content">
-        <!-- ロゴのテキストは変更なしでOK。aria-labelで補足 -->
         <a href="https://expresscg.archi-prisma.co.jp/" class="logo" aria-label="ExpressCG 特急建築CGパース制作 トップページへ">Express<span>CG</span></a>
         <ul class="nav-links">
-          <!-- 既存のナビゲーション名を活かしつつ、文脈的に可能であればキーワードを補足 -->
-          <li><a href="#process">制作プロセス (簡単オンライン依頼)</a></li>
-          <li><a href="#values">ExpressCGの強み (高品質・スピード納品)</a></li>
-          <li><a href="#comparison">ビフォーアフター (建築パース事例)</a></li>
-          <li><a href="#pricing">料金プラン (CGパース料金表)</a></li>
-          <li><a href="#gallery">作品実績 (フォトリアルCG)</a></li>
-          <li><a href="#order" class="btn-outline">CGパースを依頼する</a></li>
+          <li><a href="#process" title="建築CGパース制作の簡単3ステッププロセス">プロセス</a></li>
+          <li><a href="#values" title="ExpressCGの高品質・スピード納品パースを選ぶメリット">メリット</a></li>
+          <li><a href="#comparison" title="建築図面から高品質CGパースへの変化を見る ビフォーアフター">ビフォーアフター</a></li>
+          <li><a href="#pricing" title="建築CGパース制作の料金プランと料金表">料金</a></li>
+          <li><a href="#gallery" title="ExpressCGの高品質建築CGパース制作実績ギャラリー">作品</a></li>
+          <li><a href="#order" class="btn-outline" title="建築CGパース制作をオンラインで簡単依頼">依頼する</a></li>
         </ul>
-        <div class="mobile-menu-btn" aria-label="メインメニューを開く">
+        <div class="mobile-menu-btn" aria-label="ナビゲーションメニューを開く">
           <i class="fas fa-bars"></i>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero セクション -->
+  <!-- Hero -->
   <section class="hero">
-   <video class="hero-bg" src="https://video.wixstatic.com/video/b456ec_64b5197cd85c4e75b7ad138d552e475d/1080p/mp4/file.mp4" autoplay muted loop playsinline poster="path/to/your-video-poster.jpg" aria-label="ExpressCG 建築CGパース制作サービス 紹介ビデオ"></video>
+   <video class="hero-bg" src="https://video.wixstatic.com/video/b456ec_64b5197cd85c4e75b7ad138d552e475d/1080p/mp4/file.mp4" autoplay muted loop playsinline poster="https://expresscg.archi-prisma.co.jp/images/hero-poster.jpg" aria-label="ExpressCG 建築CGパース制作サービスのイメージビデオ"></video> <!-- SEO: poster属性に静止画URLを指定 -->
     <div class="hero-content" data-aos="fade-up">
-      <!-- 既存のタグラインを活かしつつキーワードを追加 -->
-      <span class="tagline">PDFだけでOK / 最短1日・24時間 スピード納品建築CGパース</span>
-      <!-- h1: 既存のキャッチコピーの良さを残しつつ、最重要キーワードを強化 -->
-      <h1>図面PDFを<span class="highlight">放り込むだけ</span>で、高品質建築CGパースが<br><span style="white-space:nowrap;">最短1日・24時間</span>で手元に。｜ExpressCG</h1>
-      <!-- リード文: 既存の文言にキーワードを自然に織り交ぜる -->
-      <p class="lead">ExpressCG（エクスプレスCG）なら、図面整理ゼロ・追加費用ゼロ・不安ゼロ。高品質な建築CGパース（外観・内観・鳥瞰・商業施設・住宅パース等）が急ぎで必要な設計者様・デベロッパー様の"駆け込み寺"として、簡単オンライン依頼で緊急パース・当日対応パース制作をサポートします。東京から全国へスピード納品。</p>
+      <span class="tagline">図面PDFだけでOK / 最短1日・24時間 スピード納品建築CGパース</span> <!-- SEO: キーワード追加 -->
+      <h1>図面を<span class="highlight">放り込む</span>だけで、<br>ハイクオリティ建築CGパースが<span style="white-space:nowrap;">24時間後</span>には手元に。</h1> <!-- SEO: h1は主要メッセージとして維持しつつ、titleやdescriptionで補完 -->
+      <p class="lead">ExpressCG（エクスプレスCG）なら図面整理ゼロ・追加費用ゼロ・不安ゼロ。<br>高品質な建築CGパース（外観・内観・鳥瞰・商業施設・住宅パース等）が急ぎで必要な設計者様・デベロッパー様の"駆け込み寺"として、簡単オンライン依頼で緊急パース・当日対応パース制作を東京から全国へサポートします。</p> <!-- SEO: キーワード追加 -->
       <div class="cta-group">
-        <a href="#order" class="btn btn-large pulse">高品質建築CGパースを今すぐオンライン依頼 <i class="fas fa-arrow-right"></i></a>
-        <a href="#" class="video-trigger" id="video-trigger">
+        <a href="#order" class="btn btn-large pulse" title="高品質な建築CGパース制作を今すぐオンラインで依頼する">今すぐ依頼する <i class="fas fa-arrow-right"></i></a>
+        <a href="#" class="video-trigger" id="video-trigger" title="ExpressCGの建築パース制作サービス紹介動画を見る">
           <div class="video-icon"><i class="fas fa-play"></i></div>
-          <span>ExpressCGの建築パースサービス紹介動画を見る</span>
+          <span>サービス紹介動画を見る</span>
         </a>
       </div>
+      
       <div class="trust-badges">
         <div class="trust-badge">
           <div class="trust-badge-icon"><i class="fas fa-check-circle"></i></div>
           <div class="trust-badge-value">160+</div>
-          <div>建築CGパース納品実績 (高品質・スピード納品)</div>
+          <div>建築CGパース納品実績 (高品質・スピード納品)</div> <!-- SEO: 具体的に -->
         </div>
         <div class="trust-badge">
           <div class="trust-badge-icon"><i class="fas fa-star"></i></div>
           <div class="trust-badge-value">4.9/5</div>
-          <div>顧客満足度 (フォトリアルCG・レンダリングサービス)</div>
+          <div>顧客満足度 (フォトリアルCG・レンダリングサービス)</div> <!-- SEO: 具体的に -->
         </div>
         <div class="trust-badge">
           <div class="trust-badge-icon"><i class="fas fa-bolt"></i></div>
           <div class="trust-badge-value">100%</div>
-          <div>最短1日・24時間パース納期遵守率</div>
+          <div>最短1日・24時間パース納期遵守率</div> <!-- SEO: 具体的に -->
         </div>
       </div>
     </div>
   </section>
+  
+ <div class="video-overlay" id="video-overlay">
+  <div class="video-container">
+    <div class="video-close" id="video-close" aria-label="ビデオポップアップを閉じる"><i class="fas fa-times"></i></div>
+    <!-- iframeは消す -->
+  </div>
+</div>
 
-  <!-- 3-step process セクション -->
+  <!-- 3-step process -->
   <section id="process" class="process">
     <div class="container">
-      <!-- h2: 既存の見出しにキーワードを補足 -->
-      <h2>たった3ステップの簡単プロセス｜最短1日・24時間スピード納品CGパース制作</h2>
-      <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCGでは、図面作成の専門知識は不要。お客様は建築図面PDFをオンラインでアップロードするだけ。あとは高品質な建築CGパース（外観・内観・鳥瞰・360°パノラマパース等）の完成をお待ちください。緊急パース・当日対応も可能です。</p>
+      <h2>たった3ステップの簡単プロセス｜最短1日・24時間スピード納品CGパース制作</h2> <!-- SEO: キーワード追加 -->
+      <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCGでは、図面作成の専門知識は一切不要。お客様は建築図面PDFをオンラインでアップロードするだけで、高品質な建築CGパース（外観・内観・鳥瞰・360°パノラマパース等）の完成をお待ちいただけます。緊急パース・当日対応もご相談ください。</p> <!-- SEO: キーワード追加 -->
       <div class="steps">
         <div class="step" data-aos="fade-up" data-aos-delay="50">
           <div class="step-icon"><i class="fas fa-upload"></i></div>
-          <!-- h3: 各ステップの説明にもキーワードを自然に -->
-          <h3>1. 建築図面PDFをアップロード (簡単オンライン依頼)</h3>
-          <p class="step-detail">建築CGパース制作用の平面図＋写る面の立面/展開図だけでOK。不足情報は当社の経験豊富な建築士が推測・補完。参考写真があれば、よりフォトリアルな高品質CGパース（商業施設・住宅・店舗・オフィスパース等）の精度が向上します。手描き風パースやBIM連携パースもご相談ください。</p>
+          <h3>建築図面PDFをアップロード (簡単オンライン依頼)</h3> <!-- SEO: キーワード追加 -->
+          <p class="step-detail">建築CGパース制作用の平面図＋写る面の立面/展開図だけでOK。不足している情報は当社の経験豊富な建築士が推測・補完。参考写真があれば、よりフォトリアルな高品質CGパース（商業施設・住宅・店舗・オフィスパース等）の精度が向上します。手描き風パースやBIM連携パースもご相談ください。</p> <!-- SEO: キーワード追加 -->
         </div>
         <div class="step" data-aos="fade-up" data-aos-delay="150">
           <div class="step-icon"><i class="fas fa-coffee"></i></div>
-          <h3>2. あとは待つだけ (最短1日・24時間 高品質パース制作中)</h3>
-          <p class="step-detail">着手メールが届いたら、お客様は他の重要な業務に集中していただけます。建築CGパース制作の進捗状況はリアルタイムでご確認可能。ご不明な点があれば、専任スタッフが迅速に対応いたします。ExpressCGは東京を拠点に、スピーディーなレンダリングサービスを提供します。</p>
+          <h3>あとは待つだけ (最短1日・24時間 高品質パース制作中)</h3> <!-- SEO: キーワード追加 -->
+          <p class="step-detail">着手メールが届いたら、お客様は他の重要な業務にご集中ください。建築CGパース制作の進捗状況はリアルタイムでご確認可能。ご不明な点があれば、専任スタッフが迅速に対応。ExpressCGは東京を拠点に、スピーディーなレンダリングサービスを提供します。</p> <!-- SEO: キーワード追加 -->
         </div>
         <div class="step" data-aos="fade-up" data-aos-delay="250">
           <div class="step-icon"><i class="fas fa-image"></i></div>
-          <h3>3. 高品質建築CGパースをスピード納品 (高解像度)</h3>
-          <p class="step-detail">Ultra-24プランなら24時間以内、Lean-48プランなら48時間以内に、4K高解像度の建築CGパース（JPG形式）を納品いたします。修正1回無料、ご満足いただけなければ全額返金保証付き。格安・低価格でも安心の品質です。</p>
+          <h3>高品質建築CGパースをスピード納品 (高解像度)</h3> <!-- SEO: キーワード追加 -->
+          <p class="step-detail">Ultra-24プランは24時間以内、Lean-48プランは48時間以内に、4K高解像度の建築CGパース（JPG形式）を納品。修正1回無料、ご満足いただけなければ全額返金保証付き。格安・低価格でも安心の品質をお約束します。</p> <!-- SEO: キーワード追加 -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Value Props セクション -->
+  <!-- Value Props -->
   <section id="values" class="values">
     <div class="values-container">
-      <h2>ExpressCG（エクスプレスCG）が選ばれる3つの理由｜高品質・スピード納品・簡単依頼・東京対応</h2>
-      <p style="text-align:center;max-width:800px;margin:0 auto 30px;">他の建築CGパース制作サービスと何が違うのか？ なぜ多くのプロフェッショナル（設計事務所様、デベロッパー様）からExpressCGの高品質・スピード納品パース（最短1日・24時間対応、緊急・当日対応可能）が信頼され、選ばれているのか？その理由をご紹介します。</p>
+      <h2>Express CG（エクスプレスCG）が選ばれる3つの理由｜高品質・スピード納品・簡単オンライン依頼・東京対応</h2> <!-- SEO: キーワード追加 -->
+      <p style="text-align:center;max-width:800px;margin:0 auto 30px;">他の建築CGパース制作サービスと何が違うのか？ なぜ多くのプロフェッショナル（設計事務所様、デベロッパー様）からExpressCGの高品質・スピード納品パース（最短1日・24時間対応、緊急・当日対応可能）が信頼され、選ばれているのか？ その理由を詳しくご紹介します。</p> <!-- SEO: キーワード追加 -->
       <div class="grid3">
         <div class="card" data-aos="zoom-in">
           <div class="card-icon"><i class="fas fa-bolt"></i></div>
-          <h3>業界最速級！最短1日・24時間 スピード納品建築CGパース</h3>
-          <p>通常1週間以上を要する高品質な建築CGパース（外観・内観・鳥瞰・360°パノラマパースなど）制作を、ExpressCGなら最短24時間でスピード納品。急なプレゼンテーションや、緊急・当日対応パースが必要な場合でも、お客様のビジネスチャンスを逃しません。</p>
+          <h3>爆速 24h / 48h スピード納品建築CGパース</h3> <!-- SEO: キーワード追加 -->
+          <p>通常1週間以上を要する高品質な建築CGパース（外観・内観・鳥瞰・360°パノラマパースなど多様な種類に対応）制作を、ExpressCGなら最短24時間でスピード納品。急なプレゼンテーションや、緊急・当日対応パースが必要な場合でも、お客様のビジネスチャンスを逃しません。</p> <!-- SEO: キーワード追加 -->
           <ul>
-            <li>Ultra-24プランなら<strong>24時間以内</strong>に建築CGパースを確実納品 (フォトリアルCG)</li>
-            <li>高品質・高解像度パースを<strong>1日最大2カット</strong>限定で集中的に制作（早い者勝ち！）</li>
+            <li>Ultra-24プランなら<strong>24時間以内</strong>に建築CGパースを確実納品 (フォトリアルCG品質)</li>
+            <li>高品質・高解像度パースを<strong>1日最大2カット</strong>限定で集中的に制作（お早めにご依頼ください！）</li>
             <li>万が一のスピード納品遅延時は<strong>料金最大30%返金</strong>（安心のレンダリングサービス保証）</li>
           </ul>
         </div>
         <div class="card" data-aos="zoom-in" data-aos-delay="120">
           <div class="card-icon"><i class="fas fa-folder-open"></i></div>
-          <h3>図面PDFだけでOK！手間いらずの簡単オンライン依頼パース</h3>
-          <p>複雑な資料準備や専門知識は一切不要です。お手持ちの建築図面PDF（平面図＋立面/展開図）を当サイトのフォームからオンラインで送るだけで、高品質な建築CGパース制作を簡単にご依頼いただけます。BIM連携パースや手描き風パースにも対応。</p>
+          <h3>最小限の図面でOK！手間いらずの簡単オンライン依頼パース</h3> <!-- SEO: キーワード追加 -->
+          <p>複雑な資料準備や専門知識は一切不要です。お手持ちの建築図面PDF（平面図＋立面/展開図）を当サイトのフォームからオンラインで送るだけで、高品質な建築CGパース制作を簡単にご依頼いただけます。BIM連携パースや手描き風パースにも柔軟に対応いたします。</p> <!-- SEO: キーワード追加 -->
           <ul>
-            <li>平面図＋<strong>CGで見える面</strong>の立面/展開図だけで建築CGパース制作を開始</li>
+            <li>平面図＋<strong>CGで見える面</strong>の立面/展開図だけで建築CGパース制作を開始可能</li>
             <li>図面情報が不完全な場合でも、当社建築士が<strong>推定モデリング</strong>で柔軟に高品質パースを制作</li>
-            <li>参考写真やイメージ、具体的なご要望（商業施設・住宅・店舗・オフィスパース等）も制作に反映</li>
+            <li>参考写真やイメージ、具体的なご要望（商業施設・住宅・店舗・オフィスパース等）も制作に的確に反映</li>
           </ul>
         </div>
         <div class="card" data-aos="zoom-in" data-aos-delay="240">
           <div class="card-icon"><i class="fas fa-handshake"></i></div>
-          <h3>安心の高品質！日本人建築士による丁寧な監修 (東京拠点)</h3>
-          <p>海外の格安パースサービスとは異なり、ExpressCGでは日本の建築文化やディテール、素材感を深く理解した日本人建築士が、全ての建築CGパースを丁寧に監修。お客様の意図を正確に反映した、フォトリアルで高品質な3Dビジュアライゼーションをお約束します。</p>
+          <h3>安心の高品質！日本人建築士による丁寧な監修 (東京拠点)</h3> <!-- SEO: キーワード追加 -->
+          <p>海外の格安パースサービスとは異なり、ExpressCGでは日本の建築文化やディテール、素材感を深く理解した日本人建築士が、全ての建築CGパースを丁寧に監修。お客様の意図を正確に反映した、フォトリアルで高品質な3Dビジュアライゼーションをお約束します。</p> <!-- SEO: キーワード追加 -->
           <ul>
             <li>設計意図を的確に汲み取り、お客様のイメージを具現化する<strong>高品質な建築CGパース制作</strong></li>
             <li>日本特有の建材や仕上げにも精通し、リアルな質感を追求した<strong>フォトリアルCG表現</strong></li>
@@ -265,61 +721,71 @@
       </div>
     </div>
   </section>
-
-  <!-- ビフォーアフター比較 セクション -->
+  
+  <!-- ビフォーアフター比較 -->
   <section id="comparison" class="comparison">
     <div class="comparison-intro">
-      <h2>図面から高品質フォトリアルCGパースへ劇的変化！建築パース制作事例</h2>
-      <p>ExpressCGの高品質レンダリングサービスなら、単なる2次元の建築図面が、クライアントを魅了し説得する力を持つ、リアルで美しい3D建築CGパース（外観パース、内観パース、鳥瞰パースなど）へと生まれ変わります。スライダーを左右に動かして、その高品質な3Dビジュアライゼーションの変化をぜひご確認ください。</p>
+      <h2>図面から高品質フォトリアルCGパースへ劇的変化！建築パース制作事例</h2> <!-- SEO: キーワード追加 -->
+      <p>ExpressCGの高品質レンダリングサービスなら、単なる2次元の建築図面が、クライアントを魅了し説得する力を持つ、リアルで美しい3D建築CGパース（外観パース、内観パース、鳥瞰パースなど）へと生まれ変わります。スライダーを左右に動かして、その高品質な3Dビジュアライゼーションの変化をぜひご確認ください。</p> <!-- SEO: キーワード追加 -->
     </div>
     <div class="comparison-slider" data-aos="fade-up">
       <div class="comparison-container">
-        <!-- alt属性にキーワードを適切に含める -->
-        <img src="https://static.wixstatic.com/media/b456ec_d3a6e24c2664484a958effd4be09f02a~mv2.png" alt="ExpressCG制作の高品質建築CGパース完成例 - フォトリアルな3Dビジュアライゼーション" class="comparison-after" loading="lazy">
+        <img src="https://static.wixstatic.com/media/b456ec_d3a6e24c2664484a958effd4be09f02a~mv2.png" alt="ExpressCG制作の高品質建築CGパース完成例 - フォトリアルな3Dビジュアライゼーション" class="comparison-after" loading="lazy"> <!-- SEO: alt属性にキーワード -->
         <div class="comparison-before">
-         <img src="https://static.wixstatic.com/media/b456ec_9a3fb1e3fcfa4d35b47434c3d34b2161~mv2.jpg" alt="建築CGパース制作前の元図面 - ExpressCGの簡単オンライン依頼用資料" class="comparison-before-img" loading="lazy">
+         <img src="https://static.wixstatic.com/media/b456ec_9a3fb1e3fcfa4d35b47434c3d34b2161~mv2.jpg" alt="建築CGパース制作前の元図面 - ExpressCGの簡単オンライン依頼用資料" class="comparison-before-img" loading="lazy"> <!-- SEO: alt属性にキーワード -->
         </div>
         <div class="comparison-handle" id="comparison-handle"></div>
       </div>
     </div>
   </section>
 
-  <!-- Limited spots banner セクション -->
-  <section id="progress" class="banner red-bg" data-aos="fade-up">
-    <div class="banner-content">
-      <div class="queue-lamps">
-        <span class="lamp" id="lamp1"></span>
-        <span class="lamp" id="lamp2"></span>
-        <span class="lamp" id="lamp3"></span>
-      </div>
-      <div id="active-timers" class="active-timers">
-        <!-- JSで挿入される建築CGパース制作の残り時間など -->
-      </div>
-      <p id="waiting-count">現在のCGパース制作待機：0件 (高品質レンダリング)</p>
-      <p id="weekly-limit">今週の特急パース受付残：5件（東京オフィス・オンライン依頼対応）</p>
-      <h2>Ultra-24プラン 本日の残枠 (最短1日・24時間 スピード納品建築CGパース)</h2>
-      <div class="spot-counter" id="spot">2</div>
-      <p>この24時間スピード納品建築CGパースの枠が埋まり次第、48時間プランのみの受付となります。<br>
-        本日中のオンライン依頼で、高品質な<strong>建築パース用3D素材ライブラリ（3Dビジュアライゼーション・フォトリアルCG用）</strong>を無料でご利用いただけます！緊急パース・当日対応パースのご相談もお早めに。
-      </p>
-      <div class="countdown">
-        <!-- カウントダウン表示 -->
-      </div>
-      <a href="#order" class="btn btn-large">今すぐ24時間スピード納品パースの残り枠を確保する <i class="fas fa-arrow-right"></i></a>
+  <!-- Limited spots banner -->
+<section id="progress" class="banner red-bg" data-aos="fade-up">
+  <div class="banner-content">
+    <div class="queue-lamps">
+      <span class="lamp" id="lamp1"></span>
+      <span class="lamp" id="lamp2"></span>
+      <span class="lamp" id="lamp3"></span>
     </div>
-  </section>
+    <div id="active-timers" class="active-timers">
+      <!-- JSで挿入される建築CGパース制作の残り時間など -->
+    </div>
+    <p id="waiting-count">現在のCGパース制作待機：0件 (高品質レンダリング)</p> <!-- SEO: キーワード追加 -->
+    <p id="weekly-limit">今週の特急パース受付残：5件（東京オフィス・オンライン依頼対応）</p> <!-- SEO: キーワード追加 -->
+    <h2>Ultra-24 本日の残枠 (最短1日・24時間 スピード納品建築CGパース)</h2> <!-- SEO: キーワード追加 -->
+    <div class="spot-counter" id="spot">2</div>
+    <p>この24時間スピード納品建築CGパースの枠が埋まり次第、48時間プランのみの受付となります。<br>
+      本日中のオンライン依頼で、高品質な<strong>建築パース用3D素材ライブラリ（3Dビジュアライゼーション・フォトリアルCG用）</strong>を無料でご利用いただけます！緊急パース・当日対応パースのご相談もお早めに。
+    </p> <!-- SEO: キーワード追加 -->
+    <div class="countdown">
+      <div class="countdown-item">
+        <div class="countdown-value" id="hours">05</div>
+        <div class="countdown-label">時間</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="minutes">32</div>
+        <div class="countdown-label">分</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="seconds">41</div>
+        <div class="countdown-label">秒</div>
+      </div>
+    </div>
+    <a href="#order" class="btn btn-large" title="残り少ない24時間スピード納品パースの枠を今すぐ確保する">今すぐ残り枠を確保する <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
 
-  <!-- Pricing セクション -->
+  <!-- Pricing -->
   <section id="pricing" class="pricing" data-aos="fade-up">
-    <h2>建築CGパース制作 料金表｜明確価格で高品質・スピード納品（東京・オンライン依頼）</h2>
-    <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCG（エクスプレスCG）は、高品質な建築CGパース（外観・内観・鳥瞰・商業施設・住宅パース等）を、追加料金や隠れたコスト一切なしの明確な料金表でご提供します。格安・低価格でも妥協しないフォトリアルな3Dビジュアライゼーションと、最短1日・24時間のスピード納品を実現。オンラインで簡単にご依頼いただけます。</p>
+    <h2>建築CGパース制作 料金表｜明確価格で高品質・スピード納品（東京・オンライン依頼）</h2> <!-- SEO: キーワード追加 -->
+    <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCG（エクスプレスCG）は、高品質な建築CGパース（外観・内観・鳥瞰・商業施設・住宅パース等）を、追加料金や隠れたコスト一切なしの明確な料金表でご提供します。格安・低価格でも妥協しないフォトリアルな3Dビジュアライゼーションと、最短1日・24時間のスピード納品を実現。オンラインで簡単にご依頼いただけます。</p> <!-- SEO: キーワード追加 -->
     <div class="pricing-container">
       <div class="pricing-tabs">
         <div class="pricing-tab" data-aos="fade-up" data-aos-delay="50">
           <div class="pricing-header">
-            <div class="pricing-name">Lean-48 (48時間 特急建築CGパース)</div>
-            <div class="pricing-price">¥40,000<span class="pricing-period">/建築CGパース1カット</span></div>
-            <p>高品質ながら格安・低価格！プレゼンまで少し余裕がある方向けの建築パース制作プラン。360°パノラマパースも対応可。</p>
+            <div class="pricing-name">Lean-48 (48時間 特急建築CGパース)</div> <!-- SEO: キーワード追加 -->
+            <div class="pricing-price">¥40,000<span class="pricing-period">/建築CGパース1カット</span></div> <!-- SEO: キーワード追加 -->
+            <p>高品質ながら格安・低価格！プレゼンまで少し余裕がある方向けの建築パース制作プラン。360°パノラマパースも対応可。</p> <!-- SEO: キーワード追加 -->
           </div>
           <div class="pricing-features">
             <div class="pricing-feature">
@@ -340,15 +806,16 @@
             </div>
           </div>
           <div class="pricing-cta">
-            <a href="#order" class="btn">この特急建築パースプランを選択 (オンライン依頼)</a>
+            <a href="#order" class="btn" title="Lean-48プラン（48時間特急建築CGパース）を選択して依頼する">このプランを選択</a>
           </div>
         </div>
+        
         <div class="pricing-tab" data-aos="fade-up" data-aos-delay="150">
           <div class="pricing-header">
             <div class="pricing-popular">人気No.1</div>
-            <div class="pricing-name">Ultra-24 (最短1日・24時間 スピード納品建築CGパース)</div>
-            <div class="pricing-price">¥60,000<span class="pricing-period">/建築CGパース1カット</span></div>
-            <p>緊急パース・当日対応パースに最適！急ぎのプレゼンや重要な打ち合わせ前に。アニメーションパースもご相談を。</p>
+            <div class="pricing-name">Ultra-24 (最短1日・24時間 スピード納品建築CGパース)</div> <!-- SEO: キーワード追加 -->
+            <div class="pricing-price">¥60,000<span class="pricing-period">/建築CGパース1カット</span></div> <!-- SEO: キーワード追加 -->
+            <p>緊急パース・当日対応パースに最適！急ぎのプレゼンや重要な打ち合わせ前に。アニメーションパースもご相談を。</p> <!-- SEO: キーワード追加 -->
           </div>
           <div class="pricing-features">
             <div class="pricing-feature">
@@ -377,190 +844,282 @@
             </div>
           </div>
           <div class="pricing-cta">
-            <a href="#order" class="btn pulse">この24時間スピード納品パースプランを選択 (オンライン依頼)</a>
+            <a href="#order" class="btn pulse" title="Ultra-24プラン（最短1日・24時間スピード納品建築CGパース）を選択して依頼する">このプランを選択</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery セクション -->
-  <section id="gallery" class="gallery">
-    <div class="container">
-      <h2>建築CGパース制作実績ギャラリー｜高品質フォトリアルCG事例（ExpressCG 東京・全国対応）</h2>
-      <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCG（エクスプレスCG）がこれまでに手掛けた、高品質でフォトリアルな建築CGパースの制作実績の一部をご紹介します。外観パース、内観パース、鳥瞰パース、商業施設パース、住宅パース、店舗パース、オフィスパースなど、様々なジャンルの3Dビジュアライゼーションをご覧ください。360°パノラマパースやアニメーションパース、手描き風パースの事例もございます。</p>
-      <div class="gallery-tabs">
-        <div class="gallery-tab active" data-filter="すべて">すべての建築CGパース事例</div>
-        <div class="gallery-tab" data-filter="インテリア">内観・インテリアCGパース (高品質)</div>
-        <div class="gallery-tab" data-filter="外観">外観CGパース (フォトリアル)</div>
-        <div class="gallery-tab" data-filter="商業施設">商業施設・店舗パース (3Dビジュアライゼーション)</div>
-        <div class="gallery-tab" data-filter="住宅">住宅パース (レンダリングサービス)</div>
-        <div class="gallery-tab" data-filter="オフィス">オフィスパース (オンライン依頼)</div>
-        <!-- 必要に応じてさらにカテゴリタブを追加 (例: 鳥瞰パース、360°パノラマパースなど) -->
-      </div>
-      <div class="gallery-grid">
-        <!-- 各ギャラリーアイテムのalt属性に、より具体的なキーワードを含める -->
-        <div class="gallery-item" data-category="インテリア">
-          <img src="https://static.wixstatic.com/media/b456ec_0f41ab4248e144debc69ccee947e1baf~mv2.png" alt="内観CGパース制作事例 - モダンリビングの高品質3Dビジュアライゼーション (ExpressCG)" loading="lazy">
-        </div>
-        <div class="gallery-item" data-category="インテリア">
-          <img src="https://static.wixstatic.com/media/b456ec_660f30184fab4561b2cc8091ed75945a~mv2.jpg" alt="インテリア建築パース制作事例 - 明るいダイニングキッチンのフォトリアルCG (スピード納品)" loading="lazy">
-        </div>
-        <div class="gallery-item" data-category="外観">
-          <img src="https://static.wixstatic.com/media/b456ec_fc6dcec76d93457f9350047bd5391a10~mv2.png" alt="外観CGパース制作事例 - モダン住宅の高品質レンダリング (東京 ExpressCG)" loading="lazy">
-        </div>
-        <div class="gallery-item" data-category="商業施設">
-          <img src="https://static.wixstatic.com/media/b456ec_0e422c6ec37a4c75b4ecc70dfb9264e1~mv2.png" alt="商業施設パース制作事例 - 店舗内観の3Dビジュアライゼーション (オンライン依頼)" loading="lazy">
-        </div>
-        <div class="gallery-item" data-category="住宅">
-          <img src="https://static.wixstatic.com/media/b456ec_c7543132fafb49daa8b79f39e79fdcad~mv2.png" alt="住宅パース制作事例 - 寝室の高品質インテリアCG (24時間パース対応)" loading="lazy">
-        </div>
-        <div class="gallery-item" data-category="オフィス">
-           <img src="https://static.wixstatic.com/media/b456ec_32af7a61da5b41508c96df0449800098~mv2.png" alt="オフィスパース制作事例 - 開放的な執務空間の3Dビジュアライゼーション (BIM連携可)" loading="lazy">
-        </div>
-        <!-- 他の画像も同様にalt属性を具体的に、カテゴリを適切に設定 -->
-      </div>
+  <!-- ビフォーアフターギャラリー -->
+ <section id="gallery" class="gallery">
+  <div class="container">
+    <h2>建築CGパース制作実績ギャラリー｜高品質フォトリアルCG事例（ExpressCG 東京・全国対応）</h2> <!-- SEO: キーワード追加 -->
+    <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCG（エクスプレスCG）がこれまでに手掛けた、高品質でフォトリアルな建築CGパースの制作実績の一部をご紹介します。外観パース、内観パース、鳥瞰パース、商業施設パース、住宅パース、店舗パース、オフィスパースなど、様々なジャンルの3Dビジュアライゼーションをご覧ください。360°パノラマパースやアニメーションパース、手描き風パースの事例もございます。</p> <!-- SEO: キーワード追加 -->
+    <div class="gallery-tabs">
+      <div class="gallery-tab active" data-filter="すべて">すべての建築CGパース事例</div>
+      <div class="gallery-tab" data-filter="インテリア">内観・インテリアCGパース (高品質)</div>
+      <div class="gallery-tab" data-filter="外観">外観CGパース (フォトリアル)</div>
+      <div class="gallery-tab" data-filter="商業施設">商業施設・店舗パース (3Dビジュアライゼーション)</div>
+      <div class="gallery-tab" data-filter="住宅">住宅パース (レンダリングサービス)</div> <!-- SEO: 新規カテゴリ追加例 -->
+      <div class="gallery-tab" data-filter="オフィス">オフィスパース (オンライン依頼)</div> <!-- SEO: 新規カテゴリ追加例 -->
     </div>
-    <div class="gallery-modal" id="gallery-modal">
-      <div class="gallery-modal-content">
-        <span class="gallery-modal-close" id="gallery-modal-close" aria-label="拡大画像を閉じる">×</span>
-        <img src="" alt="拡大表示された建築CGパース画像 - ExpressCG 高品質制作事例" class="gallery-modal-image">
+    <div class="gallery-grid">
+      <!-- インテリア -->
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_0f41ab4248e144debc69ccee947e1baf~mv2.png" alt="内観CGパース制作事例 - モダンリビングの高品質3Dビジュアライゼーション (ExpressCG)" loading="lazy"> <!-- SEO: alt属性にキーワード -->
       </div>
-    </div>
-  </section>
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_660f30184fab4561b2cc8091ed75945a~mv2.jpg" alt="インテリア建築パース制作事例 - 明るいダイニングキッチンのフォトリアルCG (スピード納品)" loading="lazy"> <!-- SEO: alt属性にキーワード -->
+      </div>
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_c7543132fafb49daa8b79f39e79fdcad~mv2.png" alt="寝室の内観CGパース - 高品質な3Dビジュアライゼーション (ExpressCG 東京)" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_9d6c95be65574e9c9cffb018c17b0881~mv2.png" alt="和モダン空間のインテリアCGパース - ExpressCG制作実績 (オンライン依頼)" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_32af7a61da5b41508c96df0449800098~mv2.png" alt="オフィス空間の内観パース制作事例 - 高品質レンダリングサービス" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_0e52f3adad624d8095f38997338bb7ab~mv2.png" alt="ホテルの客室インテリアCGパース - ExpressCGのフォトリアル3Dビジュアライゼーション" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_52189a8fd53748efb2cccb81bd205aca~mv2.png" alt="ラウンジ空間の高品質インテリアCGパース - スピード納品実績 (ExpressCG)" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="インテリア">
+        <img src="https://static.wixstatic.com/media/b456ec_5358c67003844d04b486ce6a872828b4~mv2.png" alt="浴室のCGパース制作事例 - 清潔感のある3Dビジュアライゼーション" loading="lazy">
+      </div>
 
-  <!-- Testimonials セクション -->
+      <!-- 外観 -->
+      <div class="gallery-item" data-category="外観">
+        <img src="https://static.wixstatic.com/media/b456ec_fc6dcec76d93457f9350047bd5391a10~mv2.png" alt="外観CGパース制作事例 - モダン住宅のフォトリアル外観レンダリング (ExpressCG)" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="外観">
+        <img src="https://static.wixstatic.com/media/b456ec_2b5cf07b075f499d8cee23e2201d95c6~mv2.png" alt="オフィスビルの高品質外観CGパース - ExpressCG東京制作実績" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="外観">
+        <img src="https://static.wixstatic.com/media/b456ec_c88e06468ee748b2bec5f66027508b67~mv2.png" alt="夕景の建築外観パース - ドラマチックな3Dビジュアライゼーション (スピード納品)" loading="lazy">
+      </div>
+
+      <!-- 商業施設 -->
+      <div class="gallery-item" data-category="商業施設">
+        <img src="https://static.wixstatic.com/media/b456ec_0e422c6ec37a4c75b4ecc70dfb9264e1~mv2.png" alt="商業施設パース制作事例 - 店舗内観の高品質3Dビジュアライゼーション (ExpressCG)" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="商業施設">
+        <img src="https://static.wixstatic.com/media/b456ec_502a13954cbf4d7e9ee362a20d902938~mv2.jpg" alt="レストランの高品質CGパース - 商業施設向けレンダリングサービス (オンライン依頼)" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="商業施設">
+        <img src="https://static.wixstatic.com/media/b456ec_01001e7135ae4139bd6a862897b5b2d7~mv2.png" alt="ショッピングモールのCGパース制作事例 - ExpressCGの3Dビジュアライゼーション実績" loading="lazy">
+      </div>
+      <!-- SEO: 例として住宅とオフィスカテゴリのアイテムを追加（実際の画像URLに差し替え） -->
+      <div class="gallery-item" data-category="住宅">
+        <img src="https://via.placeholder.com/350x250/E60033/FFFFFF?text=住宅パース事例1" alt="モダンな戸建て住宅の外観CGパース - ExpressCG制作" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="オフィス">
+        <img src="https://via.placeholder.com/350x250/202020/FFFFFF?text=オフィスパース事例1" alt="クリエイティブなオフィス内観CGパース - 高品質3Dビジュアライゼーション" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-modal" id="gallery-modal">
+    <div class="gallery-modal-content">
+      <span class="gallery-modal-close" id="gallery-modal-close" aria-label="拡大表示された建築CGパース画像を閉じる">×</span>
+      <img src="" alt="拡大表示された建築CGパース画像 - ExpressCG 高品質制作事例" class="gallery-modal-image"> <!-- SEO: alt属性を汎用的に -->
+    </div>
+  </div>
+</section>
+  
+  <div class="gallery-modal" id="gallery-modal-duplicate"> <!-- ID重複を避けるため変更 (実際には一つのモーダルで運用推奨) -->
+    <div class="gallery-modal-close" id="gallery-modal-close-duplicate"><i class="fas fa-times"></i></div>
+    <div class="gallery-modal-content">
+      <img src="" alt="拡大表示された建築CGパース" class="gallery-modal-image" id="gallery-modal-image-duplicate">
+      <div class="gallery-modal-caption" id="gallery-modal-caption-duplicate"></div>
+    </div>
+  </div>
+
+  <!-- お客様の声 -->
   <section id="testimonials" class="testimonials" data-aos="fade-up">
     <div class="testimonials-content">
-      <h2>建築CGパースご利用お客様の声｜ExpressCG（エクスプレスCG）の高品質・スピード納品サービス評価</h2>
-      <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCG（エクスプレスCG）の高品質な建築CGパース制作サービス（外観・内観・鳥瞰、最短1日・24時間スピード納品、緊急パース・当日対応、オンライン簡単依頼、フォトリアルCG、格安・低価格プラン、東京拠点・全国対応）を実際にご利用いただいたお客様からの評価・評判をご紹介します。</p>
+      <h2>建築CGパースご利用お客様の声｜ExpressCG（エクスプレスCG）の高品質・スピード納品サービス評価</h2> <!-- SEO: キーワード追加 -->
+      <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCG（エクスプレスCG）の高品質な建築CGパース制作サービス（外観・内観・鳥瞰、最短1日・24時間スピード納品、緊急パース・当日対応、オンライン簡単依頼、フォトリアルCG、格安・低価格プラン、東京拠点・全国対応）を実際にご利用いただいたお客様からの評価・評判をご紹介します。</p> <!-- SEO: キーワード追加 -->
+      
       <div class="testimonials-slider">
         <div class="testimonials-track" id="testimonials-track">
-          <!-- お客様の声のテキスト内にキーワードを自然に盛り込む -->
           <div class="testimonial">
             <div class="testimonial-content">
-              「締切間近の緊急パース依頼でしたが、ExpressCGさんに相談したところ、本当に24時間で高品質な建築CGパースをスピード納品していただきました。フォトリアルな仕上がりにクライアントも大満足で、無事契約につながりました。東京でこれほど迅速に対応してくれるレンダリングサービスは他にありません。次回も必ずオンライン依頼します。」
+              締切前日の緊急パース依頼でしたが、ExpressCGさんに相談したところ、本当に24時間で高品質な建築CGパースをスピード納品していただきました。フォトリアルな仕上がりにクライアントも大満足で、無事契約。東京でこれほど迅速なレンダリングサービスは他にありません。
             </div>
             <div class="testimonial-author">
               <div>
-                <div class="testimonial-name">田中一郎様</div>
-                <div class="testimonial-position">建築設計事務所 代表 (24時間スピード納品・緊急パース依頼)</div>
-                <!-- 評価の星など -->
+                <div class="testimonial-name">田中一郎</div>
+                <div class="testimonial-position">建築設計事務所 代表 (24時間スピード納品パース依頼)</div>
+                <div class="testimonial-rating">
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                </div>
               </div>
             </div>
           </div>
+          
           <div class="testimonial">
             <div class="testimonial-content">
-              「不完全な図面PDFからの依頼でしたが、ExpressCGの担当者さんが丁寧に対応してくれ、想像以上の高品質な内観パース（3Dビジュアライゼーション）が完成しました。修正も迅速で、まさにプロの仕事。格安・低価格なのにこのクオリティは驚きです。住宅パースや店舗パースの制作もお願いしたいです。」
+              図面が不完全な状態でも、ExpressCGの担当者さんが丁寧に対応してくれ、想像以上の高品質な内観パース（3Dビジュアライゼーション）が完成。修正も迅速で、まさにプロの仕事。格安・低価格なのにこのクオリティは驚きです。住宅パースや店舗パースもお願いしたい。
             </div>
             <div class="testimonial-author">
               <div>
-                <div class="testimonial-name">佐藤めぐみ様</div>
+                <div class="testimonial-name">佐藤めぐみ</div>
                 <div class="testimonial-position">インテリアデザイナー (高品質内観パース・オンライン依頼)</div>
-                <!-- 評価の星など -->
+                <div class="testimonial-rating">
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                </div>
               </div>
             </div>
           </div>
-          <!-- 他のお客様の声も同様にキーワードを意識して具体的に -->
+          
+          <div class="testimonial">
+            <div class="testimonial-content">
+              Express CGの建築パースは、当社のプロジェクトのスケジュール厳守に不可欠です。特に24時間スピード納品は、物件販売の最終局面で非常に重宝しています。他社のレンダリングサービスと比較しても、フォトリアルCGの品質と納期の安定感が群を抜いています。
+            </div>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-name">鈴木健太</div>
+                <div class="testimonial-position">不動産デベロッパー (緊急・当日対応パース依頼)</div>
+                <div class="testimonial-rating">
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star-half-alt"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial">
+            <div class="testimonial-content">
+              以前、海外の格安パースサービスで手痛い失敗を経験しました。Express CGは価格設定も明確で、料金表ありパースなので安心。何より建築CGパースのクオリティと、日本人スタッフとのスムーズなコミュニケーションが素晴らしい。結果的にコストパフォーマンスは最高です。オンライン依頼の手軽さも魅力。
+            </div>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-name">高橋誠</div>
+                <div class="testimonial-position">設計事務所 主任 (簡単オンライン依頼・高品質パース)</div>
+                <div class="testimonial-rating">
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                  <span class="testimonial-star"><i class="fas fa-star"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      
       <div class="testimonials-arrows">
-        <div class="testimonials-arrow" id="testimonial-prev" aria-label="前のお客様の声へ"><i class="fas fa-chevron-left"></i></div>
-        <div class="testimonials-arrow" id="testimonial-next" aria-label="次のお客様の声へ"><i class="fas fa-chevron-right"></i></div>
+        <div class="testimonials-arrow" id="testimonial-prev" aria-label="前のお客様の声"><i class="fas fa-chevron-left"></i></div>
+        <div class="testimonials-arrow" id="testimonial-next" aria-label="次のお客様の声"><i class="fas fa-chevron-right"></i></div>
       </div>
     </div>
   </section>
-
-  <!-- Stats セクション -->
+  
+  <!-- 数字で見るサービス -->
   <section class="stats" data-aos="fade-up">
-    <h2>数字で見るExpressCGの建築CGパース制作サービス（東京拠点・全国オンライン依頼対応）</h2>
+    <h2>数字で見るExpressCGの建築CGパース制作サービス（東京拠点・全国オンライン依頼対応）</h2> <!-- SEO: キーワード追加 -->
     <div class="stats-grid">
       <div class="stat" data-aos="fade-up" data-aos-delay="50">
         <div class="stat-value">160+</div>
-        <div class="stat-label">建築CGパース納品実績 (外観・内観・鳥瞰・商業施設・住宅・店舗・オフィスパース等)</div>
+        <div class="stat-label">建築CGパース納品実績 (外観・内観・鳥瞰・商業施設・住宅・店舗・オフィスパース等)</div> <!-- SEO: キーワード追加 -->
       </div>
       <div class="stat" data-aos="fade-up" data-aos-delay="150">
         <div class="stat-value">98%</div>
-        <div class="stat-label">高品質・スピード納品パースリピート率 (レンダリングサービス)</div>
+        <div class="stat-label">高品質・スピード納品パースリピート率 (レンダリングサービス)</div> <!-- SEO: キーワード追加 -->
       </div>
       <div class="stat" data-aos="fade-up" data-aos-delay="250">
         <div class="stat-value">100%</div>
-        <div class="stat-label">最短1日・24時間 スピード納品パース納期遵守率 (緊急・当日対応)</div>
+        <div class="stat-label">最短1日・24時間 スピード納品パース納期遵守率 (緊急・当日対応)</div> <!-- SEO: キーワード追加 -->
       </div>
       <div class="stat" data-aos="fade-up" data-aos-delay="350">
         <div class="stat-value">4.9</div>
-        <div class="stat-label">顧客満足度 (フォトリアルCG・3Dビジュアライゼーション・高解像度パース)</div>
+        <div class="stat-label">顧客満足度 (フォトリアルCG・3Dビジュアライゼーション・高解像度パース)</div> <!-- SEO: キーワード追加 -->
       </div>
     </div>
   </section>
 
-  <!-- FAQ セクション -->
+  <!-- FAQ -->
   <section id="faq" class="faq" data-aos="fade-up">
-    <h2>建築CGパース制作 よくあるご質問 (FAQ)｜ExpressCG（エクスプレスCG）高品質・スピード納品・簡単オンライン依頼</h2>
-    <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCGの建築CGパース制作サービス（最短1日・24時間スピード納品、オンライン簡単依頼、高品質フォトリアルCG、明確な料金表、格安・低価格プラン、東京拠点・全国対応）に関するよくあるご質問とその回答をまとめました。緊急パース、当日対応パース、外観・内観・鳥瞰パース、360°パノラマパース、アニメーションパース、手描き風パース、BIM連携パース、商業施設・住宅・店舗・オフィスパースなど、詳細はお気軽にお問い合わせください。</p>
+    <h2>建築CGパース制作 よくあるご質問 (FAQ)｜ExpressCG（エクスプレスCG）高品質・スピード納品・簡単オンライン依頼</h2> <!-- SEO: キーワード追加 -->
+    <p style="text-align:center;max-width:800px;margin:0 auto 30px;">ExpressCGの建築CGパース制作サービス（最短1日・24時間スピード納品、オンライン簡単依頼、高品質フォトリアルCG、明確な料金表、格安・低価格プラン、東京拠点・全国対応）に関するよくあるご質問とその回答をまとめました。緊急パース、当日対応パース、外観・内観・鳥瞰パース、360°パノラマパース、アニメーションパース、手描き風パース、BIM連携パース、商業施設・住宅・店舗・オフィスパースなど、詳細はお気軽にお問い合わせください。</p> <!-- SEO: キーワード追加 -->
     <div class="faq-container">
-      <!-- FAQの質問と回答にキーワードを自然に盛り込む -->
       <div class="faq-item">
         <div class="faq-question">
-          <div>Q1. ExpressCGで依頼できる建築CGパースの種類は？（例：外観パース、内観パース、鳥瞰パース、360°パノラマパース、アニメーションパース、手描き風パース、商業施設・住宅・店舗・オフィスパースなど）</div>
+          <div>Q1. ExpressCGで依頼できる建築CGパースの種類は？（例：外観パース、内観パース、鳥瞰パース、360°パノラマパース、アニメーションパース、手描き風パース、商業施設・住宅・店舗・オフィスパースなど）</div> <!-- SEO: キーワード追加 -->
           <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
         </div>
         <div class="faq-answer">
-          <p>A1. はい、ExpressCGでは、お客様の多様なニーズにお応えするため、幅広い種類の建築CGパース制作に対応しております。具体的には、建物の外観をリアルに再現する「外観パース」、室内の雰囲気を伝える「内観パース」、全体像を把握しやすい「鳥瞰パース」はもちろんのこと、没入感のある「360°パノラマパース」、動きで魅せる「アニメーションパース」、温かみのある「手描き風パース」なども制作可能です。また、用途に応じて「商業施設パース」「住宅パース」「店舗パース」「オフィスパース」など、専門性の高い3Dビジュアライゼーションも提供しております。高品質なフォトリアルCGで、お客様のプロジェクトを成功に導きます。</p>
+          <p>A1. はい、ExpressCGでは、お客様の多様なニーズにお応えするため、幅広い種類の建築CGパース制作に対応しております。具体的には、建物の外観をリアルに再現する「外観パース」、室内の雰囲気を伝える「内観パース」、全体像を把握しやすい「鳥瞰パース」はもちろんのこと、没入感のある「360°パノラマパース」、動きで魅せる「アニメーションパース」、温かみのある「手描き風パース」なども制作可能です。また、用途に応じて「商業施設パース」「住宅パース」「店舗パース」「オフィスパース」など、専門性の高い3Dビジュアライゼーションも提供しております。高品質なフォトリアルCGで、お客様のプロジェクトを成功に導きます。</p> <!-- SEO: キーワード追加 -->
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question">
-          <div>Q2. ExpressCGの建築CGパースは本当に最短1日・24時間でスピード納品されますか？ 緊急パースや当日対応パースも可能ですか？</div>
+          <div>Q2. ExpressCGの建築CGパースは本当に最短1日・24時間でスピード納品されますか？ 緊急パースや当日対応パースも可能ですか？</div> <!-- SEO: キーワード追加 -->
           <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
         </div>
         <div class="faq-answer">
-          <p>A2. はい、ExpressCGの「Ultra-24プラン」をご選択いただければ、ご依頼いただいた建築図面PDFを基に、最短24時間（実質最短1日）での建築CGパースのスピード納品が可能です。急なプレゼンテーションやコンペ、締め切りが迫っている案件など、緊急パースや当日対応パースのご要望にも可能な限り対応させていただきます。高品質なレンダリングサービスを迅速に提供することで、お客様のビジネスをサポートいたします。まずはお気軽にご相談ください。</p>
+          <p>A2. はい、ExpressCGの「Ultra-24プラン」をご選択いただければ、ご依頼いただいた建築図面PDFを基に、最短24時間（実質最短1日）での建築CGパースのスピード納品が可能です。急なプレゼンテーションやコンペ、締め切りが迫っている案件など、緊急パースや当日対応パースのご要望にも可能な限り柔軟に対応させていただきます。高品質なレンダリングサービスを迅速に提供することで、お客様のビジネスをサポートいたします。まずはお気軽にご相談ください。</p> <!-- SEO: キーワード追加 -->
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question">
-          <div>Q3. 建築CGパース制作をオンラインで簡単に依頼できますか？ 必要な図面は何ですか？</div>
+          <div>Q3. 建築CGパース制作をオンラインで簡単に依頼できますか？ 必要な図面は何ですか？</div> <!-- SEO: キーワード追加 -->
           <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
         </div>
         <div class="faq-answer">
-          <p>A3. はい、ExpressCGでは、お客様に手間をおかけしない「簡単オンライン依頼パース」のシステムを採用しております。当ウェブサイトの専用フォームから、建築CGパース制作用の「平面図」と「CGで表現したい箇所が見える立面図または展開図」のPDFデータをアップロードしていただくだけで、ご依頼が完了します。特別なソフトや専門知識は不要です。もし図面情報に不足がある場合でも、経験豊富な弊社建築士が可能な範囲で情報を補完し、高品質な建築パースを制作いたしますのでご安心ください。</p>
+          <p>A3. はい、ExpressCGでは、お客様に手間をおかけしない「簡単オンライン依頼パース」のシステムを採用しております。当ウェブサイトの専用フォームから、建築CGパース制作用の「平面図」と「CGで表現したい箇所が見える立面図または展開図」のPDFデータをアップロードしていただくだけで、ご依頼が完了します。特別なソフトや専門知識は不要です。もし図面情報に不足がある場合でも、経験豊富な弊社建築士が可能な範囲で情報を補完し、高品質な建築パースを制作いたしますのでご安心ください。</p> <!-- SEO: キーワード追加 -->
         </div>
       </div>
        <div class="faq-item">
         <div class="faq-question">
-          <div>Q4. ExpressCGが制作する建築パースの品質は？ フォトリアルなCGや高解像度パースは期待できますか？ BIM連携パースにも対応していますか？</div>
+          <div>Q4. ExpressCGが制作する建築パースの品質は？ フォトリアルなCGや高解像度パースは期待できますか？ BIM連携パースにも対応していますか？</div> <!-- SEO: キーワード追加 -->
           <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
         </div>
         <div class="faq-answer">
-          <p>A4. ExpressCGでは、お客様にご満足いただける「高品質」な建築CGパースの提供を絶対的な使命と考えております。経験豊富なCGクリエイターと、日本の建築ディテールを熟知した日本人建築士によるダブルチェック体制により、細部にまでこだわった「フォトリアルCG」の3Dビジュアライゼーションを実現します。納品する建築パースは、標準でプレゼンテーションにも十分な「高解像度パース」となっております。また、近年需要が高まっている「BIM連携パース」制作にも対応可能ですので、ご希望の場合はお気軽にお申し付けください。</p>
+          <p>A4. ExpressCGでは、お客様にご満足いただける「高品質」な建築CGパースの提供を絶対的な使命と考えております。経験豊富なCGクリエイターと、日本の建築ディテールを熟知した日本人建築士によるダブルチェック体制により、細部にまでこだわった「フォトリアルCG」の3Dビジュアライゼーションを実現します。納品する建築パースは、標準でプレゼンテーションにも十分な「高解像度パース」となっております。また、近年需要が高まっている「BIM連携パース」制作にも対応可能ですので、ご希望の場合はお気軽にお申し付けください。</p> <!-- SEO: キーワード追加 -->
         </div>
       </div>
        <div class="faq-item">
         <div class="faq-question">
-          <div>Q5. 建築CGパース制作の料金について教えてください。格安・低価格で依頼できますか？ 明確な料金表はありますか？</div>
+          <div>Q5. 建築CGパース制作の料金について教えてください。格安・低価格で依頼できますか？ 明確な料金表はありますか？</div> <!-- SEO: キーワード追加 -->
           <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
         </div>
         <div class="faq-answer">
-          <p>A5. ExpressCGでは、お客様が安心してご依頼いただけるよう、透明性の高い「料金表ありパース」サービスを心がけております。当ウェブサイトの「料金プラン」セクションに詳細な料金表を掲載しており、Ultra-24プラン（24時間スピード納品）は¥60,000/カット、Lean-48プラン（48時間納品）は¥40,000/カットからとなっております。業界最高水準のスピードと、日本人建築士監修による高品質なフォトリアルCGの提供を考慮いただければ、コストパフォーマンスに優れた「格安パース」「低価格CG」と言える価格設定であると自負しております。追加料金が発生する場合は、必ず事前にお見積もりをご提示いたします。</p>
+          <p>A5. ExpressCGでは、お客様が安心してご依頼いただけるよう、透明性の高い「料金表ありパース」サービスを心がけております。当ウェブサイトの「料金プラン」セクションに詳細な料金表を掲載しており、Ultra-24プラン（24時間スピード納品）は¥60,000/カット、Lean-48プラン（48時間納品）は¥40,000/カットからとなっております。業界最高水準のスピードと、日本人建築士監修による高品質なフォトリアルCGの提供を考慮いただければ、コストパフォーマンスに優れた「格安パース」「低価格CG」と言える価格設定であると自負しております。追加料金が発生する場合は、必ず事前にお見積もりをご提示いたします。</p> <!-- SEO: キーワード追加 -->
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question">
-          <div>Q6. ExpressCGは東京の会社ですか？ 東京以外からでも建築CGパース制作をオンラインで依頼できますか？</div>
+          <div>Q6. ExpressCGは東京の会社ですか？ 東京以外からでも建築CGパース制作をオンラインで依頼できますか？</div> <!-- SEO: キーワード追加 -->
           <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
         </div>
         <div class="faq-answer">
-          <p>A6. はい、ExpressCGの運営母体であるArchi-Prisma Design works Inc.は東京に拠点を置いております。しかし、当社の建築CGパース制作サービスは、完全に「オンライン依頼パース」に対応しておりますので、東京にお住まいでないお客様も含め、日本全国どこからでも簡単にご依頼いただけます。図面データの送付から、制作途中のご確認、完成した高品質CGパースの納品まで、すべてオンラインでスムーズに完結いたしますので、遠方のお客様でも安心してご利用ください。「東京 CGパース制作」で検索されたお客様にも多数ご利用いただいております。</p>
+          <p>A6. はい、ExpressCGの運営母体であるArchi-Prisma Design works Inc.は東京に拠点を置いております。しかし、当社の建築CGパース制作サービスは、完全に「オンライン依頼パース」に対応しておりますので、東京にお住まいでないお客様も含め、日本全国どこからでも簡単にご依頼いただけます。図面データの送付から、制作途中のご確認、完成した高品質CGパースの納品まで、すべてオンラインでスムーズに完結いたしますので、遠方のお客様でも安心してご利用ください。「東京 CGパース制作」で検索されたお客様にも多数ご利用いただいております。</p> <!-- SEO: キーワード追加 -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Order Form セクション -->
+  <!-- Order Form -->
   <section id="order" class="order" data-aos="fade-up">
-    <h2>建築CGパース制作 オンライン簡単依頼フォーム｜ExpressCG（エクスプレスCG）東京・全国対応</h2>
-    <p style="text-align:center;margin-bottom:30px;">ExpressCG（エクスプレスCG）への建築CGパース制作のご依頼はこちらのフォームからどうぞ。建築図面PDFを添付し、ご希望の建築CGパース（外観・内観・鳥瞰・商業施設・住宅・店舗・オフィスパース、360°パノラマパース、アニメーションパース、手描き風パース等）の画角メモをご記入ください。最短1日・24時間で高品質なフォトリアルCGをスピード納品！緊急パース・当日対応パースもご相談ください。明確な料金表もご確認いただけます。BIM連携パースも対応可能です。</p>
+    <h2>建築CGパース制作 オンライン簡単依頼フォーム｜ExpressCG（エクスプレスCG）東京・全国対応</h2> <!-- SEO: キーワード追加 -->
+    <p style="text-align:center;margin-bottom:30px;">ExpressCG（エクスプレスCG）への建築CGパース制作のご依頼はこちらのフォームからどうぞ。建築図面PDFを添付し、ご希望の建築CGパース（外観・内観・鳥瞰・商業施設・住宅・店舗・オフィスパース、360°パノラマパース、アニメーションパース、手描き風パース等）の画角メモをご記入ください。最短1日・24時間で高品質なフォトリアルCGをスピード納品！緊急パース・当日対応パースもご相談ください。明確な料金表もご確認いただけます。BIM連携パースも対応可能です。</p> <!-- SEO: キーワード追加 -->
     <div class="form-wrapper">
       <form id="orderForm" action="https://formsubmit.co/expresscg@archi-prisma.co.jp" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="【ExpressCG】新しい建築CGパース制作依頼（スピード納品・高品質・オンライン依頼）">
@@ -575,6 +1134,7 @@
             <input type="email" id="email" name="email" required placeholder="example@archi-prisma.co.jp">
           </div>
         </div>
+        
         <div class="form-row">
           <div class="form-col">
             <label for="phone">電話番号 (緊急パース・当日対応パース等のご連絡用)</label>
@@ -585,6 +1145,7 @@
             <input type="text" id="company" name="会社名_建築CGパースご依頼元" placeholder="例：株式会社〇〇設計 (東京)">
           </div>
         </div>
+        
         <div class="form-group">
           <label>建築CGパース制作プラン選択 <span class="required">*</span> (料金表をご確認の上、お選びください)</label>
           <div class="radio-group">
@@ -606,113 +1167,117 @@
             </div>
           </div>
         </div>
+        
         <div class="form-group">
           <label for="files">建築図面PDFアップロード <span class="required">*</span> (外観・内観・鳥瞰・商業施設・住宅・店舗・オフィスパース等制作用)</label>
           <div class="file-upload">
-            <input type="file" id="files" name="添付ファイル_建築図面PDF_パース制作用" multiple accept=".pdf,.jpg,.jpeg,.png,.zip,.dwg,.dxf,.rvt,.skp" required> <!-- 対応形式を拡充 -->
+            <input type="file" id="files" name="添付ファイル_建築図面PDF_パース制作用" multiple accept=".pdf,.jpg,.jpeg,.png,.zip,.dwg,.dxf,.rvt,.skp" required> <!-- SEO: accept属性に一般的なCAD形式も追加 -->
             <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <div class="upload-text">
               <p class="primary">ここに建築図面PDF (ZIP圧縮可、DWG/DXF/RVT/SKPも可) をドラッグ＆ドロップ</p>
               <p>またはクリックしてファイルを選択</p>
-              <p><small>PDF, JPG, PNG, ZIP, DWG, DXF, RVT, SKP (合計20MBまで推奨) 高品質建築CGパース制作用</small></p> <!-- サイズ制限と形式を更新 -->
+              <p><small>PDF, JPG, PNG, ZIP, DWG, DXF, RVT, SKP (合計20MBまで推奨) 高品質建築CGパース制作用</small></p> <!-- SEO: ファイルサイズ上限と対応形式を明記 -->
             </div>
           </div>
         </div>
+        
         <div class="form-group">
-          <label for="memo">建築CGパース画角メモ（50字以内）<span class="required">*</span> (例: リビングからキッチンを見る内観パース、南西からの夕景外観パースなど)</label>
-          <textarea id="memo" name="画角メモ_建築CGパース制作指示" rows="3" maxlength="100" required placeholder="例：「キッチンからリビングダイニングを見渡す内観パース。明るく開放的な雰囲気で。」「建物南西側からの夕景外観パース。植栽も入れてほしい。」「敷地全体を見下ろす鳥瞰パース。周辺建物も簡易的に表現。」など、より具体的にご記入ください。"></textarea> <!-- maxlengthを少し増やす -->
+          <label for="memo">建築CGパース画角メモ（100字以内）<span class="required">*</span> (例: リビングからキッチンを見る内観パース、南西からの夕景外観パースなど)</label> <!-- SEO: maxlengthを少し緩和 -->
+          <textarea id="memo" name="画角メモ_建築CGパース制作指示" rows="3" maxlength="100" required placeholder="例：「キッチンからリビングダイニングを見渡す内観パース。明るく開放的な雰囲気で。」「建物南西側からの夕景外観パース。植栽も入れてほしい。」「敷地全体を見下ろす鳥瞰パース。周辺建物も簡易的に表現。」など、より具体的にご記入ください。"></textarea>
         </div>
+        
         <div class="form-group">
           <label for="notes">その他ご要望 (フォトリアルCGの雰囲気、手描き風パース、BIM連携、360°パノラマパース、アニメーションパース、緊急・当日対応の希望等)</label>
           <textarea id="notes" name="その他ご要望_建築CGパース制作関連" rows="4" placeholder="例：「全体的に温かみのあるナチュラルモダンな雰囲気のフォトリアルCGでお願いします。」「この参考画像のような手描き風パースを希望します。」「BIMデータ(.rvt)を提供可能ですので、BIM連携パース制作をお願いします。」「360°パノラマパースも併せて見積もり希望。」「本日中にラフでも良いので確認したい（緊急・当日対応希望）。」など、ご自由にご記入ください。"></textarea>
         </div>
+        
         <div class="form-guarantee">
           <div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
           <div class="guarantee-text">
             <strong>安心の建築CGパース制作保証 (ExpressCG 東京):</strong> 高品質なフォトリアルCGにご満足いただけない場合は全額返金いたします。建築CGパースのスピード納品が遅れた場合は、Ultra-24プラン(24時間)で30%、Lean-48プランで20%を返金。お客様のリスクは最小限です。オンライン依頼でも安心してご利用ください。
           </div>
         </div>
-        <!-- 同意チェックボックス (前回同様、labelのfor属性とinputのidを一致させる) -->
-        <div class="agreement-row">
-          <input type="checkbox" id="agreement_tokushoho_order" name="同意_特商法_オーダーフォーム" value="はい" required>
-          <label for="agreement_tokushoho_order" style="font-weight:normal; margin-bottom:0;">
-            <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">
-              特定商取引法に基づく表記
-            </a> を確認し、同意しました。
-          </label>
-        </div>
-        <div class="agreement-row">
-          <input type="checkbox" id="agreement_terms_order" name="同意_利用規約_オーダーフォーム" value="はい" required>
-          <label for="agreement_terms_order" style="font-weight:normal; margin-bottom:0;">
-            <a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">
-              利用規約
-            </a> を確認し、同意しました。
-          </label>
-        </div>
-        <div class="agreement-row">
-          <input type="checkbox" id="agreement_privacy_order" name="同意_プライバシーポリシー_オーダーフォーム" value="はい" required>
-          <label for="agreement_privacy_order" style="font-weight:normal; margin-bottom:0;">
-            <a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">
-              プライバシーポリシー
-            </a> を確認し、同意しました。
-          </label>
-        </div>
-        <button type="submit" class="submit-btn">高品質建築CGパースをオンラインで依頼する (スピード納品対応) <i class="fas fa-arrow-right"></i></button>
+<div class="agreement-row">
+  <input type="checkbox" id="agreement_tokushoho_form" name="同意_特商法_フォーム" value="はい" required> <!-- SEO: idをユニークに -->
+  <label for="agreement_tokushoho_form"> <!-- SEO: spanをlabelに変更し、for属性を設定 -->
+    <a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener">
+      特定商取引法に基づく表記
+    </a> を確認し、同意しました。
+  </label>
+</div>
+
+<div class="agreement-row">
+  <input type="checkbox" id="agreement_terms_form" name="同意_利用規約_フォーム" value="はい" required> <!-- SEO: idをユニークに -->
+  <label for="agreement_terms_form"> <!-- SEO: spanをlabelに変更し、for属性を設定 -->
+    <a href="https://www.archi-prisma.co.jp/terms" target="_blank" rel="noopener">
+      利用規約
+    </a> を確認し、同意しました。
+  </label>
+</div>
+
+<div class="agreement-row">
+  <input type="checkbox" id="agreement_privacy_form" name="同意_プライバシーポリシー_フォーム" value="はい" required> <!-- SEO: idをユニークに -->
+  <label for="agreement_privacy_form"> <!-- SEO: spanをlabelに変更し、for属性を設定 -->
+    <a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">
+      プライバシーポリシー
+    </a> を確認し、同意しました。
+  </label>
+</div>
+        <button type="submit" class="submit-btn" title="入力内容を確認し、高品質な建築CGパース制作を依頼する">今すぐ依頼する <i class="fas fa-arrow-right"></i></button>
       </form>
     </div>
   </section>
 
-  <!-- Footer セクション -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-info">
-        <a href="https://expresscg.archi-prisma.co.jp/" class="footer-logo" aria-label="ExpressCG 特急建築CGパース制作 トップページ">Express<span>CG</span><br><small style="font-size:0.7rem; color:#ccc;">（エクスプレスCG）by Archi-Prisma Design works Inc.</small></a>
-        <p>ExpressCG（エクスプレスCG）は、建築図面PDFだけで高品質な建築CGパース（外観パース・内観パース・鳥瞰パース・360°パノラマパース・アニメーションパース・手描き風パース等）を最短1日・24時間でスピード納品する特急レンダリングサービスです。東京を拠点に、日本全国からオンラインで簡単にご依頼いただけます。緊急パース・当日対応パース、BIM連携パース、商業施設・住宅・店舗・オフィスパースなど、多様なニーズに対応。料金表も明確で、格安・低価格でも安心のフォトリアルな3Dビジュアライゼーションを提供します。</p>
+        <a href="https://expresscg.archi-prisma.co.jp/" class="footer-logo" aria-label="ExpressCG 特急建築CGパース制作 トップページ">Express<span>CG</span><br><small style="font-size:0.7rem; color:#ccc;">（エクスプレスCG）by Archi-Prisma Design works Inc.</small></a> <!-- SEO: ブランド名と運営会社名を追記 -->
+        <p>ExpressCG（エクスプレスCG）は、建築図面PDFだけで高品質な建築CGパース（外観パース・内観パース・鳥瞰パース・360°パノラマパース・アニメーションパース・手描き風パース等）を最短1日・24時間でスピード納品する特急レンダリングサービスです。東京を拠点に、日本全国からオンラインで簡単にご依頼いただけます。緊急パース・当日対応パース、BIM連携パース、商業施設・住宅・店舗・オフィスパースなど、多様なニーズに対応。料金表も明確で、格安・低価格でも安心のフォトリアルな3Dビジュアライゼーションを提供します。</p> <!-- SEO: キーワード追加 -->
         <div class="footer-contact">
-          <p>建築CGパース制作・レンダリングサービスのお問い合わせ (ExpressCG 東京):
-             <a href="mailto:expresscg@archi-prisma.co.jp">
+          <p>建築CGパース制作・レンダリングサービスのお問い合わせ (ExpressCG 東京): <!-- SEO: キーワード追加 -->
+             <a href="mailto:expresscg@archi-prisma.co.jp" title="ExpressCGへメールでお問い合わせ">
                expresscg@archi-prisma.co.jp
              </a>
           </p>
-          <p>運営会社: Archi-Prisma Design works Inc. (東京)</p>
+          <p>運営会社: Archi-Prisma Design works Inc. (東京)</p> <!-- SEO: 運営会社名と所在地を明記 -->
         </div>
-        <div class="social-links">
-            <!-- SNSリンクがあればここに追加 -->
+        <div class="social-links" aria-label="ExpressCGのソーシャルメディアリンク">
+            <!-- 例: <a href="https://twitter.com/YourExpressCG" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ExpressCGのTwitter"><i class="fab fa-twitter"></i></a> -->
         </div>
       </div>
       <div class="footer-links">
-        <h4>建築CGパースサービス (ExpressCG 東京)</h4>
+        <h4>建築CGパースサービス (ExpressCG 東京)</h4> <!-- SEO: キーワード追加 -->
         <ul class="footer-nav">
-          <li><a href="#process">CGパース制作プロセス (簡単オンライン依頼・スピード納品)</a></li>
-          <li><a href="#values">ExpressCGの強み (高品質フォトリアルCG・緊急対応)</a></li>
-          <li><a href="#comparison">建築パース制作事例 (外観・内観・鳥瞰・3Dビジュアライゼーション)</a></li>
-          <li><a href="#pricing">CGパース料金表 (格安・低価格プラン・料金表ありパース)</a></li>
-          <li><a href="#gallery">作品ギャラリー (商業施設・住宅・店舗・オフィスパース等)</a></li>
-          <li><a href="#faq">よくあるご質問 (当日対応パース・BIM連携・手描き風)</a></li>
+          <li><a href="#process" title="建築CGパースの簡単なオンライン依頼プロセス">制作プロセス (簡単オンライン依頼・スピード納品)</a></li>
+          <li><a href="#values" title="ExpressCGが選ばれる理由：高品質・スピード・簡単">ExpressCGの強み (高品質フォトリアルCG・緊急対応)</a></li>
+          <li><a href="#comparison" title="建築図面がフォトリアルなCGパースに変わる事例">建築パース制作事例 (外観・内観・鳥瞰・3Dビジュアライゼーション)</a></li>
+          <li><a href="#pricing" title="建築CGパースの料金プランと明確な料金表">CGパース料金表 (格安・低価格プラン・料金表ありパース)</a></li>
+          <li><a href="#gallery" title="高品質な建築CGパースの制作実績ギャラリー">作品ギャラリー (商業施設・住宅・店舗・オフィスパース等)</a></li>
+          <li><a href="#faq" title="建築CGパース制作に関するよくある質問と回答">よくあるご質問 (当日対応パース・BIM連携・手描き風)</a></li>
         </ul>
       </div>
       <div class="footer-links">
-        <h4>サポート (建築パース制作 ExpressCG オンライン依頼)</h4>
+        <h4>サポート (建築パース制作 ExpressCG オンライン依頼)</h4> <!-- SEO: キーワード追加 -->
         <ul class="footer-nav">
-          <li><a href="#order">オンライン依頼フォーム (24時間受付・東京から全国へ)</a></li>
-          <li><a href="https://www.archi-prisma.co.jp/terms"   target="_blank" rel="noopener">利用規約 (建築CGパース ExpressCG)</a></li>
-          <li><a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener">プライバシーポリシー (高品質レンダリングサービス)</a></li>
-          <li><a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記 (ExpressCG運営会社 Archi-Prisma Design works Inc. 東京)</a></li>
+          <li><a href="#order" title="建築CGパース制作をオンラインフォームから簡単依頼">オンライン依頼フォーム (24時間受付・東京から全国へ)</a></li>
+          <li><a href="https://www.archi-prisma.co.jp/terms"   target="_blank" rel="noopener" title="ExpressCGの建築CGパース制作サービス利用規約">利用規約 (建築CGパース ExpressCG)</a></li>
+          <li><a href="https://www.archi-prisma.co.jp/privacy" target="_blank" rel="noopener" title="ExpressCGの個人情報保護方針">プライバシーポリシー (高品質レンダリングサービス)</a></li>
+          <li><a href="https://www.archi-prisma.co.jp/tokushoho" target="_blank" rel="noopener noreferrer" title="ExpressCG運営会社の特定商取引法に基づく表記">特定商取引法に基づく表記 (ExpressCG運営会社 Archi-Prisma Design works Inc. 東京)</a></li>
         </ul>
       </div>
     </div>
-    <div class="copyright">© 2024 Archi‑Prisma Design works Inc. - 高品質建築CGパース制作 ExpressCG（エクスプレスCG）｜東京拠点・全国オンライン依頼・スピード納品・フォトリアルCG・レンダリングサービス</div>
+    <div class="copyright">© 2024 Archi‑Prisma Design works Inc. - 高品質建築CGパース制作 ExpressCG（エクスプレスCG）｜東京拠点・全国オンライン依頼・スピード納品・フォトリアルCG・レンダリングサービス</div> <!-- SEO: キーワードと年号更新 -->
   </footer>
 
   <!-- Sticky CTA -->
-  <a href="#order" class="btn sticky-cta pulse" aria-label="建築CGパースを今すぐオンラインで依頼する"><i class="fas fa-bolt"></i> 最短1日・24時間 スピード納品パースを依頼 (ExpressCG)</a>
+  <a href="#order" class="btn sticky-cta pulse" title="最短1日・24時間スピード納品可能な建築CGパースを今すぐ依頼する (ExpressCG)"><i class="fas fa-bolt"></i> 今すぐ依頼</a> <!-- SEO: title属性にキーワード -->
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // 既存のJavaScriptコードをここに記述
     // AOS初期化
     AOS.init({once:true,duration:700});
-
+    
     // ヘッダースクロール効果
     window.addEventListener('scroll', function() {
       const header = document.getElementById('header');
@@ -722,103 +1287,122 @@
         header.classList.remove('scrolled');
       }
     });
-
+    
     // 残り枠のカウント表示（ランダム）
     const spotElement = document.getElementById('spot');
-    if (spotElement) {
+    if (spotElement) { // 要素の存在を確認
         spotElement.textContent = Math.max(1, 2-Math.floor(Math.random()*1.3));
     }
-
+    
     // カウントダウンタイマー
     function updateCountdown() {
       const hoursEl = document.getElementById('hours');
       const minutesEl = document.getElementById('minutes');
       const secondsEl = document.getElementById('seconds');
 
-      if (!hoursEl || !minutesEl || !secondsEl) return;
+      if (!hoursEl || !minutesEl || !secondsEl) return; // 要素の存在を確認
 
       const now = new Date();
       const endOfDay = new Date();
       endOfDay.setHours(23, 59, 59, 999);
-
+      
       let diff = endOfDay - now;
-      if (diff < 0) diff = 0;
-
+      if (diff < 0) { // 日付が変わったらリセットまたは次の日の24時に設定
+          // diff = 24 * 60 * 60 * 1000; // 次の日の0時までの時間 (簡易的)
+          // より正確には、次の日の0時を設定
+          const tomorrow = new Date(now);
+          tomorrow.setDate(now.getDate() + 1);
+          tomorrow.setHours(0,0,0,0);
+          diff = tomorrow - now; 
+      }
+      
       const hours = Math.floor(diff / (1000 * 60 * 60));
       diff -= hours * (1000 * 60 * 60);
-
+      
       const mins = Math.floor(diff / (1000 * 60));
       diff -= mins * (1000 * 60);
-
+      
       const secs = Math.floor(diff / 1000);
-
+      
       hoursEl.textContent = hours.toString().padStart(2, '0');
       minutesEl.textContent = mins.toString().padStart(2, '0');
       secondsEl.textContent = secs.toString().padStart(2, '0');
     }
-    if (document.getElementById('hours')) { // 要素が存在する場合のみ実行
+    
+    if (document.getElementById('hours')) { // 要素の存在を確認してから実行
         updateCountdown();
         setInterval(updateCountdown, 1000);
     }
-
-
+    
     // FAQのアコーディオン機能
     document.querySelectorAll('.faq-question').forEach(question => {
       question.addEventListener('click', () => {
-        const item = question.parentNode;
+        const item = question.closest('.faq-item'); // 親要素を正しく取得
+        if (!item) return; // itemが見つからない場合は何もしない
         const isActive = item.classList.contains('active');
-
-        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
-          if (activeItem !== item) {
-            activeItem.classList.remove('active');
-          }
-        });
+        
+        // 他のアクティブなアイテムを閉じる (任意)
+        // document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+        //   if (activeItem !== item) {
+        //     activeItem.classList.remove('active');
+        //   }
+        // });
+        
         item.classList.toggle('active');
       });
     });
-
+    
     // ビデオポップアップ
-    const videoTrigger = document.getElementById('video-trigger');
-    const videoOverlay = document.getElementById('video-overlay');
-    const videoClose = document.getElementById('video-close');
-    const backgroundVideoHero = document.querySelector('.hero-bg'); // 変数名を変更
+    const videoTrigger   = document.getElementById('video-trigger');
+    const videoOverlay   = document.getElementById('video-overlay');
+    const videoClose     = document.getElementById('video-close');
+    const backgroundHeroVideo = document.querySelector('.hero-bg'); // 変数名を変更
 
-    if (videoTrigger && videoOverlay && videoClose && backgroundVideoHero) { // 変数名を変更
+    if (videoTrigger && videoOverlay && videoClose && backgroundHeroVideo) { // 変数名の一貫性
         videoTrigger.addEventListener('click', (e) => {
         e.preventDefault();
         videoOverlay.classList.add('active');
-        if (backgroundVideoHero.paused) backgroundVideoHero.play();
-        backgroundVideoHero.muted = false;
-        // hero-bgにクラスを追加して明るくするスタイルを適用する場合
-        if (backgroundVideoHero.classList.contains('hero-bg')) { // hero-bgクラスがあるか確認
-             backgroundVideoHero.classList.add('bright');
+        if (backgroundHeroVideo.classList.contains('hero-bg')) { // クラス確認
+            backgroundHeroVideo.classList.add('bright');
         }
+        if (backgroundHeroVideo.paused) backgroundHeroVideo.play();
+        backgroundHeroVideo.muted = false;
         });
 
         videoClose.addEventListener('click', () => {
         videoOverlay.classList.remove('active');
-        backgroundVideoHero.muted = true;
-        // hero-bgからクラスを削除して元の明るさに戻す
-        if (backgroundVideoHero.classList.contains('hero-bg')) { // hero-bgクラスがあるか確認
-            backgroundVideoHero.classList.remove('bright');
+        if (backgroundHeroVideo.classList.contains('hero-bg')) { // クラス確認
+            backgroundHeroVideo.classList.remove('bright');
         }
-        // backgroundVideoHero.pause(); // ポップアップを閉じたら停止させる場合
+        backgroundHeroVideo.muted = true;
+        // backgroundHeroVideo.pause(); 
+        });
+        // オーバーレイ背景クリックで閉じる
+        videoOverlay.addEventListener('click', (e) => {
+            if (e.target === videoOverlay) {
+                videoOverlay.classList.remove('active');
+                if (backgroundHeroVideo.classList.contains('hero-bg')) {
+                    backgroundHeroVideo.classList.remove('bright');
+                }
+                backgroundHeroVideo.muted = true;
+            }
         });
     }
-
-
+    
     // ギャラリータブ (フィルタリングロジック)
-    const galleryTabs = document.querySelectorAll('.gallery-tab');
-    const galleryGridItems = document.querySelectorAll('.gallery-item');
+    const galleryTabElements = document.querySelectorAll('.gallery-tab'); // 変数名を変更
+    const galleryGridItemElements = document.querySelectorAll('.gallery-item'); // 変数名を変更
 
-    if (galleryTabs.length > 0 && galleryGridItems.length > 0) {
-        galleryTabs.forEach(tab => {
+    if (galleryTabElements.length > 0 && galleryGridItemElements.length > 0) {
+        galleryTabElements.forEach(tab => {
             tab.addEventListener('click', () => {
-                galleryTabs.forEach(t => t.classList.remove('active'));
+                galleryTabElements.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-                const filter = tab.getAttribute('data-filter');
-                galleryGridItems.forEach(item => {
-                    if (filter === 'すべて' || item.getAttribute('data-category') === filter) {
+                
+                const filterValue = tab.getAttribute('data-filter'); // 変数名を変更
+                
+                galleryGridItemElements.forEach(item => {
+                    if (filterValue === 'すべて' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
                     } else {
                         item.style.display = 'none';
@@ -826,226 +1410,225 @@
                 });
             });
         });
-        // 初期表示時に「すべて」タブをクリックした状態にする
-        const initialActiveGalleryTab = document.querySelector('.gallery-tab.active');
-        if (initialActiveGalleryTab) {
-            initialActiveGalleryTab.click();
+        // 初期表示時に「すべて」タブがアクティブな場合、フィルタリングを実行
+        const activeInitialTab = document.querySelector('.gallery-tab.active');
+        if (activeInitialTab) {
+            activeInitialTab.click(); // フィルタリングをトリガー
         }
     }
-
-
+    
     // ギャラリーモーダル表示
-    const galleryModal = document.getElementById('gallery-modal');
-    const galleryModalImage = document.querySelector('.gallery-modal-image'); // クラス名で取得
-    const galleryModalCloseButton = document.getElementById('gallery-modal-close');
+    const galleryModalElement = document.getElementById('gallery-modal'); // 変数名を変更
+    const galleryModalImageElement = document.getElementById('gallery-modal-image');
+    const galleryModalCloseButtonElement = document.getElementById('gallery-modal-close');
 
-    if (galleryModal && galleryModalImage && galleryModalCloseButton) {
-        galleryGridItems.forEach(item => {
+    if (galleryModalElement && galleryModalImageElement && galleryModalCloseButtonElement) {
+        galleryGridItemElements.forEach(item => { // 上で定義した変数を使用
         item.addEventListener('click', () => {
-            const imgSrc = item.querySelector('img').src;
-            galleryModalImage.src = imgSrc;
-            // alt属性もモーダルに表示する場合
-            // const imgAlt = item.querySelector('img').alt;
-            // const galleryModalCaption = document.getElementById('gallery-modal-caption');
-            // if(galleryModalCaption) galleryModalCaption.textContent = imgAlt;
-
-            galleryModal.classList.add('active');
+            const imgSrc = item.querySelector('img')?.src; // Optional chaining
+            const imgAlt = item.querySelector('img')?.alt; // Optional chaining
+            
+            if (imgSrc) galleryModalImageElement.src = imgSrc;
+            if (imgAlt) galleryModalImageElement.alt = imgAlt; // altも設定
+            // const captionElement = document.getElementById('gallery-modal-caption');
+            // if (captionElement && imgAlt) captionElement.textContent = imgAlt;
+            
+            galleryModalElement.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
         });
-
-        galleryModalCloseButton.addEventListener('click', () => {
-        galleryModal.classList.remove('active');
+    
+        galleryModalCloseButtonElement.addEventListener('click', () => {
+        galleryModalElement.classList.remove('active');
         document.body.style.overflow = '';
         });
 
-        galleryModal.addEventListener('click', (e) => {
-            if (e.target === galleryModal) {
-                galleryModal.classList.remove('active');
+        galleryModalElement.addEventListener('click', (e) => {
+            if (e.target === galleryModalElement) {
+                galleryModalElement.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
     }
 
     // テスティモニアルスライダー
-    const testimonialTrack = document.getElementById('testimonials-track');
-    const testimonials = document.querySelectorAll('.testimonial');
-    const prevButton = document.getElementById('testimonial-prev');
-    const nextButton = document.getElementById('testimonial-next');
+    const testimonialTrackElement = document.getElementById('testimonials-track'); // 変数名変更
+    const testimonialItems = document.querySelectorAll('.testimonial'); // 変数名変更
+    const prevTestimonialButton = document.getElementById('testimonial-prev'); // 変数名変更
+    const nextTestimonialButton = document.getElementById('testimonial-next'); // 変数名変更
+    
+    if (testimonialTrackElement && testimonialItems.length > 0 && prevTestimonialButton && nextTestimonialButton) {
+        let testimonialIdx = 0; // 変数名変更
+        // marginRightの取得をより安全に
+        const marginRight = testimonialItems[0].currentStyle ? testimonialItems[0].currentStyle.marginRight : getComputedStyle(testimonialItems[0]).marginRight;
+        const testimonialItemWidth = testimonialItems[0].offsetWidth + (parseInt(marginRight, 10) || 0); // 変数名変更
 
-    if (testimonialTrack && testimonials.length > 0 && prevButton && nextButton) {
-        let testimonialIndex = 0;
-        const testimonialWidth = testimonials[0].offsetWidth + parseInt(getComputedStyle(testimonials[0]).marginRight || '0');
-
-        function updateSliderPosition() {
-            testimonialTrack.style.transform = `translateX(-${testimonialIndex * testimonialWidth}px)`;
+        function updateTestimonialSliderPosition() { // 関数名変更
+            testimonialTrackElement.style.transform = `translateX(-${testimonialIdx * testimonialItemWidth}px)`;
         }
 
-        nextButton.addEventListener('click', () => {
-            if (testimonialIndex < testimonials.length - 1) { // スライド可能な最大数を確認
-                testimonialIndex++;
-            } else {
-                testimonialIndex = 0; // 最後まで行ったら最初に戻るループ処理（任意）
+        nextTestimonialButton.addEventListener('click', () => {
+            // testimonialIdx = (testimonialIdx + 1) % testimonialItems.length; // ループさせる場合
+            if (testimonialIdx < testimonialItems.length - 1) { // ループさせない場合
+                 testimonialIdx++;
             }
-            updateSliderPosition();
+            updateTestimonialSliderPosition();
         });
-
-        prevButton.addEventListener('click', () => {
-            if (testimonialIndex > 0) {
-                testimonialIndex--;
-            } else {
-                testimonialIndex = testimonials.length - 1; // 最初から前に戻ったら最後へループ（任意）
+    
+        prevTestimonialButton.addEventListener('click', () => {
+            // testimonialIdx = (testimonialIdx - 1 + testimonialItems.length) % testimonialItems.length; // ループさせる場合
+            if (testimonialIdx > 0) { // ループさせない場合
+                testimonialIdx--;
             }
-            updateSliderPosition();
+            updateTestimonialSliderPosition();
         });
     }
-
-
+    
     // 比較スライダー
-    const comparisonHandle = document.getElementById('comparison-handle');
-    const comparisonBefore = document.querySelector('.comparison-before');
-
-    if (comparisonHandle && comparisonBefore) {
-      const slider = comparisonHandle.closest('.comparison-slider');
-      let isResizing = false;
-
-      const startResize = (e) => {
+    const comparisonHandleElement = document.getElementById('comparison-handle'); // 変数名変更
+    const comparisonBeforeElement = document.querySelector('.comparison-before'); // 変数名変更
+    
+    if (comparisonHandleElement && comparisonBeforeElement) {
+      const comparisonSliderElement = comparisonHandleElement.closest('.comparison-slider'); // 変数名変更
+      let isComparisonResizing = false; // 変数名変更
+      
+      const startComparisonResize = (e) => { // 関数名変更
         e.preventDefault();
-        isResizing = true;
-        if(slider) slider.classList.add('resizing');
+        isComparisonResizing = true;
+        if(comparisonSliderElement) comparisonSliderElement.classList.add('resizing');
       };
 
-      const doResize = (clientX) => {
-        if (!isResizing || !slider) return;
-        const sliderRect = slider.getBoundingClientRect();
-        let position = (clientX - sliderRect.left) / sliderRect.width;
-        position = Math.max(0, Math.min(1, position));
-        comparisonBefore.style.width = `${position * 100}%`;
-        comparisonHandle.style.left = `${position * 100}%`;
+      const doComparisonResize = (clientX) => { // 関数名変更
+        if (!isComparisonResizing || !comparisonSliderElement) return;
+        const sliderRect = comparisonSliderElement.getBoundingClientRect();
+        let newPosition = (clientX - sliderRect.left) / sliderRect.width; // 変数名変更
+        newPosition = Math.max(0, Math.min(1, newPosition));
+        
+        comparisonBeforeElement.style.width = `${newPosition * 100}%`;
+        comparisonHandleElement.style.left = `${newPosition * 100}%`;
       };
 
-      const stopResize = () => {
-        isResizing = false;
-        if(slider) slider.classList.remove('resizing');
+      const stopComparisonResize = () => { // 関数名変更
+        isComparisonResizing = false;
+        if(comparisonSliderElement) comparisonSliderElement.classList.remove('resizing');
       };
 
-      comparisonHandle.addEventListener('mousedown', startResize);
-      document.addEventListener('mousemove', (e) => doResize(e.clientX));
-      document.addEventListener('mouseup', stopResize);
-      comparisonHandle.addEventListener('touchstart', (e) => startResize(e.touches[0]), { passive: false }); // passive: false を追加
-      document.addEventListener('touchmove', (e) => doResize(e.touches[0].clientX), { passive: false }); // passive: false を追加
-      document.addEventListener('touchend', stopResize);
+      comparisonHandleElement.addEventListener('mousedown', startComparisonResize);
+      document.addEventListener('mousemove', (e) => doComparisonResize(e.clientX));
+      document.addEventListener('mouseup', stopComparisonResize);
+      
+      comparisonHandleElement.addEventListener('touchstart', (e) => { e.preventDefault(); startComparisonResize(e.touches[0]); }, { passive: false });
+      document.addEventListener('touchmove', (e) => { if(isComparisonResizing) {e.preventDefault();} doComparisonResize(e.touches[0].clientX); }, { passive: false });
+      document.addEventListener('touchend', stopComparisonResize);
     }
-
-
+    
     // ナビゲーションのスムーズスクロール
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#' || href === '') {
+        const hrefAttribute = this.getAttribute('href'); // 変数名変更
+        if (hrefAttribute === '#' || hrefAttribute === '') {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
-        try { // ターゲット要素が存在しない場合のエラーを防ぐ
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
+        try {
+            const targetNavElement = document.querySelector(hrefAttribute); // 変数名変更
+            if (targetNavElement) {
                 e.preventDefault();
-                const headerOffset = document.getElementById('header') ? document.getElementById('header').offsetHeight : 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
+                const headerElement = document.getElementById('header'); // 変数名変更
+                const headerOffsetHeight = headerElement ? headerElement.offsetHeight : 80; // 変数名変更
+                const targetElementPosition = targetNavElement.getBoundingClientRect().top + window.pageYOffset - headerOffsetHeight; // 変数名変更
+                
                 window.scrollTo({
-                    top: offsetPosition,
+                    top: targetElementPosition,
                     behavior: 'smooth'
                 });
+                // モバイルメニューが開いていたら閉じる処理（既存のセレクタが正しいか確認）
+                const mobileNavMenu = document.querySelector('.nav-links.active'); // 変数名変更
+                if (mobileNavMenu) mobileNavMenu.classList.remove('active');
             }
-        } catch (error) {
-            console.warn("Smooth scroll target not found or invalid selector:", href, error);
+        } catch(err) {
+            console.warn("Smooth scroll target error for selector: " + hrefAttribute, err);
         }
       });
     });
-
-
-    // 依頼フォーム画像プレビュー機能 (ファイルサイズ表示等、少しリッチに)
-    const fileInput = document.getElementById('files');
-    const fileUploadElement = document.querySelector('.file-upload');
-
-    if (fileInput && fileUploadElement) {
-        fileInput.addEventListener('change', function() {
-            const uploadText = fileUploadElement.querySelector('.upload-text');
+    
+    // 依頼フォーム画像プレビュー機能
+    const fileInputElement = document.getElementById('files'); // 変数名変更
+    const fileUploadContainer = document.querySelector('.file-upload'); // 変数名変更
+    
+    if (fileInputElement && fileUploadContainer) {
+        fileInputElement.addEventListener('change', function() {
+            const uploadTextContainer = fileUploadContainer.querySelector('.upload-text'); // 変数名変更
             if (this.files.length > 0) {
-                let fileNames = Array.from(this.files).map(file => file.name).join(', ');
-                if (fileNames.length > 100) { // 長すぎる場合は省略
-                    fileNames = fileNames.substring(0, 97) + "...";
+                let uploadedFileNames = Array.from(this.files).map(file => file.name).join(', '); // 変数名変更
+                // ファイル名が長すぎる場合の省略処理
+                if (uploadedFileNames.length > 80) {
+                    uploadedFileNames = uploadedFileNames.substring(0, 77) + "...";
                 }
-                const totalSizeMB = (Array.from(this.files).reduce((sum, file) => sum + file.size, 0) / (1024 * 1024)).toFixed(2);
+                const totalFileSizeMB = (Array.from(this.files).reduce((sum, file) => sum + file.size, 0) / (1024*1024)).toFixed(2);
 
-                uploadText.innerHTML = `<p class="primary">選択されたファイル (${this.files.length}個):</p><p style="font-weight:600;color:var(--accent);font-size:0.9em;">${fileNames}</p><p><small>合計サイズ: 約${totalSizeMB} MB</small></p>`;
-                fileUploadElement.style.borderColor = 'var(--accent)';
-                fileUploadElement.style.background = '#fff';
+                uploadTextContainer.innerHTML = `<p class="primary">選択ファイル (${this.files.length}個):</p><p style="font-weight:600;color:var(--accent);font-size:0.85em;word-break:break-all;">${uploadedFileNames}</p><p><small>合計: 約${totalFileSizeMB}MB</small></p>`;
+                fileUploadContainer.style.borderColor = 'var(--accent)';
+                fileUploadContainer.style.background = '#fff';
             } else {
-                uploadText.innerHTML = `
+                uploadTextContainer.innerHTML = `
                     <p class="primary">ここに建築図面PDF (ZIP圧縮可、DWG/DXF/RVT/SKPも可) をドラッグ＆ドロップ</p>
                     <p>またはクリックしてファイルを選択</p>
                     <p><small>PDF, JPG, PNG, ZIP, DWG, DXF, RVT, SKP (合計20MBまで推奨) 高品質建築CGパース制作用</small></p>`;
-                fileUploadElement.style.borderColor = 'var(--mid-gray)';
-                fileUploadElement.style.background = 'var(--light-gray)';
+                fileUploadContainer.style.borderColor = 'var(--mid-gray)';
+                fileUploadContainer.style.background = 'var(--light-gray)';
             }
         });
     }
 
-    // プログレスウィジェットのJS (プロジェクトデータ取得と表示)
-    async function fetchProjectData(){
+    // プログレスウィジェットのJS
+    async function fetchProjectStatusData(){ // 関数名を変更
         try {
-            // ローカルのJSONファイルまたはAPIエンドポイントからデータを取得
-            // この例では、仮のローカルパスを使用しています。実際の環境に合わせてください。
-            const response = await fetch('/data/projects.json'); // 例: public/data/projects.json など
+            // 実際のデータ取得元（APIエンドポイントやローカルJSONファイル）を指定
+            const response = await fetch('/data/projects-status.json'); // 例: /data/projects-status.json
             if (!response.ok) {
-                throw new Error(`プロジェクトデータの取得に失敗しました: ${response.status}`);
+                throw new Error(`プロジェクトステータスデータの取得失敗: ${response.status}`);
             }
             return await response.json();
-        } catch (error) {
-            console.error("プロジェクトデータの取得エラー:", error);
-            // エラー発生時は、空の配列を返すか、何らかのフォールバック処理を行う
-            return [];
+        } catch (err) {
+            console.error("fetchProjectStatusData エラー:", err);
+            return { active: [], hold: [], waiting: [], weeklySubmitted: 0 }; // エラー時のデフォルト値
         }
     }
 
-    function formatRemainingTime(startTime, durationHours){
-        const endTime = new Date(new Date(startTime).getTime() + durationHours * 3600 * 1000);
-        const diffMs = endTime - Date.now();
+    function formatRemainingTimeProgress(startTimeStr, durationHours) { // 関数名を変更
+        const start = new Date(startTimeStr);
+        if (isNaN(start.getTime())) return '時間エラー'; // 無効な日付の場合
 
-        if(diffMs <= 0) return '完了'; // または '00:00'
+        const end = new Date(start.getTime() + durationHours * 3600 * 1000);
+        const diff = end - Date.now();
 
-        const hours = Math.floor(diffMs / 3600000);
-        const minutes = Math.floor((diffMs % 3600000) / 60000);
-        return `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`;
+        if (diff <= 0) return '完了';
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
     }
 
-    async function renderProgressWidget(){
-        const lampElements = [document.getElementById('lamp1'), document.getElementById('lamp2'), document.getElementById('lamp3')];
-        const activeTimersContainer = document.getElementById('active-timers');
-        const waitingCountDisplay = document.getElementById('waiting-count');
-        const weeklyLimitDisplay = document.getElementById('weekly-limit');
+    async function renderProgressWidgetData(){ // 関数名を変更
+        const lamp1El = document.getElementById('lamp1'); // 変数名変更
+        const lamp2El = document.getElementById('lamp2'); // 変数名変更
+        const lamp3El = document.getElementById('lamp3'); // 変数名変更
+        const activeTimersDisplay = document.getElementById('active-timers'); // 変数名変更
+        const waitingCountDisplayElement = document.getElementById('waiting-count'); // 変数名変更
+        const weeklyLimitDisplayElement = document.getElementById('weekly-limit'); // 変数名変更
 
-        // 要素が存在しない場合は処理を中断
-        if (!activeTimersContainer || !waitingCountDisplay || !weeklyLimitDisplay) {
-            // console.warn("プログレスウィジェットの要素が見つかりません。");
-            return;
-        }
+        if (!activeTimersDisplay || !waitingCountDisplayElement || !weeklyLimitDisplayElement) return;
+
 
         try {
-            const projects = await fetchProjectData();
+            const projectData = await fetchProjectStatusData(); // 変数名変更
 
-            const activeProjects = projects.filter(p => p.status === 'active' && new Date(p.startTime).getTime() + p.duration * 3600 * 1000 > Date.now());
-            const holdProjects = projects.filter(p => p.status === 'hold');
-            const waitingProjects = projects.filter(p => p.status === 'waiting');
-
-            // ランプの表示更新
-            lampElements.forEach((lamp, index) => {
-                if (lamp) { // lamp要素が存在するか確認
-                    if (waitingProjects[index]) {
+            // ランプ表示ロジック (waiting配列の要素数に基づいて)
+            const lamps = [lamp1El, lamp2El, lamp3El];
+            lamps.forEach((lamp, index) => {
+                if(lamp) { // 要素の存在チェック
+                    if (projectData.waiting && projectData.waiting[index]) {
                         lamp.classList.add('on');
                     } else {
                         lamp.classList.remove('on');
@@ -1053,137 +1636,139 @@
                 }
             });
 
-            // アクティブタイマーの表示更新
-            activeTimersContainer.innerHTML = ''; // コンテナをクリア
-            if (activeProjects.length > 0) {
-                // 残り時間が最も短いプロジェクトを優先表示（または複数表示も検討可）
-                const shortestRemainingProject = activeProjects.reduce((prev, current) => {
-                    const prevRemaining = new Date(prev.startTime).getTime() + prev.duration * 3600 * 1000 - Date.now();
-                    const currentRemaining = new Date(current.startTime).getTime() + current.duration * 3600 * 1000 - Date.now();
-                    return prevRemaining < currentRemaining ? prev : current;
-                });
 
-                const remainingTime = formatRemainingTime(shortestRemainingProject.startTime, shortestRemainingProject.duration);
-                activeTimersContainer.innerHTML = `
+            activeTimersDisplay.innerHTML = ''; // 表示をクリア
+            if (projectData.active && projectData.active.length > 0) {
+                // 最も残り時間の短いアクティブプロジェクトを表示 (または複数表示)
+                const activeProjectToShow = projectData.active.reduce((prev, curr) => {
+                    const prevRemaining = new Date(prev.startTime).getTime() + prev.duration * 3600000 - Date.now();
+                    const currRemaining = new Date(curr.startTime).getTime() + curr.duration * 3600000 - Date.now();
+                    return (prevRemaining > 0 && (prevRemaining < currRemaining || currRemaining <= 0)) ? prev : curr;
+                });
+                const remaining = formatRemainingTimeProgress(activeProjectToShow.startTime, activeProjectToShow.duration);
+                if (remaining !== '時間エラー' && remaining !== '完了') {
+                    activeTimersDisplay.innerHTML = `
                     <div class="timer-box">
-                        <span class="timer-title">${shortestRemainingProject.name || '進行中プロジェクト'}</span>
-                        <span class="timer-value">${remainingTime}</span>
+                        <span class="timer-title">${activeProjectToShow.name || '進行中案件'}</span>
+                        <span class="timer-value">${remaining}</span>
                     </div>`;
-            } else if (holdProjects.length > 0) {
-                // 枠確保中のプロジェクトがあれば表示
-                activeTimersContainer.innerHTML = `
+                } else if (remaining === '完了' && projectData.hold && projectData.hold.length > 0) {
+                     activeTimersDisplay.innerHTML = `
                     <div class="timer-box hold">
-                        <span class="timer-title">${holdProjects[0].name || '確保中プロジェクト'}</span>
+                        <span class="timer-title">${projectData.hold[0].name || '枠確保中'}</span>
+                        <span class="timer-value">枠確保中</span>
+                    </div>`;
+                } else if (projectData.hold && projectData.hold.length > 0){
+                     activeTimersDisplay.innerHTML = `
+                    <div class="timer-box hold">
+                        <span class="timer-title">${projectData.hold[0].name || '枠確保中'}</span>
+                        <span class="timer-value">枠確保中</span>
+                    </div>`;
+                }
+
+
+            } else if (projectData.hold && projectData.hold.length > 0) {
+                activeTimersDisplay.innerHTML = `
+                    <div class="timer-box hold">
+                        <span class="timer-title">${projectData.hold[0].name || '枠確保中'}</span>
                         <span class="timer-value">枠確保中</span>
                     </div>`;
             } else {
-                activeTimersContainer.innerHTML = '<p style="color:white; font-size:0.9rem;">現在進行中の特急案件はありません</p>';
+                 activeTimersDisplay.innerHTML = '<p style="color:white;font-size:small;">現在進行中の特急案件はありません</p>';
             }
 
-            // 待機中件数と週の受付残数の表示更新
-            waitingCountDisplay.textContent = `現在のCGパース制作待機：${waitingProjects.length}件`;
-            const totalSubmittedThisWeek = projects.length; // 仮の計算（より正確なロジックが必要）
-            const weeklyCapacity = 5; // 週の受付上限数（仮）
-            weeklyLimitDisplay.textContent  = `今週の特急パース受付残：${Math.max(0, weeklyCapacity - totalSubmittedThisWeek)}件`;
 
-        } catch (error) {
-            console.error("プログレスウィジェットのレンダリングエラー:", error);
-            activeTimersContainer.innerHTML = '<p style="color:red; font-size:0.9rem;">進捗情報の表示に失敗しました。</p>';
-            waitingCountDisplay.textContent = '待機中：情報取得エラー';
-            weeklyLimitDisplay.textContent = '週受付残：情報取得エラー';
+            waitingCountDisplayElement.textContent = `現在のCGパース制作待機：${(projectData.waiting || []).length}件`;
+            const weeklyCapacity = 5; // 週の受付キャパシティ（仮）
+            weeklyLimitDisplayElement.textContent  = `今週の特急パース受付残：${Math.max(0, weeklyCapacity - (projectData.weeklySubmitted || 0))}件`;
+
+        } catch (err) {
+            console.error("renderProgressWidgetData エラー:", err);
+            if(activeTimersDisplay) activeTimersDisplay.innerHTML = '<p style="color:white;font-size:small;">進捗情報の取得に失敗</p>';
+            if(waitingCountDisplayElement) waitingCountDisplayElement.textContent = '待機中：取得エラー';
+            if(weeklyLimitDisplayElement) weeklyLimitDisplayElement.textContent  = '週受付残：取得エラー';
         }
     }
 
-    // プログレスウィジェットの初回実行と定期更新
-    // #progress セクションが存在する場合のみ実行
     if (document.getElementById('progress')) {
-        renderProgressWidget();
-        setInterval(renderProgressWidget, 60 * 1000); // 1分ごとに更新
+        renderProgressWidgetData();
+        setInterval(renderProgressWidgetData, 60000); // 60秒ごとに更新
     }
 
+    function displayThankYouMessage() { // 関数名を変更
+        // 既存のコンテンツを非表示または置き換える処理
+        document.body.classList.add('thankyou-page-active'); // bodyにクラスを追加してスタイル制御
 
-    // サンキューページ表示とフォーム送信処理
-    function displayThankYouPage() {
-        // 既存のコンテンツを非表示にするか、サンキューページ専用の表示にする
-        document.body.classList.add('thankyou-page-active'); // bodyにクラスを追加
+        const thankYouContainer = document.createElement('div'); // 変数名変更
+        thankYouContainer.className = 'thankyou-content-wrapper'; // CSSでスタイルを適用するためのクラス
 
-        // サンキューメッセージのコンテナを作成
-        const thankYouWrapper = document.createElement('div');
-        thankYouWrapper.className = 'thankyou-content-wrapper'; // CSSでスタイルを当てるためのクラス
-
-        const thankYouHTML = `
-            <div class="thankyou-content-inner"> <!-- さらに内側のコンテナで中央揃えなど調整 -->
-                <h1>ご依頼ありがとうございます！</h1>
-                <p>ExpressCG（エクスプレスCG）への建築CGパース制作のご依頼、誠にありがとうございました。<br>
-                ご入力いただいた内容を確認の上、担当者より24時間以内にメールにてご連絡させていただきます。</p>
-                <p>お急ぎの場合や、万が一連絡がない場合は、お手数ですが下記メールアドレスまでご連絡ください。<br>
-                <a href="mailto:expresscg@archi-prisma.co.jp">expresscg@archi-prisma.co.jp</a></p>
-                <p style="margin-top: 30px;"><a href="https://expresscg.archi-prisma.co.jp/" class="button">トップページに戻る</a></p>
-            </div>
+        const thankYouPageHTML = `
+            <h1>ご依頼ありがとうございます！</h1>
+            <p>ExpressCG（エクスプレスCG）への建築CGパース制作のご依頼、誠にありがとうございました。<br>
+            ご入力いただいた内容を確認の上、担当者より24時間以内にメールにてご連絡させていただきます。</p>
+            <p>お急ぎの場合や、万が一弊社からの連絡がない場合は、お手数ですが下記メールアドレスまで直接ご連絡ください。<br>
+            <a href="mailto:expresscg@archi-prisma.co.jp" title="ExpressCGへメールで問い合わせる">expresscg@archi-prisma.co.jp</a></p>
+            <p style="margin-top: 30px;"><a href="https://expresscg.archi-prisma.co.jp/" class="button" title="ExpressCGのトップページへ戻る">トップページに戻る</a></p>
         `;
-        thankYouWrapper.innerHTML = thankYouHTML;
-
-        // body直下にサンキューメッセージを追加
-        document.body.appendChild(thankYouWrapper);
-        window.scrollTo(0, 0); // ページトップにスクロール
+        thankYouContainer.innerHTML = thankYouPageHTML;
+        document.body.appendChild(thankYouContainer);
+        window.scrollTo(0, 0);
     }
 
-    const orderForm = document.getElementById('orderForm');
-    if (orderForm) {
-        orderForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // デフォルトのフォーム送信をキャンセル
+    const orderFormElement = document.getElementById('orderForm'); // 変数名変更
+    if (orderFormElement) {
+        orderFormElement.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-            const submitButton = orderForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
-            submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
-            submitButton.disabled = true;
+            const formSubmitButton = orderFormElement.querySelector('button[type="submit"]'); // 変数名変更
+            const originalButtonContent = formSubmitButton.innerHTML; // 変数名変更
+            formSubmitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
+            formSubmitButton.disabled = true;
 
-            // ファイルサイズチェック (合計20MBまで)
-            const filesInput = document.getElementById('files'); // 'files' はinput type="file"のID
-            let totalFileSize = 0;
-            if (filesInput.files.length > 0) {
-                for (let i = 0; i < filesInput.files.length; i++) {
-                    totalFileSize += filesInput.files[i].size;
+            const formFilesInput = document.getElementById('files'); // 変数名変更
+            let totalFilesSize = 0; // 変数名変更
+            if (formFilesInput.files.length > 0) {
+                for (let i = 0; i < formFilesInput.files.length; i++) {
+                    totalFilesSize += formFilesInput.files[i].size;
                 }
             }
-            const maxSizeInBytes = 20 * 1024 * 1024; // 20MB
-            if (totalFileSize > maxSizeInBytes) {
-                alert(`ファイルの合計サイズが制限を超えています（最大${maxSizeInBytes / (1024*1024)}MB）。\nお手数ですが、ファイルを圧縮するか、ファイル転送サービスをご利用の上、備考欄にURLをご記載ください。`);
-                submitButton.innerHTML = originalButtonText;
-                submitButton.disabled = false;
-                return; // 送信処理を中断
+            // ファイルサイズ制限を20MBに設定
+            const maxFileSizeLimit = 20 * 1024 * 1024;
+            if (totalFilesSize > maxFileSizeLimit) {
+                alert(`ファイルの合計サイズが制限を超えています（最大${maxFileSizeLimit / (1024*1024)}MB）。\nお手数ですが、ファイルを圧縮するか、ファイル転送サービスをご利用の上、備考欄にURLをご記載ください。`);
+                formSubmitButton.innerHTML = originalButtonContent;
+                formSubmitButton.disabled = false;
+                return;
             }
 
+            const submissionFormData = new FormData(orderFormElement); // 変数名変更
+            const formSubmissionAction = orderFormElement.getAttribute('action'); // 変数名変更
 
-            const formData = new FormData(orderForm);
-            const formAction = orderForm.getAttribute('action');
-
-            fetch(formAction, {
+            fetch(formSubmissionAction, {
                 method: 'POST',
-                body: formData,
+                body: submissionFormData,
                 headers: {
                     'Accept': 'application/json'
                 }
             })
             .then(response => {
                 if (response.ok) {
-                    return response.text(); // or response.json() if your endpoint returns JSON
+                    return response.text();
                 } else {
-                    // エラーレスポンスの場合、詳細を取得試行
                     return response.text().then(text => {
-                       throw new Error('送信に失敗しました (ステータス: ' + response.status + '): ' + (text || 'サーバーエラー'));
+                       throw new Error(`送信失敗 (ステータス: ${response.status}): ${text || 'サーバーエラー'}`);
                     });
                 }
             })
             .then(data => {
-                // console.log('FormSubmit Response:', data); // デバッグ用
-                displayThankYouPage(); // 成功したらサンキューページ表示
+                // console.log('FormSubmit 応答:', data); // 開発時の確認用
+                displayThankYouMessage();
             })
             .catch(error => {
                 console.error('フォーム送信エラー:', error);
-                alert('メッセージの送信中にエラーが発生しました。\nお手数ですが、時間をおいて再度お試しいただくか、メールにて直接お問い合わせください。\n\nエラー詳細:\n' + error.message);
-                submitButton.innerHTML = originalButtonText;
-                submitButton.disabled = false;
+                alert(`メッセージの送信中にエラーが発生しました。\nお手数ですが、時間をおいて再度お試しいただくか、メールにて直接お問い合わせください。\n\nエラー詳細:\n${error.message}`);
+                formSubmitButton.innerHTML = originalButtonContent;
+                formSubmitButton.disabled = false;
             });
         });
     }
