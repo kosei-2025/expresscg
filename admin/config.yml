@@ -1,13 +1,24 @@
 backend:
   name: github
-  repo: kosei-2025/expresscg   # ← 必ず自分の USER/REPO に変更
+  repo: kosei-2025/expresscg   # ← ご自分の USER/REPO
   branch: main
 
+media_folder: "static/uploads"      # ① 必須
+public_folder: "/static/uploads"    # 画像 URL 用
+
+media_library:                      # ② 必須（デフォルト UI を使う宣言）
+  name: uploadcare                  # 画像を使わない場合でも記載だけ必要
+
 collections:
-  - name: "timer"
-    label: "Projects JSON"
+  - name: timer
+    label: Projects JSON
     files:
       - file: "data/projects.json"
-        name: "projects"
-        label: "projects.json"
-        format: "json"
+        label: projects.json
+        name: projects
+        fields:                     # ③ 必須
+          - label: Projects JSON Code
+            name: body
+            widget: code            # JSON をそのまま編集
+            output_code_only: true
+            default_language: json
