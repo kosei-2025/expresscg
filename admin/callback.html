@@ -17,11 +17,11 @@ cat > admin/callback.html <<'EDF'
   <meta charset="utf-8" />
   <script>
    /* GitHub OAuth(PKCE)から戻ったら、CMS 本体へメッセージを返してタブを閉じる*/
-  if (window.opener) {
-   window.opener.postMessage("authorization:github","*");
-   window.close();
-  }
- </script>
-</head>
-<body></body>
+  　if (window.opener) {
+  　 window.opener.postMessage("authorization:github","*");
+   　window.close();
+  　}
+ 　</script>
+　</head>
+　<body></body>
 </html>
