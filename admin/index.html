@@ -2,8 +2,10 @@
 <html lang="ja">
   <head><meta charset="utf-8"><title>Admin</title></head>
   <body>
-    <!-- ★ここを必ずこの通りにする★ -->
-    <script src="https://unpkg.com/decap-cms@3.6.3/dist/decap-cms.js"></script>
+    <!-- ← これだけ！必ず @decap-cms/app@^0.9.0 を指定 -->
+    <script src="https://unpkg.com/@decap-cms/app@^0.9.0/dist/decap-cms-app.js"></script>
+
+    <!-- 読み込み終わったら初期化 -->
     <script>
       if (window.CMS) {
         window.CMS.init();
