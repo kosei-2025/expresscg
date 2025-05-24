@@ -3,7 +3,7 @@ backend:
   repo: kosei-2025/expresscg
   branch: main
   auth_type: pkce
-  app_id: Ov23li4Z6jDmgWBmRtlc   # ← ご自分の Client ID
+  app_id: Ov23li4Z6jDmgWBmRtlc
 
 media_folder: "static/uploads"
 public_folder: "/static/uploads"
