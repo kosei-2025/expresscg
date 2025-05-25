@@ -5,9 +5,6 @@ backend:
   auth_type: pkce
   app_id: Ov23li4Z6jDmgWBmRtlc
 
-media_folder: "static/uploads"
-public_folder: "/static/uploads"
-
 collections:
   - name: timer
     label: Projects JSON
