@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="ja">
-  <head><meta charset="utf-8"><title>Admin</title></head>
+  <head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+  </head>
   <body>
-    <!-- マウント用コンテナ -->
-    <div id="nc-root"></div>
+    <!-- マウント用の空コンテナ -->
+    <div id="decap-cms-root"></div>
 
-    <!-- 必ず app 版を読み込む -->
-    <script src="https://cdn.jsdelivr.net/npm/decap-cms-app@3.6.3/dist/decap-cms-app.js"></script>
-
-    <!-- 初期化 -->
+    <!-- Decap CMS アプリ本体 -->
+    <script src="https://cdn.jsdelivr.net/npm/@decap-cms/app@3.6.3/dist/decap-cms-app.js"></script>
     <script>
       if (window.CMS) {
         CMS.init({ config: '/admin/config.yml' });
