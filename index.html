@@ -232,8 +232,8 @@
     a.btn-outline:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
     
     /* ヘッダー・ナビゲーション */
-    header{position:fixed;top:0;left:0;width:100%;padding:12px 0;background:rgba(255,255,255,0.95);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05);transition:var(--transition);}
-    header.scrolled{padding:8px 0;background:rgba(255,255,255,0.98);box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+    header{position:fixed;top:0;left:0;width:100%;padding:15px 0;background:rgba(255,255,255,0.95);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05);transition:var(--transition);}
+    header.scrolled{padding:10px 0;background:rgba(255,255,255,0.98);box-shadow:0 5px 20px rgba(0,0,0,0.1);}
     .container{max-width:1200px;margin:0 auto;padding:0 20px;}
     .header-content{display:flex;justify-content:space-between;align-items:center;}
     .logo{font-size:1.7rem;font-weight:700;letter-spacing:-0.5px;color:var(--text);display:flex;align-items:center;}
@@ -322,7 +322,7 @@
     .comparison-container{position:relative;width:100%;}
     .comparison-before, .comparison-after{width:100%;display:block;}
     .comparison-before{position:absolute;top:0;left:0;height:100%;overflow:hidden;width:50%;}
-    .comparison-handle{position:absolute;top:0;bottom:0;left:50%;width:4px;background:white;cursor:ew-resize;box-shadow:0 0 10px rgba(0,0,0,0.5);z-index:2;}
+    .comparison-handle{position:absolute;top:0;bottom:0;left:50%;width:40px;height:100%;background:white;cursor:ew-resize;box-shadow:0 0 10px rgba(0,0,0,0.5);z-index:10;}
     .comparison-handle::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:40px;height:40px;background:white;border-radius:50%;box-shadow:0 0 10px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;}
     .comparison-handle::after{content:'⇄';position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);font-size:1.2rem;color:var(--accent);font-weight:bold;}
     .comparison-slider::before{content:'図面';position:absolute;top:20px;left:20px;background:rgba(0,0,0,0.7);color:white;padding:5px 15px;border-radius:20px;font-weight:600;z-index:1;}
