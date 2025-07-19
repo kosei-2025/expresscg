@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- SEO: Titleタグ - 既存のブランド名を活かしつつ、主要キーワードと提供価値を明確に -->
-  <title>図面PDFだけで24h特急パース制作｜Express CG｜高品質建築CGをスピード納品・簡単オンライン依頼</title>
+  <title>図面PDFだけで24h特急・最速パース制作｜Express CG｜高品質建築CGをスピード納品・簡単オンライン依頼</title>
   <!-- SEO: meta description - ページ内容を具体的に要約し、クリックを促すキーワードを盛り込む -->
-  <meta name="description" content="Express CG（エクスプレスCG）は、お手持ちの図面PDFだけで高品質な建築CGパース（外観・内観・鳥瞰・360°パノラマパース等）を最短24時間・最短1日でスピード納品する特急レンダリングサービスです。緊急パースや当日対応パースもご相談ください。オンラインで簡単依頼、料金表も明確。東京を拠点に全国対応。フォトリアルCG、BIM連携パース、手描き風パースも提供。" />
+  <meta name="description" content="Express CG（エクスプレスCG）は、お手持ちの図面PDFだけで高品質な建築CGパースを最速・最短24時間でスピード納品する特急レンダリングサービスです。とにかく早く、緊急でパースが必要な場合もご相談ください。オンラインで簡単依頼、料金表も明確。東京を拠点に全国対応。フォトリアルCG、BIM連携パースも提供。" />
   <!-- SEO: meta keywords - 関連キーワードを網羅的に列挙（Googleでの重要度は低いが、他の検索エンジンや内部整理用に） -->
-  <meta name="keywords" content="CGパース, 即日パース, パース制作, 高品質パース, 24時間パース, 簡単依頼, 建築CGパース, 建築パース, スピード納品パース, 最短1日パース, 緊急パース, 当日対応パース, 外観パース, 内観パース, 鳥瞰パース, 360°パノラマパース, アニメーションパース, 手描き風パース, 商業施設パース, 住宅パース, 店舗パース, オフィスパース, フォトリアルCG, 3Dビジュアライゼーション, BIM連携パース, 高解像度パース, レンダリングサービス, 格安パース, 低価格CG, オンライン依頼パース, 料金表ありパース, 東京 CGパース制作, ExpressCG, エクスプレスCG" />
+  <meta name="keywords" content="CGパース, 特急, 最速, 最速最安, はやく, 即日パース, パース制作, 高品質パース, 24時間パース, 簡単依頼, 建築CGパース, 建築パース, スピード納品パース, 最短1日パース, 緊急パース, 当日対応パース, 外観パース, 内観パース, 鳥瞰パース, 360°パノラマパース, アニメーションパース, 手描き風パース, 商業施設パース, 住宅パース, 店舗パース, オフィスパース, フォトリアルCG, 3Dビジュアライゼーション, BIM連携パース, 高解像度パース, レンダリングサービス, 格安パース, 低価格CG, オンライン依頼パース, 料金表ありパース, 東京 CGパース制作, ExpressCG, エクスプレスCG" />
 
   <!-- SEO: OGP設定 - SNSでシェアされた際の表示を最適化 -->
   <meta property="og:title" content="図面PDFだけで24h特급パース制作｜Express CG｜高品質建築CGをスピード納品・簡単オンライン依頼" />
@@ -801,9 +801,9 @@ body.thankyou-page-active > .sticky-cta {
   <section class="hero">
    <video class="hero-bg" src="https://video.wixstatic.com/video/b456ec_64b5197cd85c4e75b7ad138d552e475d/1080p/mp4/file.mp4" autoplay muted loop playsinline></video>
     <div class="hero-content" data-aos="fade-up">
-      <span class="tagline">PDF だけで OK / 最短 24h</span>
-      <h1>図面を<span class="highlight">放り込む</span>だけで、<br>ハイクオリティ CG が<span style="white-space:nowrap;">24 時間後</span>には手元に。</h1>
-      <p class="lead">図面整理ゼロ・追加費用ゼロ・不安ゼロ。<br>設計者とデベロッパーの"駆け込み寺"です。</p>
+      <span class="tagline">PDF だけで OK / 最速 24h</span>
+      <h1>図面を<span class="highlight">放り込む</span>だけで、<br>ハイクオリティ CG が<span style="white-space:nowrap;">最速 24 時間後</span>には手元に。</h1>
+      <p class="lead">とにかく早く、安く。図面整理ゼロ・追加費用ゼロ・不安ゼロ。<br>設計者とデベロッパーの"駆け込み寺"です。</p>
       <div class="cta-group">
         <a href="#order" class="btn btn-large pulse">今すぐ依頼する <i class="fas fa-arrow-right"></i></a>
         <a href="#" class="video-trigger" id="video-trigger">
@@ -838,7 +838,7 @@ body.thankyou-page-active > .sticky-cta {
  <div class="video-overlay" id="video-overlay">
   <div class="video-container">
     <div class="video-close" id="video-close"><i class="fas fa-times"></i></div>
-    <!-- iframeは消す -->
+    <video id="popup-video" src="https://video.wixstatic.com/video/b456ec_64b5197cd85c4e75b7ad138d552e475d/1080p/mp4/file.mp4" controls style="width:100%; height:100%;"></video>
   </div>
 </div>
 
@@ -1544,25 +1544,19 @@ body.thankyou-page-active > .sticky-cta {
     const videoTriggerElement = document.getElementById('video-trigger'); 
     const videoOverlayElement = document.getElementById('video-overlay'); 
     const videoCloseButton = document.getElementById('video-close'); 
-    const heroBackgroundVideo = document.querySelector('.hero-bg'); 
+    const popupVideo = document.getElementById('popup-video');
 
-    if (videoTriggerElement && videoOverlayElement && videoCloseButton && heroBackgroundVideo) {
+    if (videoTriggerElement && videoOverlayElement && videoCloseButton && popupVideo) {
         videoTriggerElement.addEventListener('click', (e) => {
-        e.preventDefault();
-        videoOverlayElement.classList.add('active');
-        if (heroBackgroundVideo.classList.contains('hero-bg')) { 
-            heroBackgroundVideo.classList.add('bright');
-        }
-        if (heroBackgroundVideo.paused) heroBackgroundVideo.play().catch(error => console.error("Video play failed:", error)); 
-        heroBackgroundVideo.muted = false;
+            e.preventDefault();
+            videoOverlayElement.classList.add('active');
+            popupVideo.play().catch(error => console.error("Video play failed:", error));
         });
 
         const closeVideoPopup = () => { 
             videoOverlayElement.classList.remove('active');
-            if (heroBackgroundVideo.classList.contains('hero-bg')) { 
-                heroBackgroundVideo.classList.remove('bright');
-            }
-            heroBackgroundVideo.muted = true;
+            popupVideo.pause();
+            popupVideo.currentTime = 0;
         };
 
         videoCloseButton.addEventListener('click', closeVideoPopup);
